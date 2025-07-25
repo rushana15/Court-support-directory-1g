@@ -7,165 +7,25 @@ import { CheckCircle } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-
-interface AirtableRecord {
-  id: string
-  fields: {
-    Name?: string
-    "Short Bio"?: string
-    Region?: string
-    Specialisms?: string[]
-    "Experience Level"?: string
-    "Languages Spoken"?: string[]
-    Verified?: boolean
-    "Rate Info"?: string
-    "LinkedIn Profile Link"?: string
-    "Profile Photo"?: Array<{
-      id: string
-      url: string
-      filename: string
-    }>
-    "Last Verified Date"?: string
-    "Support Options"?: string[]
-  }
-}
-
-interface Professional {
-  id: string
-  name: string
-  image: string
-  region: string
-  specialisms: string[]
-  bio: string
-  experienceLevel: string
-  languages: string[]
-  verified: boolean
-  rateInfo: string
-  linkedinUrl: string
-  lastVerified: string
-  supportOptions: string[]
-}
-
-// Fallback data in case Airtable API is unavailable
-const fallbackProfessionals: Professional[] = [
-  {
-    id: "fallback-1",
-    name: "Sarah Johnson",
-    image: "/placeholder.svg?height=200&width=200&text=Sarah+Johnson",
-    region: "London",
-    specialisms: ["Child Arrangements", "Financial Disputes", "Domestic Violence"],
-    bio: "Experienced McKenzie Friend with over 8 years supporting families through court proceedings. Specializes in child arrangement orders and financial disputes.",
-    experienceLevel: "Senior",
-    languages: ["English", "French"],
-    verified: true,
-    rateInfo: "£50-80 per hour",
-    linkedinUrl: "",
-    lastVerified: "2024-01-15",
-    supportOptions: ["Court Accompaniment", "Document Preparation", "Case Strategy"],
-  },
-  {
-    id: "fallback-2",
-    name: "Michael Chen",
-    image: "/placeholder.svg?height=200&width=200&text=Michael+Chen",
-    region: "Manchester",
-    specialisms: ["Property Disputes", "Child Support", "Mediation"],
-    bio: "Qualified mediator and McKenzie Friend helping families resolve disputes outside of court when possible. Strong background in property and financial matters.",
-    experienceLevel: "Intermediate",
-    languages: ["English", "Mandarin"],
-    verified: true,
-    rateInfo: "£40-60 per hour",
-    linkedinUrl: "",
-    lastVerified: "2024-01-10",
-    supportOptions: ["Mediation Support", "Document Review", "Court Preparation"],
-  },
-  {
-    id: "fallback-3",
-    name: "Emma Williams",
-    image: "/placeholder.svg?height=200&width=200&text=Emma+Williams",
-    region: "Birmingham",
-    specialisms: ["Domestic Violence", "Emergency Applications", "Child Protection"],
-    bio: "Former social worker now providing McKenzie Friend services. Specializes in urgent applications and domestic violence cases with a compassionate approach.",
-    experienceLevel: "Senior",
-    languages: ["English", "Welsh"],
-    verified: true,
-    rateInfo: "£45-70 per hour",
-    linkedinUrl: "",
-    lastVerified: "2024-01-20",
-    supportOptions: ["Emergency Support", "Safety Planning", "Court Accompaniment"],
-  },
-]
-
-async function fetchProfessionals(): Promise<Professional[]> {
-  const baseId = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID
-  const tableName = process.env.NEXT_PUBLIC_AIRTABLE_TABLE_NAME
-  const token = process.env.NEXT_PUBLIC_AIRTABLE_API_TOKEN
-
-  if (!baseId || !tableName || !token) {
-    console.error("Missing Airtable configuration. Please check your environment variables.")
-    return fallbackProfessionals
-  }
-
-  try {
-    const response = await fetch(`https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    })
-
-    if (!response.ok) {
-      console.error(`Airtable API error: ${response.status} - ${response.statusText}`)
-      throw new Error(`Airtable API error: ${response.status}`)
-    }
-
-    const data = await response.json()
-
-    return data.records.map((record: AirtableRecord) => ({
-      id: record.id,
-      name: record.fields.Name || "Unknown",
-      image: record.fields["Profile Photo"]?.[0]?.url || "/placeholder.svg?height=200&width=200",
-      region: record.fields.Region || "Not specified",
-      specialisms: record.fields.Specialisms || [],
-      bio: record.fields["Short Bio"] || "No bio available",
-      experienceLevel: record.fields["Experience Level"] || "Not specified",
-      languages: record.fields["Languages Spoken"] || ["English"],
-      verified: record.fields.Verified || false,
-      rateInfo: record.fields["Rate Info"] || "Contact for rates",
-      linkedinUrl: record.fields["LinkedIn Profile Link"] || "",
-      lastVerified: record.fields["Last Verified Date"] || "",
-      supportOptions: record.fields["Support Options"] || [],
-    }))
-  } catch (error) {
-    console.error("Error fetching from Airtable:", error)
-    console.log("Using fallback data instead")
-    // Return fallback data if API fails
-    return fallbackProfessionals
-  }
-}
+import { mockProfessionals, type Professional } from "@/lib/mock-data"
 
 export default function Homepage() {
   const [featuredProfessionals, setFeaturedProfessionals] = useState<Professional[]>([])
   const [loading, setLoading] = useState(true)
-  const [usingFallback, setUsingFallback] = useState(false)
 
   useEffect(() => {
     async function loadFeaturedProfessionals() {
       try {
-        const professionals = await fetchProfessionals()
-
-        // Check if we're using fallback data
-        if (professionals.length > 0 && professionals[0].id.startsWith("fallback-")) {
-          setUsingFallback(true)
-        }
+        // Simulate loading delay
+        await new Promise(resolve => setTimeout(resolve, 500))
 
         // Get first 3 verified professionals, or first 3 if none verified
-        const verified = professionals.filter((p) => p.verified)
-        const featured = verified.length >= 3 ? verified.slice(0, 3) : professionals.slice(0, 3)
+        const verified = mockProfessionals.filter((p) => p.verified)
+        const featured = verified.length >= 3 ? verified.slice(0, 3) : mockProfessionals.slice(0, 3)
         setFeaturedProfessionals(featured)
       } catch (error) {
         console.error("Failed to load professionals:", error)
-        setUsingFallback(true)
-        setFeaturedProfessionals(fallbackProfessionals.slice(0, 3))
+        setFeaturedProfessionals(mockProfessionals.slice(0, 3))
       } finally {
         setLoading(false)
       }
@@ -209,21 +69,6 @@ export default function Homepage() {
           </div>
         </div>
       </header>
-
-      {/* API Status Notice */}
-      {usingFallback && (
-        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4">
-          <div className="container mx-auto px-4">
-            <div className="flex">
-              <div className="ml-3">
-                <p className="text-sm text-yellow-700 font-inter">
-                  <strong>Demo Mode:</strong> Currently showing sample data. Please check your Airtable API credentials.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Hero Section */}
       <section className="py-20 md:py-28 lg:py-36">
