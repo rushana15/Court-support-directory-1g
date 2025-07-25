@@ -63,31 +63,28 @@ export default function Directory() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header style={{ backgroundColor: "#F5F0E6" }} className="border-b border-gray-200">
+      <header style={{ backgroundColor: "#002F5F" }} className="border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-[#F7941D] rounded-lg flex items-center justify-center shadow-sm">
-                <span className="text-white font-bold text-lg font-merriweather">CSN</span>
-              </div>
-              <span className="text-2xl font-bold text-[#004A7F] font-merriweather">Court Support Network</span>
+            <Link href="/" className="flex items-center">
+              <span className="text-2xl font-bold text-[#B46E2B] font-merriweather tracking-wide">Court Support Network</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-[#004A7F] hover:text-[#F7941D] transition-colors font-medium font-inter"
+                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-[#004A7F] hover:text-[#F7941D] transition-colors font-medium font-inter"
+                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-[#004A7F] hover:text-[#F7941D] transition-colors font-medium font-inter"
+                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
