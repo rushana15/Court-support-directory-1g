@@ -6,17 +6,17 @@ import Link from "next/link"
 
 export default function HeroSection() {
   return (
-    <section className="relative h-[50vh] flex items-center justify-center bg-gray-900 overflow-hidden">
+    <section className="relative min-h-screen md:h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/court-building.jpg')"
+          backgroundImage: "url('/hero.png')"
         }}
       />
       
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50" />
+      <div className="absolute inset-0 bg-black/50" />
       
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
