@@ -15,8 +15,9 @@ export default function HeroSection() {
         }}
       />
       
-      {/* Dark Overlay */}
+      {/* Dark Overlay with lightening effect */}
       <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-white/10" />
       
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 max-w-3xl mx-auto">

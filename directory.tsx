@@ -67,7 +67,7 @@ export default function Directory() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-[#B46E2B] font-merriweather tracking-wide">Court Support Network</span>
+              <span className="text-3xl font-bold text-[#F3E9DC] font-merriweather tracking-wide">Court Support Network</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
@@ -182,7 +182,7 @@ export default function Directory() {
               {filteredProfessionals.map((professional) => (
                 <Card
                   key={professional.id}
-                  className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200"
+                  className="bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-200 h-full hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)]"
                 >
                   <CardContent className="p-6">
                     {/* Profile Photo */}
@@ -283,3 +283,4 @@ export default function Directory() {
     </div>
   )
 }
+```

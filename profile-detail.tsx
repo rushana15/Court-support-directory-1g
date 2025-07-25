@@ -59,7 +59,7 @@ export default function ProfileDetail() {
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between">
               <Link href="/" className="flex items-center">
-                <span className="text-2xl font-bold text-[#B46E2B] font-merriweather tracking-wide">Court Support Network</span>
+                <span className="text-3xl font-bold text-[#F3E9DC] font-merriweather tracking-wide">Court Support Network</span>
               </Link>
             </div>
           </div>
@@ -88,7 +88,7 @@ export default function ProfileDetail() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold text-[#B46E2B] font-merriweather tracking-wide">Court Support Network</span>
+              <span className="text-3xl font-bold text-[#F3E9DC] font-merriweather tracking-wide">Court Support Network</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
