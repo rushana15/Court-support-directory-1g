@@ -37,9 +37,14 @@ interface Professional {
 }
 
 export async function fetchProfessionals(): Promise<Professional[]> {
-  const baseId = "appM8cBf6BabPPibl"
-  const tableName = "Verified McKenzie Friend Directory"
-  const token = "patJ0M501UmeAtHP7.c7ad57fad64612ae0d010b79d7794e60e0ebe25a2335ad9b04639abae8ea6bfb"
+  const baseId = process.env.NEXT_PUBLIC_AIRTABLE_BASE_ID
+  const tableName = process.env.NEXT_PUBLIC_AIRTABLE_TABLE_NAME
+  const token = process.env.NEXT_PUBLIC_AIRTABLE_API_TOKEN
+
+  if (!baseId || !tableName || !token) {
+    console.error("Missing Airtable configuration. Please check your environment variables.")
+    return []
+  }
 
   try {
     const response = await fetch(`https://api.airtable.com/v0/${baseId}/${encodeURIComponent(tableName)}`, {
