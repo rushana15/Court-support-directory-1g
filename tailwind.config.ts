@@ -23,8 +23,6 @@ const config: Config = {
       fontFamily: {
         merriweather: ["var(--font-merriweather)", "serif"],
         inter: ["var(--font-inter)", "sans-serif"],
-        playfair: ["var(--font-playfair)", "serif"],
-        opensans: ["var(--font-opensans)", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
