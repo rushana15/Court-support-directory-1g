@@ -6,12 +6,12 @@ import Link from "next/link"
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden">
+    <section className="relative h-[50vh] flex items-center justify-center bg-gray-900 overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/placeholder.jpg')"
+          backgroundImage: "url('/court-building.jpg')"
         }}
       />
       
