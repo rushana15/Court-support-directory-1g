@@ -8,6 +8,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { mockProfessionals, type Professional } from "@/lib/mock-data"
+import HeroSection from "@/components/hero-section"
 
 export default function Homepage() {
   const [featuredProfessionals, setFeaturedProfessionals] = useState<Professional[]>([])
@@ -71,25 +72,7 @@ export default function Homepage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 md:py-28 lg:py-36">
-        <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8 leading-tight font-merriweather">
-              Find Verified McKenzie Friends
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto font-inter">
-              Connect with experienced, verified McKenzie Friends for compassionate family court support
-            </p>
-            <Button
-              size="lg"
-              className="bg-[#004A7F] hover:bg-[#003A6B] text-white px-10 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 font-inter"
-              asChild
-            >
-              <Link href="/directory">Browse the Directory</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Profile Cards Section */}
       <section className="py-20" style={{ backgroundColor: "#F5F0E6" }}>
