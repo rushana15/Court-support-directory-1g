@@ -6,7 +6,7 @@ import Link from "next/link"
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen md:h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
+    <section className="relative h-[400px] md:h-[500px] flex items-center justify-center bg-gray-900 overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/50" />
       
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 max-w-3xl mx-auto">
         <div className="space-y-8">
           {/* Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight font-merriweather">
