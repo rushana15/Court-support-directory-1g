@@ -258,49 +258,69 @@ export default function Homepage() {
               <p className="text-lg text-gray-600 font-inter">Loading featured professionals...</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {featuredProfessionals.map((professional) => (
                 <Card
                   key={professional.id}
-                  className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 h-full border border-gray-200"
+                  className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-200 h-full"
                 >
-                  <CardContent className="p-8 text-center h-full flex flex-col">
-                    <div className="mb-6 relative">
+                  <CardContent className="p-6 h-full flex flex-col">
+                    {/* Profile Photo and Verification */}
+                    <div className="text-center mb-4 relative">
                       <Image
                         src={professional.image || "/placeholder.svg"}
                         alt={`${professional.name} profile photo`}
-                        width={120}
-                        height={120}
-                        className="rounded-lg mx-auto object-cover border-2 border-gray-100"
+                        width={80}
+                        height={80}
+                        className="rounded-full mx-auto object-cover border-2 border-gray-100"
                       />
                       {professional.verified && (
-                        <div className="absolute -top-2 -right-2">
-                          <CheckCircle className="h-7 w-7 text-green-600 bg-white rounded-full shadow-sm" />
+                        <div className="absolute top-0 right-1/2 transform translate-x-8 -translate-y-1">
+                          <CheckCircle className="h-5 w-5 text-green-600 bg-white rounded-full" />
                         </div>
                       )}
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3 font-merriweather">{professional.name}</h3>
-                    <p className="text-base text-gray-500 mb-6 font-inter">{professional.region}</p>
-                    <div className="flex flex-wrap gap-2 justify-center mb-8 flex-grow">
-                      {professional.specialisms.slice(0, 2).map((skill, index) => (
-                        <Badge
-                          key={index}
-                          className="bg-[#F7941D] text-white hover:bg-[#E8851A] transition-colors text-sm px-4 py-2 font-inter font-medium"
-                        >
-                          {skill}
-                        </Badge>
-                      ))}
-                      {professional.specialisms.length > 2 && (
-                        <Badge className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors text-sm px-4 py-2 font-inter">
-                          +{professional.specialisms.length - 2} more
-                        </Badge>
-                      )}
+
+                    {/* Name */}
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center font-merriweather">{professional.name}</h3>
+
+                    {/* Professional Details */}
+                    <div className="space-y-3 mb-6 flex-grow">
+                      {/* Location */}
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                        <span className="text-sm text-gray-600 font-inter">{professional.region}</span>
+                      </div>
+
+                      {/* Experience Level */}
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                        <span className="text-sm text-gray-600 font-inter">{professional.experienceLevel || "Not specified"}</span>
+                      </div>
+
+                      {/* Rate */}
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                        <span className="text-sm text-gray-600 font-inter">{professional.rateInfo}</span>
+                      </div>
                     </div>
 
-                    {/* View Profile Button - aligned to bottom */}
+                    {/* Specialisms - Smaller tags */}
+                    <div className="flex flex-wrap gap-1 justify-center mb-6">
+                      {professional.specialisms.slice(0, 3).map((specialism, index) => (
+                        <Badge
+                          key={index}
+                          className="bg-[#F7941D] text-white text-xs px-2 py-1 font-inter font-medium"
+                        >
+                          {specialism}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    {/* View Profile Button */}
                     <div className="mt-auto">
                       <Button
-                        className="bg-[#004A7F] hover:bg-[#003A6B] text-white w-full py-3 font-inter font-semibold"
+                        className="bg-[#004A7F] hover:bg-[#003A6B] text-white w-full py-2.5 font-inter font-semibold"
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>
