@@ -1,4 +1,4 @@
-import Directory from "../../directory"
+import Directory from "@/directory"
 
 export default function DirectoryPage() {
   return <Directory />
