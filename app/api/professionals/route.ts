@@ -69,6 +69,7 @@ export async function GET() {
       const getArrayField = (possibleNames: string[]) => {
         const value = getField(possibleNames, [])
         if (typeof value === 'string') {
+          // Split by comma and clean up each item
           return value.split(',').map(s => s.trim()).filter(s => s.length > 0)
         }
         return Array.isArray(value) ? value : []

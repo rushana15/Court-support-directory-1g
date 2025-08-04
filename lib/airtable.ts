@@ -24,6 +24,19 @@ export async function fetchProfessionals(): Promise<Professional[]> {
 
     if (!response.ok) {
       console.error(`HTTP error! status: ${response.status}`)
+      if (response.status === 502) {
+        console.log('502 error detected, retrying...')
+        // Wait a bit and retry once for 502 errors
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        const retryResponse = await fetch('/api/professionals', {
+          cache: 'no-store'
+        })
+        if (retryResponse.ok) {
+          const professionals = await retryResponse.json()
+          console.log('Successfully fetched professionals on retry:', professionals.length)
+          return professionals
+        }
+      }
       throw new Error(`HTTP error! status: ${response.status}`)
     }
 

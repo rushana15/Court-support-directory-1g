@@ -216,21 +216,15 @@ export default function Directory() {
                     </div>
 
                     {/* Specialisms */}
-                    <div className="flex flex-wrap gap-2 justify-center mb-6">
-                      {professional["Specialisms"].slice(0, 3).map((specialism, index) => (
-                        <Badge
-                          key={index}
-                          className="bg-[#F7941D] text-white hover:bg-[#E8851A] transition-colors text-xs font-inter font-medium"
-                        >
-                          {specialism}
-                        </Badge>
-                      ))}
-                      {professional["Specialisms"].length > 3 && (
-                        <Badge className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors text-xs font-inter">
-                          +{professional["Specialisms"].length - 3} more
-                        </Badge>
-                      )}
-                    </div>
+                    {professional["Specialisms"] && professional["Specialisms"].length > 0 && (
+                      <div className="flex flex-wrap justify-center gap-2 mb-6">
+                        {professional["Specialisms"].map((specialism: string, index: number) => (
+                          <Badge key={index} className="bg-[#F7941D] text-white hover:bg-[#E8851A] transition-colors text-xs font-inter font-medium">
+                            {specialism}
+                          </Badge>
+                        ))}
+                      </div>
+                    )}
 
                     {/* Bio */}
                     <p className="text-sm text-gray-600 text-center mb-6 line-clamp-3 font-inter leading-relaxed">
