@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle } from "lucide-react"
+import { CheckCircle, MapPin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
@@ -135,7 +135,6 @@ export default function Homepage() {
 
                     {/* Specialisms - Smaller tags */}
                     <div className="flex flex-wrap gap-1 justify-center mb-6">
-                      {/* Accessing specialisms using bracket notation and ensuring it's an array */}
                       {(professional["Specialisms"] || []).slice(0, 3).map((specialism, index) => (
                         <Badge
                           key={index}
