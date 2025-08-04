@@ -241,7 +241,7 @@ export default function Directory() {
                     {professional["Languages Spoken"] && professional["Languages Spoken"].length > 0 && (
                       <div className="text-center mb-6">
                         <p className="text-xs text-gray-500 font-inter">
-                          Languages: {professional["Languages Spoken"].join(", ")}
+                          Languages: {Array.isArray(professional["Languages Spoken"]) ? professional["Languages Spoken"].join(", ") : professional["Languages Spoken"] || "Not specified"}
                         </p>
                       </div>
                     )}

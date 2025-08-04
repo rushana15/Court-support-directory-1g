@@ -22,7 +22,7 @@ export default function Homepage() {
         const data = await fetchProfessionals()
         console.log('Received data:', data)
         console.log('Data length:', data?.length || 0)
-        
+
         // Show first 3 verified professionals
         const featured = data.filter(p => p["Verified"]).slice(0, 3)
         console.log('Featured professionals:', featured)

@@ -31,28 +31,64 @@ export async function GET() {
 
     console.log('Fetched records count:', records.length)
 
-    // Debug: Log the first record's raw fields
-    if (records.length > 0) {
-      const firstRecord = records[0]
-      console.log('First record ID:', firstRecord.id)
-      console.log('First record fields:', firstRecord.fields)
-      console.log('Available field names:', Object.keys(firstRecord.fields))
-    }
+    // Debug: Log all records to see what fields actually exist
+    console.log('All records with fields:')
+    records.forEach((record, index) => {
+      console.log(`Record ${index + 1}:`, {
+        id: record.id,
+        fields: record.fields,
+        fieldNames: Object.keys(record.fields)
+      })
+    })
 
-    const professionals = records.map(record => ({
-      id: record.id,
-      "Name": record.get('Name') as string || '',
-      "Short Bio": record.get('Short Bio') as string || '',
-      "Region": record.get('Region') as string || '',
-      "Specialisms": (record.get('Specialisms') as string[]) || [],
-      "Experience Level": record.get('Experience Level') as string || '',
-      "Languages Spoken": (record.get('Languages Spoken') as string[]) || [],
-      "Verified": record.get('Verified') as boolean || false,
-      "Rate Info": record.get('Rate Info') as string || '',
-      "LinkedIn Profile Link": record.get('LinkedIn Profile Link') as string || '',
-      "Profile Photo": record.get('Profile Photo') as string || "/placeholder.svg",
-      "Last Verified Date": record.get('Last Verified Date') as string || '',
-    }))
+    // Map fields dynamically based on what actually exists
+    const professionals = records.map(record => {
+      const fields = record.fields
+      const fieldNames = Object.keys(fields)
+      
+      // Helper function to get field value by trying different possible field names
+      const getField = (possibleNames: string[], defaultValue: any = '') => {
+        for (const name of possibleNames) {
+          if (fields[name] !== undefined && fields[name] !== null) {
+            return fields[name]
+          }
+        }
+        return defaultValue
+      }
+
+      // Handle profile photo specially - it might be an attachment array
+      const getProfilePhoto = () => {
+        const photoField = getField(['Profile Photo', 'Photo', 'Image', 'Picture'])
+        if (Array.isArray(photoField) && photoField.length > 0) {
+          return photoField[0].url || "/placeholder.svg"
+        }
+        return typeof photoField === 'string' ? photoField : "/placeholder.svg"
+      }
+
+      // Handle array fields that might be strings or arrays
+      const getArrayField = (possibleNames: string[]) => {
+        const value = getField(possibleNames, [])
+        if (typeof value === 'string') {
+          return value.split(',').map(s => s.trim()).filter(s => s.length > 0)
+        }
+        return Array.isArray(value) ? value : []
+      }
+
+      return {
+        id: record.id,
+        "Name": getField(['Name', 'Full Name', 'name', 'Name ']) || '',
+        "Short Bio": getField(['Short Bio', 'Bio', 'Description', 'About', 'short bio']) || '',
+        "Region": getField(['Region', 'Location', 'Area', 'region']) || '',
+        "Specialisms": getArrayField(['Specialisms', 'Specialties', 'Skills', 'Areas of expertise', 'specialisms']),
+        "Experience Level": getField(['Experience Level', 'Experience', 'Years of Experience', 'experience level']) || '',
+        "Languages Spoken": getArrayField(['Languages Spoken', 'Languages', 'Spoken Languages', 'languages spoken']),
+        "Verified": getField(['Verified', 'verified', 'Is Verified'], false),
+        "Rate Info": getField(['Rate Info', 'Rates', 'Pricing', 'Cost', 'rate info']) || '',
+        "LinkedIn Profile Link": getField(['LinkedIn Profile Link', 'LinkedIn', 'LinkedIn URL', 'linkedIn profile link']) || '',
+        "Profile Photo": getProfilePhoto(),
+        "Last Verified Date": getField(['Last Verified Date', 'Verified Date', 'last verified date']) || '',
+      }
+    })
 
     console.log('First mapped professional:', professionals[0])
 
