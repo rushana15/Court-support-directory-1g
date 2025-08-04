@@ -14,7 +14,7 @@ import { fetchProfessionals, type Professional } from "@/lib/airtable"
 export default function ProfileDetail() {
   const params = useParams()
   const profileId = params?.id
-  const [professional, setProfessional] = useState<Professional | null>(null)
+  const [professional, setProfessional] = useState<any | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -135,13 +135,13 @@ export default function ProfileDetail() {
                   {/* Profile Photo */}
                   <div className="relative mb-6">
                     <Image
-                      src={professional.image || "/placeholder.svg"}
-                      alt={`${professional.name} profile photo`}
+                      src={professional["Profile Photo"] || "/placeholder.svg"}
+                      alt={`${professional["Name"]} profile photo`}
                       width={200}
                       height={200}
                       className="rounded-lg mx-auto object-cover border-2 border-gray-100"
                     />
-                    {professional.verified && (
+                    {professional["Verified"] && (
                       <div className="absolute -top-2 -right-2">
                         <CheckCircle className="h-8 w-8 text-green-600 bg-white rounded-full shadow-lg" />
                       </div>
@@ -149,43 +149,43 @@ export default function ProfileDetail() {
                   </div>
 
                   {/* Name and Title */}
-                  <h1 className="text-2xl font-bold text-gray-900 mb-2 font-merriweather">{professional.name}</h1>
+                  <h1 className="text-2xl font-bold text-gray-900 mb-2 font-merriweather">{professional["Name"]}</h1>
                   <p className="text-lg text-[#004A7F] mb-4 font-inter font-semibold">McKenzie Friend</p>
 
                   {/* Location */}
                   <div className="flex items-center justify-center mb-4">
                     <MapPin className="h-5 w-5 text-gray-500 mr-2" />
-                    <span className="text-gray-600 font-inter">{professional.region}</span>
+                    <span className="text-gray-600 font-inter">{professional["Region"]}</span>
                   </div>
 
                   {/* Experience Level */}
                   <div className="mb-4">
                     <Badge className="bg-[#F7941D] text-white px-3 py-1 font-inter">
-                      {professional.experienceLevel} Level
+                      {professional["Experience Level"]}
                     </Badge>
                   </div>
 
                   {/* Rate Info */}
                   <div className="mb-6">
-                    <p className="text-lg font-semibold text-gray-900 font-inter">{professional.rateInfo}</p>
+                    <p className="text-lg font-semibold text-gray-900 font-inter">{professional["Rate Info"]}</p>
                   </div>
 
                   {/* Verification Status */}
-                  {professional.verified && professional.lastVerified && (
+                  {professional["Verified"] && professional["Last Verified Date"] && (
                     <div className="flex items-center justify-center mb-6 text-sm text-gray-500 font-inter">
                       <Calendar className="h-4 w-4 mr-2" />
-                      Verified: {new Date(professional.lastVerified).toLocaleDateString()}
+                      Verified: {new Date(professional["Last Verified Date"]).toLocaleDateString()}
                     </div>
                   )}
 
                   {/* LinkedIn Profile */}
-                  {professional.linkedinUrl && (
+                  {professional["LinkedIn Profile Link"] && (
                     <Button
                       variant="outline"
                       className="w-full mb-4 font-inter"
                       asChild
                     >
-                      <Link href={professional.linkedinUrl} target="_blank" rel="noopener noreferrer">
+                      <Link href={professional["LinkedIn Profile Link"]} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="mr-2 h-4 w-4" />
                         LinkedIn Profile
                       </Link>
@@ -208,9 +208,43 @@ export default function ProfileDetail() {
                   <CardTitle className="text-xl font-bold text-gray-900 font-merriweather">About</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 leading-relaxed font-inter">{professional.bio}</p>
+                  <p className="text-gray-600 leading-relaxed font-inter">{professional["Short Bio"]}</p>
                 </CardContent>
               </Card>
+
+              {/* Specialisms Section */}
+              {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
+                <Card className="bg-white shadow-lg border border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold text-gray-900 font-merriweather">Areas of Expertise</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2">
+                      {professional["Specialisms"].map((specialism: string, index: number) => (
+                        <Badge key={index} className="bg-[#F7941D] text-white hover:bg-[#E8851A] transition-colors font-inter font-medium">
+                          {specialism}
+                        </Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Languages Section */}
+              {professional["Languages Spoken"] && professional["Languages Spoken"].length > 0 && (
+                <Card className="bg-white shadow-lg border border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold text-gray-900 font-merriweather">Languages Spoken</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 font-inter">
+                      {Array.isArray(professional["Languages Spoken"]) 
+                        ? professional["Languages Spoken"].join(", ") 
+                        : professional["Languages Spoken"]}
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Specialisms */}
               <Card className="bg-white shadow-lg border border-gray-200">
