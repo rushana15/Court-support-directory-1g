@@ -1,4 +1,3 @@
-
 import { NextResponse } from 'next/server'
 import Airtable from 'airtable'
 import { mockProfessionals } from '@/lib/mock-data'
@@ -26,30 +25,36 @@ export async function GET() {
       apiKey: apiKey
     }).base(baseId)
 
-    const records = await base('Replit 1').select({
+    const records = await base('Professionals').select({
       view: 'Grid view'
     }).all()
 
     console.log('Fetched records count:', records.length)
 
+    // Debug: Log the first record's raw fields
+    if (records.length > 0) {
+      const firstRecord = records[0]
+      console.log('First record ID:', firstRecord.id)
+      console.log('First record fields:', firstRecord.fields)
+      console.log('Available field names:', Object.keys(firstRecord.fields))
+    }
+
     const professionals = records.map(record => ({
       id: record.id,
-      "Name": record.fields["Name"] as string || "",
-      "Short Bio": record.fields["Short Bio"] as string || "",
-      "Region": record.fields["Region"] as string || "",
-      "Specialisms": record.fields["Specialisms"] as string[] || [],
-      "Experience Level": record.fields["Experience Level"] as string || "",
-      "Languages Spoken": record.fields["Languages Spoken"] 
-        ? (record.fields["Languages Spoken"] as string).split(',').map(lang => lang.trim())
-        : [],
-      "Verified": record.fields["Verified"] as boolean || false,
-      "Rate Info": record.fields["Rate Info"] as string || "",
-      "LinkedIn Profile Link": record.fields["LinkedIn Profile Link"] as string || "",
-      "Profile Photo": record.fields["Profile Photo"] 
-        ? (record.fields["Profile Photo"] as any)?.[0]?.url || "/placeholder.svg"
-        : "/placeholder.svg",
-      "Last Verified Date": record.fields["Last Verified Date"] as string || ""
+      "Name": record.get('Name') as string || '',
+      "Short Bio": record.get('Short Bio') as string || '',
+      "Region": record.get('Region') as string || '',
+      "Specialisms": (record.get('Specialisms') as string[]) || [],
+      "Experience Level": record.get('Experience Level') as string || '',
+      "Languages Spoken": (record.get('Languages Spoken') as string[]) || [],
+      "Verified": record.get('Verified') as boolean || false,
+      "Rate Info": record.get('Rate Info') as string || '',
+      "LinkedIn Profile Link": record.get('LinkedIn Profile Link') as string || '',
+      "Profile Photo": record.get('Profile Photo') as string || "/placeholder.svg",
+      "Last Verified Date": record.get('Last Verified Date') as string || '',
     }))
+
+    console.log('First mapped professional:', professionals[0])
 
     return NextResponse.json(professionals)
   } catch (error) {
