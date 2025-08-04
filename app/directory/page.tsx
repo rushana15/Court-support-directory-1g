@@ -15,6 +15,8 @@ export default function Directory() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedRegion, setSelectedRegion] = useState("All Regions")
   const [selectedSpecialism, setSelectedSpecialism] = useState("All Specialisms")
+  const [selectedExperience, setSelectedExperience] = useState("All Levels")
+  const [showVerifiedOnly, setShowVerifiedOnly] = useState(false)
   const [professionals, setProfessionals] = useState<Professional[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -43,9 +45,9 @@ export default function Directory() {
                          professional["Short Bio"].toLowerCase().includes(searchTerm.toLowerCase()) ||
                          professional["Specialisms"].some(spec => spec.toLowerCase().includes(searchTerm.toLowerCase()))
 
-    const matchesRegion = !selectedRegion || professional["Region"] === selectedRegion
-    const matchesSpecialism = !selectedSpecialism || professional["Specialisms"].includes(selectedSpecialism)
-    const matchesExperience = !selectedExperience || professional["Experience Level"] === selectedExperience
+    const matchesRegion = selectedRegion === "All Regions" || professional["Region"] === selectedRegion
+    const matchesSpecialism = selectedSpecialism === "All Specialisms" || professional["Specialisms"].includes(selectedSpecialism)
+    const matchesExperience = selectedExperience === "All Levels" || professional["Experience Level"] === selectedExperience
     const matchesVerified = !showVerifiedOnly || professional["Verified"]
 
     return matchesSearch && matchesRegion && matchesSpecialism && matchesExperience && matchesVerified
@@ -173,6 +175,8 @@ export default function Directory() {
                   setSearchTerm("")
                   setSelectedRegion("All Regions")
                   setSelectedSpecialism("All Specialisms")
+                  setSelectedExperience("All Levels")
+                  setShowVerifiedOnly(false)
                 }}
                 className="bg-[#004A7F] hover:bg-[#003A6B] text-white font-inter"
               >
