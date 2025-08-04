@@ -1,6 +1,7 @@
 
 import { NextResponse } from 'next/server'
 import Airtable from 'airtable'
+import { mockProfessionals } from '@/lib/mock-data'
 
 export async function GET() {
   try {
@@ -8,19 +9,15 @@ export async function GET() {
     const apiKey = process.env.AIRTABLE_API_KEY
     const baseId = process.env.AIRTABLE_BASE_ID
 
-    console.log('All environment variables:', Object.keys(process.env).filter(key => key.includes('AIRTABLE')))
-    console.log('API Key exists:', !!apiKey)
-    console.log('Base ID exists:', !!baseId)
-    console.log('API Key length:', apiKey?.length || 0)
-    console.log('Base ID length:', baseId?.length || 0)
+    console.log('Environment check:', {
+      hasApiKey: !!apiKey,
+      hasBaseId: !!baseId,
+      apiKeyLength: apiKey?.length || 0,
+      baseIdLength: baseId?.length || 0
+    })
 
     if (!apiKey || !baseId) {
-      console.error('Missing environment variables:', { 
-        hasApiKey: !!apiKey, 
-        hasBaseId: !!baseId 
-      })
-      // Return mock data instead of error
-      const { mockProfessionals } = await import('@/lib/mock-data')
+      console.log('Missing environment variables, returning mock data')
       return NextResponse.json(mockProfessionals)
     }
 
@@ -57,17 +54,7 @@ export async function GET() {
     return NextResponse.json(professionals)
   } catch (error) {
     console.error('Error fetching professionals from Airtable:', error)
-    console.error('Error details:', {
-      message: error instanceof Error ? error.message : 'Unknown error',
-      stack: error instanceof Error ? error.stack : undefined
-    })
-    
-    return NextResponse.json(
-      { 
-        error: 'Failed to fetch professionals', 
-        details: error instanceof Error ? error.message : 'Unknown error'
-      },
-      { status: 500 }
-    )
+    console.log('Returning mock data due to error')
+    return NextResponse.json(mockProfessionals)
   }
 }

@@ -18,9 +18,14 @@ export default function Homepage() {
   useEffect(() => {
     async function loadFeaturedProfessionals() {
       try {
+        console.log('Loading featured professionals...')
         const data = await fetchProfessionals()
+        console.log('Received data:', data)
+        console.log('Data length:', data?.length || 0)
+        
         // Show first 3 verified professionals
-        const featured = data.filter(p => p["Verified"]).slice(0, 3) // Use bracket notation for Verified property
+        const featured = data.filter(p => p["Verified"]).slice(0, 3)
+        console.log('Featured professionals:', featured)
         setFeaturedProfessionals(featured)
       } catch (error) {
         console.error("Failed to load featured professionals:", error)
