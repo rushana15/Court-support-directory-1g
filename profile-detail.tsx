@@ -9,7 +9,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
-import { mockProfessionals, type Professional } from "@/lib/mock-data"
+import { fetchProfessionals, type Professional } from "@/lib/airtable"
 
 export default function ProfileDetail() {
   const params = useParams()
@@ -20,10 +20,8 @@ export default function ProfileDetail() {
   useEffect(() => {
     async function loadProfessional() {
       try {
-        // Simulate loading delay
-        await new Promise(resolve => setTimeout(resolve, 500))
-
-        const foundProfessional = mockProfessionals.find(p => p.id === profileId)
+        const professionals = await fetchProfessionals()
+        const foundProfessional = professionals.find(p => p.id === profileId)
         setProfessional(foundProfessional || null)
       } catch (error) {
         console.error("Failed to load professional:", error)

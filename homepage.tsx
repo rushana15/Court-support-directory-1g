@@ -7,110 +7,8 @@ import { CheckCircle } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { mockProfessionals, type Professional } from "@/lib/mock-data"
+import { fetchProfessionals, type Professional } from "@/lib/airtable"
 import HeroSection from "@/components/hero-section"
-
-// Assume fetchProfessionals is defined elsewhere and fetches data from Airtable
-// For demonstration purposes, let's mock it here. In a real app, this would be an API call.
-async function fetchProfessionals(): Promise<Professional[]> {
-  // Replace this with your actual Airtable fetching logic
-  // Example:
-  // const response = await fetch('/api/professionals');
-  // const data = await response.json();
-  // return data;
-  console.warn("Using mock fetchProfessionals. Replace with actual API call.");
-
-  // Mocking the structure that the error implies, with correct casing and potential undefined specialisms
-  const mockAirtableData: any[] = [
-    {
-      "id": "1",
-      "Name": "Alice Wonderland",
-      "Verified": true,
-      "Specialisms": ["Family Law Mediation", "Child Custody Support"],
-      "region": "London",
-      "experienceLevel": "Senior",
-      "rateInfo": "£50/hour",
-      "image": "/alice.jpg"
-    },
-    {
-      "id": "2",
-      "Name": "Bob The Builder",
-      "Verified": false,
-      "Specialisms": ["Property Disputes", "Landlord Advice"],
-      "region": "Manchester",
-      "experienceLevel": "Mid-Level",
-      "rateInfo": "£40/hour",
-      "image": "/bob.jpg"
-    },
-    {
-      "id": "3",
-      "Name": "Charlie Chaplin",
-      "Verified": true,
-      "Specialisms": ["Divorce Guidance", "Financial Settlements"],
-      "region": "Birmingham",
-      "experienceLevel": "Junior",
-      "rateInfo": "£35/hour",
-      "image": "/charlie.jpg"
-    },
-    {
-      "id": "4",
-      "Name": "Diana Prince",
-      "Verified": true,
-      "Specialisms": ["Domestic Violence Support", "Legal Aid Assistance"],
-      "region": "Bristol",
-      "experienceLevel": "Senior",
-      "rateInfo": "£60/hour",
-      "image": "/diana.jpg"
-    },
-    {
-      "id": "5",
-      "Name": "Ethan Hunt",
-      "Verified": false,
-      "Specialisms": ["Immigration Law", "Visa Applications"],
-      "region": "Online",
-      "experienceLevel": "Expert",
-      "rateInfo": "£75/hour",
-      "image": "/ethan.jpg"
-    },
-    {
-      "id": "6",
-      "Name": "Fiona Shrek",
-      "Verified": true,
-      "Specialisms": ["Mediation", "Collaborative Law"],
-      "region": "Glasgow",
-      "experienceLevel": "Mid-Level",
-      "rateInfo": "£45/hour",
-      "image": "/fiona.jpg"
-    },
-    {
-      "id": "7",
-      "Name": "George Jetson",
-      "Verified": false,
-      "Specialisms": null, // Example of potentially missing specialisms
-      "region": "New York",
-      "experienceLevel": "Senior",
-      "rateInfo": "$100/hour",
-      "image": "/george.jpg"
-    }
-  ];
-
-  // Simulate network latency
-  await new Promise(resolve => setTimeout(resolve, 500));
-
-  // Map to the Professional type, ensuring correct property access
-  const professionals: Professional[] = mockAirtableData.map((item: any) => ({
-    id: item.id,
-    name: item.Name,
-    verified: item.Verified,
-    specialisms: item["Specialisms"] || [], // Handle null or undefined gracefully
-    region: item.region,
-    experienceLevel: item.experienceLevel,
-    rateInfo: item.rateInfo,
-    image: item.image
-  }));
-
-  return professionals;
-}
 
 
 export default function Homepage() {
@@ -122,7 +20,7 @@ export default function Homepage() {
       try {
         const data = await fetchProfessionals()
         // Show first 3 verified professionals
-        const featured = data.filter(p => p.verified).slice(0, 3) // Corrected to use 'verified' property
+        const featured = data.filter(p => p["Verified"]).slice(0, 3) // Use bracket notation for Verified property
         setFeaturedProfessionals(featured)
       } catch (error) {
         console.error("Failed to load featured professionals:", error)
@@ -198,13 +96,13 @@ export default function Homepage() {
                     {/* Profile Photo and Verification */}
                     <div className="text-center mb-4 relative">
                       <Image
-                        src={professional.image || "/placeholder.svg"}
-                        alt={`${professional.name} profile photo`}
+                        src={professional["Profile Photo"] || "/placeholder.svg"}
+                        alt={`${professional["Name"]} profile photo`}
                         width={80}
                         height={80}
                         className="rounded-full mx-auto object-cover border-2 border-gray-100"
                       />
-                      {professional.verified && (
+                      {professional["Verified"] && (
                         <div className="absolute top-0 right-1/2 transform translate-x-8 -translate-y-1">
                           <CheckCircle className="h-5 w-5 text-green-600 bg-white rounded-full" />
                         </div>
@@ -212,33 +110,33 @@ export default function Homepage() {
                     </div>
 
                     {/* Name */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center font-merriweather">{professional.name}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center font-merriweather">{professional["Name"]}</h3>
 
                     {/* Professional Details */}
                     <div className="space-y-3 mb-6 flex-grow">
                       {/* Location */}
                       <div className="flex items-center justify-center gap-2">
                         <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-gray-600 font-inter">{professional.region}</span>
+                        <span className="text-sm text-gray-600 font-inter">{professional["Region"]}</span>
                       </div>
 
                       {/* Experience Level */}
                       <div className="flex items-center justify-center gap-2">
                         <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-gray-600 font-inter">{professional.experienceLevel || "Not specified"}</span>
+                        <span className="text-sm text-gray-600 font-inter">{professional["Experience Level"] || "Not specified"}</span>
                       </div>
 
                       {/* Rate */}
                       <div className="flex items-center justify-center gap-2">
                         <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-gray-600 font-inter">{professional.rateInfo}</span>
+                        <span className="text-sm text-gray-600 font-inter">{professional["Rate Info"]}</span>
                       </div>
                     </div>
 
                     {/* Specialisms - Smaller tags */}
                     <div className="flex flex-wrap gap-1 justify-center mb-6">
-                      {/* Accessing specialisms using dot notation and ensuring it's an array */}
-                      {(professional.specialisms || []).slice(0, 3).map((specialism, index) => (
+                      {/* Accessing specialisms using bracket notation and ensuring it's an array */}
+                      {(professional["Specialisms"] || []).slice(0, 3).map((specialism, index) => (
                         <Badge
                           key={index}
                           className="bg-[#F7941D] text-white text-xs px-2 py-1 font-inter font-medium"
