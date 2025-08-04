@@ -8,18 +8,20 @@ export async function GET() {
     const apiKey = process.env.AIRTABLE_API_KEY
     const baseId = process.env.AIRTABLE_BASE_ID
 
+    console.log('All environment variables:', Object.keys(process.env).filter(key => key.includes('AIRTABLE')))
     console.log('API Key exists:', !!apiKey)
     console.log('Base ID exists:', !!baseId)
+    console.log('API Key length:', apiKey?.length || 0)
+    console.log('Base ID length:', baseId?.length || 0)
 
     if (!apiKey || !baseId) {
       console.error('Missing environment variables:', { 
         hasApiKey: !!apiKey, 
         hasBaseId: !!baseId 
       })
-      return NextResponse.json(
-        { error: 'Airtable configuration missing. Please check your environment variables.' },
-        { status: 500 }
-      )
+      // Return mock data instead of error
+      const { mockProfessionals } = await import('@/lib/mock-data')
+      return NextResponse.json(mockProfessionals)
     }
 
     // Create Airtable base instance
