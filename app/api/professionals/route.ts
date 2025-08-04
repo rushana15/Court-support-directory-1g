@@ -25,7 +25,7 @@ export async function GET() {
       apiKey: apiKey
     }).base(baseId)
 
-    const records = await base('Professionals').select({
+    const records = await base('Table 1').select({
       view: 'Grid view'
     }).all()
 
