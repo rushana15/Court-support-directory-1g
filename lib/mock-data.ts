@@ -107,3 +107,72 @@ export const mockProfessionals: Professional[] = [
     supportOptions: ["Scottish Law Expertise", "Document Drafting", "Court Representation"],
   }
 ]
+export interface Professional {
+  id: string
+  name: string
+  region: string
+  specialisms: string[]
+  bio: string
+  image: string
+  verified: boolean
+  experienceLevel: string
+  languages: string[]
+}
+
+export const mockProfessionals: Professional[] = [
+  {
+    id: "1",
+    name: "Sarah Johnson",
+    region: "London",
+    specialisms: ["Family Law", "Child Custody", "Divorce"],
+    bio: "Experienced McKenzie Friend with over 10 years helping families navigate complex legal situations. Specializing in child custody and divorce proceedings.",
+    image: "/placeholder-user.jpg",
+    verified: true,
+    experienceLevel: "Senior (10+ years)",
+    languages: ["English", "Spanish"]
+  },
+  {
+    id: "2",
+    name: "Michael Chen",
+    region: "Manchester",
+    specialisms: ["Employment Law", "Discrimination", "Workplace Rights"],
+    bio: "Former HR professional turned McKenzie Friend, dedicated to helping individuals understand their workplace rights and navigate employment disputes.",
+    image: "/placeholder-user.jpg",
+    verified: true,
+    experienceLevel: "Intermediate (5-10 years)",
+    languages: ["English", "Mandarin"]
+  },
+  {
+    id: "3",
+    name: "Emma Williams",
+    region: "Birmingham",
+    specialisms: ["Housing Law", "Tenant Rights", "Eviction Defense"],
+    bio: "Community advocate with extensive experience in housing law, helping tenants understand their rights and defend against unfair evictions.",
+    image: "/placeholder-user.jpg",
+    verified: true,
+    experienceLevel: "Senior (10+ years)",
+    languages: ["English"]
+  },
+  {
+    id: "4",
+    name: "David Thompson",
+    region: "Leeds",
+    specialisms: ["Debt Management", "Bankruptcy", "Financial Disputes"],
+    bio: "Financial advisor turned McKenzie Friend, specializing in debt management and helping individuals navigate bankruptcy proceedings.",
+    image: "/placeholder-user.jpg",
+    verified: false,
+    experienceLevel: "Junior (1-5 years)",
+    languages: ["English"]
+  },
+  {
+    id: "5",
+    name: "Lisa Rodriguez",
+    region: "London",
+    specialisms: ["Immigration", "Asylum", "Family Reunification"],
+    bio: "Multilingual McKenzie Friend with deep understanding of immigration law, helping families reunite and individuals seek asylum.",
+    image: "/placeholder-user.jpg",
+    verified: true,
+    experienceLevel: "Senior (10+ years)",
+    languages: ["English", "Spanish", "Portuguese"]
+  }
+]
