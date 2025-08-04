@@ -1,3 +1,5 @@
+import { mockProfessionals } from './mock-data'
+
 // Define the Professional type based on your Airtable fields
 export interface Professional {
   id: string
@@ -26,6 +28,7 @@ export async function fetchProfessionals(): Promise<Professional[]> {
     return professionals
   } catch (error) {
     console.error('Error fetching professionals:', error)
-    return []
+    // Fallback to mock data if API call fails
+    return mockProfessionals
   }
 }
