@@ -1,4 +1,3 @@
-
 "use client"
 
 import { Button } from "@/components/ui/button"
@@ -36,18 +35,20 @@ export default function Directory() {
     loadProfessionals()
   }, [])
 
-  const regions = Array.from(new Set(professionals.map((p) => p.region))).filter(Boolean)
-  const specialisms = Array.from(new Set(professionals.flatMap((p) => p.specialisms))).filter(Boolean)
+  const regions = Array.from(new Set(mockProfessionals.map(p => p["Region"]))).filter(Boolean)
+  const specialisms = Array.from(new Set(mockProfessionals.flatMap(p => p["Specialisms"]))).filter(Boolean)
 
-  const filteredProfessionals = professionals.filter((professional) => {
-    const matchesSearch =
-      professional.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      professional.specialisms.some((spec) => spec.toLowerCase().includes(searchTerm.toLowerCase()))
-    const matchesRegion = selectedRegion === "All Regions" || professional.region === selectedRegion
-    const matchesSpecialism =
-      selectedSpecialism === "All Specialisms" || professional.specialisms.includes(selectedSpecialism)
+  const filteredProfessionals = mockProfessionals.filter(professional => {
+    const matchesSearch = professional["Name"].toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         professional["Short Bio"].toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         professional["Specialisms"].some(spec => spec.toLowerCase().includes(searchTerm.toLowerCase()))
 
-    return matchesSearch && matchesRegion && matchesSpecialism
+    const matchesRegion = !selectedRegion || professional["Region"] === selectedRegion
+    const matchesSpecialism = !selectedSpecialism || professional["Specialisms"].includes(selectedSpecialism)
+    const matchesExperience = !selectedExperience || professional["Experience Level"] === selectedExperience
+    const matchesVerified = !showVerifiedOnly || professional["Verified"]
+
+    return matchesSearch && matchesRegion && matchesSpecialism && matchesExperience && matchesVerified
   })
 
   if (loading) {
@@ -189,13 +190,13 @@ export default function Directory() {
                     {/* Profile Photo */}
                     <div className="text-center mb-6 relative">
                       <Image
-                        src={professional.image || "/placeholder.svg"}
-                        alt={`${professional.name} profile photo`}
+                        src={professional["Profile Photo"] || "/placeholder.svg"}
+                        alt={`${professional["Name"]} profile photo`}
                         width={100}
                         height={100}
                         className="rounded-lg mx-auto object-cover border-2 border-gray-100"
                       />
-                      {professional.verified && (
+                      {professional["Verified"] && (
                         <div className="absolute -top-2 -right-2">
                           <CheckCircle className="h-6 w-6 text-green-600 bg-white rounded-full shadow-sm" />
                         </div>
@@ -204,16 +205,16 @@ export default function Directory() {
 
                     {/* Name and Region */}
                     <div className="text-center mb-4">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-merriweather">{professional.name}</h3>
-                      <p className="text-base text-gray-500 font-inter">{professional.region}</p>
-                      {professional.experienceLevel && (
-                        <p className="text-sm text-gray-400 font-inter">{professional.experienceLevel}</p>
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 font-merriweather">{professional["Name"]}</h3>
+                      <p className="text-base text-gray-500 font-inter">{professional["Region"]}</p>
+                      {professional["Experience Level"] && (
+                        <p className="text-sm text-gray-400 font-inter">{professional["Experience Level"]}</p>
                       )}
                     </div>
 
                     {/* Specialisms */}
                     <div className="flex flex-wrap gap-2 justify-center mb-6">
-                      {professional.specialisms.slice(0, 3).map((specialism, index) => (
+                      {professional["Specialisms"].slice(0, 3).map((specialism, index) => (
                         <Badge
                           key={index}
                           className="bg-[#F7941D] text-white hover:bg-[#E8851A] transition-colors text-xs font-inter font-medium"
@@ -221,24 +222,31 @@ export default function Directory() {
                           {specialism}
                         </Badge>
                       ))}
-                      {professional.specialisms.length > 3 && (
+                      {professional["Specialisms"].length > 3 && (
                         <Badge className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors text-xs font-inter">
-                          +{professional.specialisms.length - 3} more
+                          +{professional["Specialisms"].length - 3} more
                         </Badge>
                       )}
                     </div>
 
                     {/* Bio */}
                     <p className="text-sm text-gray-600 text-center mb-6 line-clamp-3 font-inter leading-relaxed">
-                      {professional.bio}
+                      {professional["Short Bio"]}
                     </p>
 
                     {/* Languages */}
-                    {professional.languages.length > 0 && (
+                    {professional["Languages Spoken"] && professional["Languages Spoken"].length > 0 && (
                       <div className="text-center mb-6">
                         <p className="text-xs text-gray-500 font-inter">
-                          Languages: {professional.languages.join(", ")}
+                          Languages: {professional["Languages Spoken"].join(", ")}
                         </p>
+                      </div>
+                    )}
+
+                    {/* Rate Info */}
+                    {professional["Rate Info"] && (
+                      <div className="text-center mb-6">
+                        <p className="text-sm text-gray-600 font-inter">{professional["Rate Info"]}</p>
                       </div>
                     )}
 
