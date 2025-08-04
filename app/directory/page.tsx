@@ -37,15 +37,15 @@ export default function Directory() {
   }, [])
 
   const regions = Array.from(new Set(professionals.map(p => p["Region"]))).filter(Boolean)
-  const specialisms = Array.from(new Set(professionals.flatMap(p => p["Specialisms"]))).filter(Boolean)
+  const specialisms = Array.from(new Set(professionals.flatMap(p => Array.isArray(p["Specialisms"]) ? p["Specialisms"] : []))).filter(Boolean)
 
   const filteredProfessionals = professionals.filter(professional => {
     const matchesSearch = professional["Name"].toLowerCase().includes(searchTerm.toLowerCase()) ||
                          professional["Short Bio"].toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         professional["Specialisms"].some(spec => spec.toLowerCase().includes(searchTerm.toLowerCase()))
+                         (Array.isArray(professional["Specialisms"]) && professional["Specialisms"].some(spec => spec.toLowerCase().includes(searchTerm.toLowerCase())))
 
     const matchesRegion = selectedRegion === "All Regions" || professional["Region"] === selectedRegion
-    const matchesSpecialism = selectedSpecialism === "All Specialisms" || professional["Specialisms"].includes(selectedSpecialism)
+    const matchesSpecialism = selectedSpecialism === "All Specialisms" || (Array.isArray(professional["Specialisms"]) && professional["Specialisms"].includes(selectedSpecialism))
     const matchesExperience = selectedExperience === "All Levels" || professional["Experience Level"] === selectedExperience
     const matchesVerified = !showVerifiedOnly || professional["Verified"]
 
@@ -216,13 +216,18 @@ export default function Directory() {
                     </div>
 
                     {/* Specialisms */}
-                    {professional["Specialisms"] && professional["Specialisms"].length > 0 && (
+                    {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
                       <div className="flex flex-wrap justify-center gap-2 mb-6">
-                        {professional["Specialisms"].map((specialism: string, index: number) => (
+                        {professional["Specialisms"].slice(0, 3).map((specialism: string, index: number) => (
                           <Badge key={index} className="bg-[#F7941D] text-white hover:bg-[#E8851A] transition-colors text-xs font-inter font-medium">
                             {specialism}
                           </Badge>
                         ))}
+                        {professional["Specialisms"].length > 3 && (
+                          <Badge className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors text-xs font-inter">
+                            +{professional["Specialisms"].length - 3} more
+                          </Badge>
+                        )}
                       </div>
                     )}
 

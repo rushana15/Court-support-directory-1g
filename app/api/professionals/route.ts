@@ -79,7 +79,7 @@ export async function GET() {
         id: record.id,
         "Name": getField(['Name', 'Full Name', 'name', 'Name ']) || '',
         "Short Bio": getField(['Short Bio', 'Bio', 'Description', 'About', 'short bio']) || '',
-        "Region": getField(['Region', 'Location', 'Area', 'region']) || '',
+        "Region": getField(['Region', 'Location', 'Area', 'region']) || 'UK',
         "Specialisms": getArrayField(['Specialisms', 'Specialties', 'Skills', 'Areas of expertise', 'specialisms']),
         "Experience Level": getField(['Experience Level', 'Experience', 'Years of Experience', 'experience level']) || '',
         "Languages Spoken": getArrayField(['Languages Spoken', 'Languages', 'Spoken Languages', 'languages spoken']),
@@ -91,9 +91,13 @@ export async function GET() {
       }
     })
 
-    console.log('First mapped professional:', professionals[0])
+    // Filter out records with no name (empty records)
+    const validProfessionals = professionals.filter(p => p["Name"] && p["Name"].trim().length > 0)
+    
+    console.log('Valid professionals count:', validProfessionals.length)
+    console.log('First valid professional:', validProfessionals[0])
 
-    return NextResponse.json(professionals)
+    return NextResponse.json(validProfessionals)
   } catch (error) {
     console.error('Error fetching professionals from Airtable:', error)
     console.log('Returning mock data due to error')
