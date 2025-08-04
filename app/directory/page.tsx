@@ -9,7 +9,7 @@ import { Search, CheckCircle } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { mockProfessionals, type Professional } from "@/lib/mock-data"
+import { fetchProfessionals, type Professional } from "@/lib/airtable"
 
 export default function Directory() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -23,12 +23,11 @@ export default function Directory() {
   useEffect(() => {
     async function loadProfessionals() {
       try {
-        // Simulate loading delay
-        await new Promise(resolve => setTimeout(resolve, 500))
-        setProfessionals(mockProfessionals)
+        const data = await fetchProfessionals()
+        setProfessionals(data)
       } catch (error) {
         console.error("Failed to load professionals:", error)
-        setProfessionals(mockProfessionals)
+        setProfessionals([])
       } finally {
         setLoading(false)
       }
@@ -37,10 +36,10 @@ export default function Directory() {
     loadProfessionals()
   }, [])
 
-  const regions = Array.from(new Set(mockProfessionals.map(p => p["Region"]))).filter(Boolean)
-  const specialisms = Array.from(new Set(mockProfessionals.flatMap(p => p["Specialisms"]))).filter(Boolean)
+  const regions = Array.from(new Set(professionals.map(p => p["Region"]))).filter(Boolean)
+  const specialisms = Array.from(new Set(professionals.flatMap(p => p["Specialisms"]))).filter(Boolean)
 
-  const filteredProfessionals = mockProfessionals.filter(professional => {
+  const filteredProfessionals = professionals.filter(professional => {
     const matchesSearch = professional["Name"].toLowerCase().includes(searchTerm.toLowerCase()) ||
                          professional["Short Bio"].toLowerCase().includes(searchTerm.toLowerCase()) ||
                          professional["Specialisms"].some(spec => spec.toLowerCase().includes(searchTerm.toLowerCase()))
