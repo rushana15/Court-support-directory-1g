@@ -10,6 +10,109 @@ import { useState, useEffect } from "react"
 import { mockProfessionals, type Professional } from "@/lib/mock-data"
 import HeroSection from "@/components/hero-section"
 
+// Assume fetchProfessionals is defined elsewhere and fetches data from Airtable
+// For demonstration purposes, let's mock it here. In a real app, this would be an API call.
+async function fetchProfessionals(): Promise<Professional[]> {
+  // Replace this with your actual Airtable fetching logic
+  // Example:
+  // const response = await fetch('/api/professionals');
+  // const data = await response.json();
+  // return data;
+  console.warn("Using mock fetchProfessionals. Replace with actual API call.");
+
+  // Mocking the structure that the error implies, with correct casing and potential undefined specialisms
+  const mockAirtableData: any[] = [
+    {
+      "id": "1",
+      "Name": "Alice Wonderland",
+      "Verified": true,
+      "Specialisms": ["Family Law Mediation", "Child Custody Support"],
+      "region": "London",
+      "experienceLevel": "Senior",
+      "rateInfo": "£50/hour",
+      "image": "/alice.jpg"
+    },
+    {
+      "id": "2",
+      "Name": "Bob The Builder",
+      "Verified": false,
+      "Specialisms": ["Property Disputes", "Landlord Advice"],
+      "region": "Manchester",
+      "experienceLevel": "Mid-Level",
+      "rateInfo": "£40/hour",
+      "image": "/bob.jpg"
+    },
+    {
+      "id": "3",
+      "Name": "Charlie Chaplin",
+      "Verified": true,
+      "Specialisms": ["Divorce Guidance", "Financial Settlements"],
+      "region": "Birmingham",
+      "experienceLevel": "Junior",
+      "rateInfo": "£35/hour",
+      "image": "/charlie.jpg"
+    },
+    {
+      "id": "4",
+      "Name": "Diana Prince",
+      "Verified": true,
+      "Specialisms": ["Domestic Violence Support", "Legal Aid Assistance"],
+      "region": "Bristol",
+      "experienceLevel": "Senior",
+      "rateInfo": "£60/hour",
+      "image": "/diana.jpg"
+    },
+    {
+      "id": "5",
+      "Name": "Ethan Hunt",
+      "Verified": false,
+      "Specialisms": ["Immigration Law", "Visa Applications"],
+      "region": "Online",
+      "experienceLevel": "Expert",
+      "rateInfo": "£75/hour",
+      "image": "/ethan.jpg"
+    },
+    {
+      "id": "6",
+      "Name": "Fiona Shrek",
+      "Verified": true,
+      "Specialisms": ["Mediation", "Collaborative Law"],
+      "region": "Glasgow",
+      "experienceLevel": "Mid-Level",
+      "rateInfo": "£45/hour",
+      "image": "/fiona.jpg"
+    },
+    {
+      "id": "7",
+      "Name": "George Jetson",
+      "Verified": false,
+      "Specialisms": null, // Example of potentially missing specialisms
+      "region": "New York",
+      "experienceLevel": "Senior",
+      "rateInfo": "$100/hour",
+      "image": "/george.jpg"
+    }
+  ];
+
+  // Simulate network latency
+  await new Promise(resolve => setTimeout(resolve, 500));
+
+  // Map to the Professional type, ensuring correct property access
+  const professionals: Professional[] = mockAirtableData.map((item: any) => ({
+    id: item.id,
+    name: item.Name,
+    verified: item.Verified,
+    specialisms: item["Specialisms"] || [], // Handle null or undefined gracefully
+    region: item.region,
+    experienceLevel: item.experienceLevel,
+    rateInfo: item.rateInfo,
+    image: item.image
+  }));
+
+  return professionals;
+}
+
+
 export default function Homepage() {
   const [featuredProfessionals, setFeaturedProfessionals] = useState<Professional[]>([])
   const [loading, setLoading] = useState(true)
@@ -17,16 +120,13 @@ export default function Homepage() {
   useEffect(() => {
     async function loadFeaturedProfessionals() {
       try {
-        // Simulate loading delay
-        await new Promise(resolve => setTimeout(resolve, 500))
-
-        // Get first 3 verified professionals, or first 3 if none verified
-        const verified = mockProfessionals.filter((p) => p.verified)
-        const featured = verified.length >= 3 ? verified.slice(0, 3) : mockProfessionals.slice(0, 3)
+        const data = await fetchProfessionals()
+        // Show first 3 verified professionals
+        const featured = data.filter(p => p.verified).slice(0, 3) // Corrected to use 'verified' property
         setFeaturedProfessionals(featured)
       } catch (error) {
-        console.error("Failed to load professionals:", error)
-        setFeaturedProfessionals(mockProfessionals.slice(0, 3))
+        console.error("Failed to load featured professionals:", error)
+        setFeaturedProfessionals([])
       } finally {
         setLoading(false)
       }
@@ -137,7 +237,8 @@ export default function Homepage() {
 
                     {/* Specialisms - Smaller tags */}
                     <div className="flex flex-wrap gap-1 justify-center mb-6">
-                      {professional.specialisms.slice(0, 3).map((specialism, index) => (
+                      {/* Accessing specialisms using dot notation and ensuring it's an array */}
+                      {(professional.specialisms || []).slice(0, 3).map((specialism, index) => (
                         <Badge
                           key={index}
                           className="bg-[#F7941D] text-white text-xs px-2 py-1 font-inter font-medium"
