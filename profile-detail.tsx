@@ -208,7 +208,16 @@ export default function ProfileDetail() {
                   <CardTitle className="text-xl font-bold text-gray-900 font-merriweather">About</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 leading-relaxed font-inter">{professional["Long Bio"] || professional["Short Bio"]}</p>
+                  <div className="text-gray-600 leading-relaxed font-inter">
+                    {(professional["Long Bio"] || professional["Short Bio"])
+                      .split('\n')
+                      .filter(paragraph => paragraph.trim() !== '')
+                      .map((paragraph, index) => (
+                        <p key={index} className="mb-4 last:mb-0">
+                          {paragraph}
+                        </p>
+                      ))}
+                  </div>
                 </CardContent>
               </Card>
 
