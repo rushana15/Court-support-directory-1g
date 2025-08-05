@@ -246,61 +246,7 @@ export default function ProfileDetail() {
                 </Card>
               )}
 
-              {/* Specialisms */}
-              <Card className="bg-white shadow-lg border border-gray-200">
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-900 font-merriweather">Areas of Expertise</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {professional.specialisms.map((specialism, index) => (
-                      <Badge
-                        key={index}
-                        className="bg-[#F7941D] text-white hover:bg-[#E8851A] transition-colors font-inter"
-                      >
-                        {specialism}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Support Options */}
-              <Card className="bg-white shadow-lg border border-gray-200">
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-900 font-merriweather">Support Services</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    {professional.supportOptions.map((option, index) => (
-                      <div key={index} className="flex items-center space-x-2">
-                        <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700 font-inter">{option}</span>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Languages */}
-              <Card className="bg-white shadow-lg border border-gray-200">
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-gray-900 font-merriweather">Languages</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {professional.languages.map((language, index) => (
-                      <Badge
-                        key={index}
-                        variant="outline"
-                        className="border-[#004A7F] text-[#004A7F] font-inter"
-                      >
-                        {language}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+              
             </div>
           </div>
         </div>
