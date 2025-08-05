@@ -85,6 +85,7 @@ export async function GET() {
         "Languages Spoken": getArrayField(['Languages Spoken', 'Languages', 'Spoken Languages', 'languages spoken']),
         "Verified": getField(['Verified', 'verified', 'Is Verified'], false),
         "Rate Info": getField(['Rate Info', 'Rates', 'Pricing', 'Cost', 'rate info']) || '',
+        "Fixed Fee Text": getField(['Fixed Fee Text', 'fixed fee text', 'Fixed Fee', 'fixedFeeText']) || '',
         "LinkedIn Profile Link": getField(['LinkedIn Profile Link', 'LinkedIn', 'LinkedIn URL', 'linkedIn profile link']) || '',
         "Profile Photo": getProfilePhoto(),
         "Last Verified Date": getField(['Last Verified Date', 'Verified Date', 'last verified date']) || '',
