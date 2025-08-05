@@ -14,7 +14,7 @@ import { fetchProfessionals, type Professional } from "@/lib/airtable"
 export default function ProfileDetail() {
   const params = useParams()
   const profileId = params?.id
-  const [professional, setProfessional] = useState<any | null>(null)
+  const [professional, setProfessional] = useState<Professional | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

@@ -35,7 +35,7 @@ export default function Homepage() {
       }
     }
 
-    loadFeaturedProfessionals()
+    loadFeaturedProfessional s()
   }, [])
 
   return (
