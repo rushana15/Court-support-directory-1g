@@ -79,6 +79,7 @@ export async function GET() {
         id: record.id,
         "Name": getField(['Name', 'Full Name', 'name', 'Name ']) || '',
         "Short Bio": getField(['Short Bio', 'Bio', 'Description', 'About', 'short bio']) || '',
+        "Long Bio": getField(['Long Bio', 'long bio', 'Long Description', 'Detailed Bio']) || '',
         "Region": getField(['Region', 'Location', 'Area', 'region']) || 'UK',
         "Specialisms": getArrayField(['Specialisms', 'Specialties', 'Skills', 'Areas of expertise', 'specialisms']),
         "Experience Level": getField(['Experience Level', 'Experience', 'Years of Experience', 'experience level']) || '',

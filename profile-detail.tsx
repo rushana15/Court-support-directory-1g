@@ -208,7 +208,7 @@ export default function ProfileDetail() {
                   <CardTitle className="text-xl font-bold text-gray-900 font-merriweather">About</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600 leading-relaxed font-inter">{professional["Short Bio"]}</p>
+                  <p className="text-gray-600 leading-relaxed font-inter">{professional["Long Bio"] || professional["Short Bio"]}</p>
                 </CardContent>
               </Card>
 

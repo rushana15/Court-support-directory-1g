@@ -5,6 +5,7 @@ export interface Professional {
   id: string
   "Name": string
   "Short Bio": string
+  "Long Bio": string
   "Region": string
   "Specialisms": string[]
   "Experience Level": string
