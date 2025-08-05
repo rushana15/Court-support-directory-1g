@@ -7,8 +7,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    domains: ['dl.airtable.com', 'ui-avatars.com'],
     unoptimized: true,
-    domains: ['ui-avatars.com'],
   },
 }
 
