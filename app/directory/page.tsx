@@ -197,7 +197,7 @@ export default function Directory() {
                         alt={`${professional["Name"]} profile photo`}
                         width={100}
                         height={100}
-                        className="rounded-lg mx-auto object-cover border-2 border-gray-100"
+                        className="rounded-full mx-auto object-cover border-2 border-gray-100"
                       />
                       {professional["Verified"] && (
                         <div className="absolute -top-2 -right-2">
@@ -246,11 +246,17 @@ export default function Directory() {
                     )}
 
                     {/* Rate Info */}
-                    {professional["Rate Info"] && (
-                      <div className="text-center mb-6">
-                        <p className="text-sm text-gray-600 font-inter">{professional["Rate Info"]}</p>
+                    {(professional["Rate Info"] || professional["Fixed Fee Text"]) && (
+                      <div className="text-center mb-6 space-y-1">
+                        {professional["Rate Info"] && (
+                          <p className="text-sm text-gray-600 font-inter">{professional["Rate Info"]}</p>
+                        )}
+                        {professional["Fixed Fee Text"] && (
+                          <p className="text-xs text-green-700 font-inter">{professional["Fixed Fee Text"]}</p>
+                        )}
                       </div>
                     )}
+
 
                     {/* View Profile Button */}
                     <div className="text-center">

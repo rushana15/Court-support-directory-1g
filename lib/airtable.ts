@@ -11,6 +11,7 @@ export interface Professional {
   "Languages Spoken": string[]
   "Verified": boolean
   "Rate Info": string
+  "Fixed Fee Text": string
   "LinkedIn Profile Link": string
   "Profile Photo": string
   "Last Verified Date": string
