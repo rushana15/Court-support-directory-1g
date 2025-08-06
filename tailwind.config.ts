@@ -27,11 +27,11 @@ const config: Config = {
       },
       colors: {
         // Brand colors
-        'primary-green': '#12372A',
-        'warm-beige': '#EFE9E1',
-        'soft-white': '#FCFCFC',
-        'deep-taupe': '#5E4B3C',
-        'muted-gold': '#C1A76F',
+        'primary-green': '#2F4F4F',
+        'warm-beige': '#F5F0E6',
+        'soft-white': '#FFFFFF',
+        'deep-taupe': '#A07C5B',
+        'muted-gold': '#D4B07A',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

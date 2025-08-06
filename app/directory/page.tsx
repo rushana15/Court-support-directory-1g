@@ -177,7 +177,7 @@ export default function Directory() {
                   setSelectedExperience("All Levels")
                   setShowVerifiedOnly(false)
                 }}
-                className="bg-primary-green hover:bg-primary-green/90 text-white font-inter"
+                className="bg-primary-green hover:bg-primary-green/85 text-white px-8 py-3 font-inter rounded-full hover:ring-2 hover:ring-primary-green/30 transition-all duration-300"
               >
                 Clear Filters
               </Button>
@@ -219,12 +219,12 @@ export default function Directory() {
                     {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
                       <div className="flex flex-wrap justify-center gap-2 mb-6">
                         {professional["Specialisms"].slice(0, 3).map((specialism: string, index: number) => (
-                          <Badge key={index} className="bg-deep-taupe text-white hover:bg-deep-taupe/90 transition-colors text-xs font-inter font-medium rounded-full">
+                          <Badge key={index} className="bg-deep-taupe text-white hover:bg-muted-gold transition-colors text-xs font-inter font-medium rounded-full px-3 py-1">
                             {specialism}
                           </Badge>
                         ))}
                         {professional["Specialisms"].length > 3 && (
-                          <Badge className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors text-xs font-inter">
+                          <Badge className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors text-xs font-inter rounded-full px-3 py-1">
                             +{professional["Specialisms"].length - 3} more
                           </Badge>
                         )}
@@ -261,7 +261,7 @@ export default function Directory() {
                     {/* View Profile Button */}
                     <div className="text-center">
                       <Button
-                        className="bg-primary-green hover:bg-primary-green/90 text-white w-full font-inter font-semibold"
+                        className="bg-primary-green hover:bg-primary-green/85 text-white w-full px-6 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-primary-green/30 transition-all duration-300"
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>

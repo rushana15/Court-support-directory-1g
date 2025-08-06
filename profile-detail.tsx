@@ -181,19 +181,18 @@ export default function ProfileDetail() {
                   {/* LinkedIn Profile */}
                   {professional["LinkedIn Profile Link"] && (
                     <Button
-                      variant="outline"
-                      className="w-full mb-4 font-inter"
-                      asChild
-                    >
-                      <Link href={professional["LinkedIn Profile Link"]} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        LinkedIn Profile
-                      </Link>
-                    </Button>
+                        variant="outline"
+                        className="w-full border-primary-green text-primary-green hover:bg-primary-green hover:text-white px-8 py-4 font-inter rounded-full hover:ring-2 hover:ring-primary-green/30 transition-all duration-300"
+                        asChild
+                      >
+                        <Link href={professional["LinkedIn Profile Link"]} target="_blank" rel="noopener noreferrer">
+                          View LinkedIn Profile
+                        </Link>
+                      </Button>
                   )}
 
                   {/* Contact Button */}
-                  <Button className="w-full bg-primary-green hover:bg-primary-green/90 text-white font-inter font-semibold">
+                  <Button className="w-full bg-primary-green hover:bg-primary-green/85 text-white px-8 py-4 font-inter font-semibold rounded-full hover:ring-2 hover:ring-primary-green/30 transition-all duration-300">
                     Contact McKenzie Friend
                   </Button>
                 </CardContent>
@@ -230,7 +229,7 @@ export default function ProfileDetail() {
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
                       {professional["Specialisms"].map((specialism: string, index: number) => (
-                        <Badge key={index} className="bg-deep-taupe text-white hover:bg-deep-taupe/90 transition-colors font-inter font-medium rounded-full">
+                        <Badge key={index} className="bg-deep-taupe text-white hover:bg-muted-gold transition-colors text-xs font-inter rounded-full px-3 py-1">
                           {specialism}
                         </Badge>
                       ))}
