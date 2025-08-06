@@ -23,8 +23,15 @@ const config: Config = {
       fontFamily: {
         merriweather: ["var(--font-merriweather)", "serif"],
         inter: ["var(--font-inter)", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
       },
       colors: {
+        // Brand colors
+        'primary-green': '#12372A',
+        'warm-beige': '#EFE9E1',
+        'soft-white': '#FCFCFC',
+        'deep-taupe': '#5E4B3C',
+        'muted-gold': '#C1A76F',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -56,7 +56,7 @@ export default function Directory() {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1e3c34] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-green mx-auto mb-4"></div>
           <p className="text-lg text-gray-600 font-inter">Loading professionals...</p>
         </div>
       </div>
@@ -64,30 +64,30 @@ export default function Directory() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f5f1e7]">
+    <div className="min-h-screen bg-warm-beige">
       {/* Header */}
-      <header style={{ backgroundColor: "#1e3c34" }} className="border-b border-gray-200">
+      <header className="bg-primary-green border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <span className="text-3xl font-bold text-[#f5f1e7] font-merriweather tracking-wide">Court Support Network</span>
+              <span className="text-3xl font-bold text-white font-playfair tracking-wide">Court Support Network</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-warm-beige hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-warm-beige hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-warm-beige hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -97,11 +97,11 @@ export default function Directory() {
       </header>
 
       {/* Page Header */}
-      <section style={{ backgroundColor: "#f5f1e7" }} className="py-16 border-b border-gray-200">
+      <section className="bg-soft-white py-16 border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold text-[#1e3c34] mb-6 font-merriweather">McKenzie Friend Directory</h1>
-            <p className="text-xl text-[#2b2b2b] max-w-3xl mx-auto font-inter leading-relaxed">
+            <h1 className="text-5xl font-bold text-primary-green mb-6 font-playfair">McKenzie Friend Directory</h1>
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto font-inter leading-relaxed">
               Find verified McKenzie Friends in your area - {professionals.length} professionals available to support
               you
             </p>
@@ -109,7 +109,7 @@ export default function Directory() {
 
           {/* Search and Filters */}
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-lg border border-gray-200 p-8">
+            <div className="bg-soft-white rounded-lg shadow-lg border border-gray-200 p-8">
               <div className="grid md:grid-cols-3 gap-6">
                 {/* Search Bar */}
                 <div className="relative">
@@ -119,13 +119,13 @@ export default function Directory() {
                     placeholder="Search by name or expertise..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 py-3 border-[#8e9982] focus:border-[#2f534a] focus:ring-[#2f534a] font-inter"
+                    className="pl-10 py-3 border-gray-300 focus:border-primary-green focus:ring-primary-green font-inter"
                   />
                 </div>
 
                 {/* Region Filter */}
                 <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-                  <SelectTrigger className="py-3 font-inter" style={{ borderColor: "#8e9982" }}>
+                  <SelectTrigger className="py-3 font-inter border-gray-300 focus:border-primary-green">
                     <SelectValue placeholder="Select Region" />
                   </SelectTrigger>
                   <SelectContent>
@@ -140,7 +140,7 @@ export default function Directory() {
 
                 {/* Specialism Filter */}
                 <Select value={selectedSpecialism} onValueChange={setSelectedSpecialism}>
-                  <SelectTrigger className="py-3 font-inter" style={{ borderColor: "#8e9982" }}>
+                  <SelectTrigger className="py-3 font-inter border-gray-300 focus:border-primary-green">
                     <SelectValue placeholder="Select Specialism" />
                   </SelectTrigger>
                   <SelectContent>
@@ -164,7 +164,7 @@ export default function Directory() {
       </section>
 
       {/* Directory Results */}
-      <section className="py-16 bg-[#f5f1e7]">
+      <section className="py-16 bg-warm-beige">
         <div className="container mx-auto px-4">
           {filteredProfessionals.length === 0 ? (
             <div className="text-center py-16">
@@ -177,17 +177,17 @@ export default function Directory() {
                   setSelectedExperience("All Levels")
                   setShowVerifiedOnly(false)
                 }}
-                className="bg-[#1e3c34] hover:bg-[#2f534a] text-white font-inter"
+                className="bg-primary-green hover:bg-primary-green/90 text-white font-inter"
               >
                 Clear Filters
               </Button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProfessionals.map((professional) => (
                 <Card
                   key={professional.id}
-                  className="bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-200 h-full hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)]"
+                  className="bg-soft-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-200 h-full hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)]"
                 >
                   <CardContent className="p-6">
                     {/* Profile Photo */}
@@ -208,10 +208,10 @@ export default function Directory() {
 
                     {/* Name and Region */}
                     <div className="text-center mb-4">
-                      <h3 className="text-xl font-bold text-[#2b2b2b] mb-2 font-merriweather">{professional["Name"]}</h3>
-                      <p className="text-base text-gray-500 font-inter">{professional["Region"]}</p>
+                      <h3 className="text-xl font-bold text-primary-green mb-2 font-playfair">{professional["Name"]}</h3>
+                      <p className="text-base text-gray-600 font-inter">{professional["Region"]}</p>
                       {professional["Experience Level"] && (
-                        <p className="text-sm text-gray-400 font-inter">{professional["Experience Level"]}</p>
+                        <p className="text-sm text-gray-500 font-inter">{professional["Experience Level"]}</p>
                       )}
                     </div>
 
@@ -219,7 +219,7 @@ export default function Directory() {
                     {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
                       <div className="flex flex-wrap justify-center gap-2 mb-6">
                         {professional["Specialisms"].slice(0, 3).map((specialism: string, index: number) => (
-                          <Badge key={index} className="bg-[#1e3c34] text-[#f5f1e7] hover:bg-[#2f534a] transition-colors text-xs font-inter font-medium">
+                          <Badge key={index} className="bg-deep-taupe text-white hover:bg-deep-taupe/90 transition-colors text-xs font-inter font-medium rounded-full">
                             {specialism}
                           </Badge>
                         ))}
@@ -232,7 +232,7 @@ export default function Directory() {
                     )}
 
                     {/* Bio */}
-                    <p className="text-sm text-[#2b2b2b] text-center mb-6 line-clamp-3 font-inter leading-relaxed">
+                    <p className="text-sm text-gray-700 text-center mb-6 line-clamp-3 font-inter leading-relaxed">
                       {professional["Short Bio"]}
                     </p>
 
@@ -261,7 +261,7 @@ export default function Directory() {
                     {/* View Profile Button */}
                     <div className="text-center">
                       <Button
-                        className="bg-[#1e3c34] hover:bg-[#2f534a] text-white w-full font-inter font-semibold"
+                        className="bg-primary-green hover:bg-primary-green/90 text-white w-full font-inter font-semibold"
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>
@@ -276,11 +276,11 @@ export default function Directory() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 bg-[#f5f1e7] border-t border-gray-200">
+      <footer className="py-16 bg-soft-white border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold text-[#1e3c34] font-merriweather">Court Support Network</span>
+              <span className="text-xl font-bold text-primary-green font-playfair">Court Support Network</span>
             </div>
 
             <div className="flex items-center space-x-8">
@@ -289,7 +289,7 @@ export default function Directory() {
               </div>
               <Link
                 href="#"
-                className="text-[#1e3c34] hover:text-[#a36e4f] font-medium transition-colors underline underline-offset-2 font-inter"
+                className="text-primary-green hover:text-muted-gold font-medium transition-colors underline underline-offset-2 font-inter"
               >
                 Apply to be listed
               </Link>
