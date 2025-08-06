@@ -41,28 +41,28 @@ export default function Homepage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header style={{ backgroundColor: "#002F5F" }} className="border-b border-gray-200">
+      <header style={{ backgroundColor: "#1e3c34" }} className="border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <span className="text-3xl font-bold text-[#F3E9DC] font-merriweather tracking-wide">Court Support Network</span>
+              <span className="text-3xl font-bold font-merriweather tracking-wide" style={{ color: "#f5f1e7" }}>Court Support Network</span>
             </div>
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -74,15 +74,55 @@ export default function Homepage() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Profile Cards Section */}
-      <section className="py-20" style={{ backgroundColor: "#F5F0E6" }}>
+      {/* About Section */}
+      <section id="about" className="py-20" style={{ backgroundColor: "#f5f1e7" }}>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6 font-merriweather">Featured McKenzie Friends</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed">
+            <h2 className="text-4xl font-bold mb-6 font-merriweather" style={{ color: "#1e3c34" }}>About McKenzie Friends</h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed font-inter" style={{ color: "#2b2b2b" }}>
               Meet some of our verified McKenzie Friends ready to support you through your family court journey with
               expertise and compassion
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* How it Works */}
+      <section id="how-it-works" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-12 font-merriweather" style={{ color: "#1e3c34" }}>How It Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Step 1 */}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 font-merriweather" style={{ color: "#1e3c34" }}>Browse Profiles</h3>
+              <p className="text-lg text-gray-700 font-inter">
+                Easily find McKenzie Friends by location, specialism, and experience.
+              </p>
+            </div>
+            {/* Step 2 */}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 font-merriweather" style={{ color: "#1e3c34" }}>Connect Directly</h3>
+              <p className="text-lg text-gray-700 font-inter">
+                Message professionals securely through our platform to discuss your needs.
+              </p>
+            </div>
+            {/* Step 3 */}
+            <div>
+              <h3 className="text-2xl font-bold mb-4 font-merriweather" style={{ color: "#1e3c34" }}>Get Support</h3>
+              <p className="text-lg text-gray-700 font-inter">
+                Receive compassionate and expert assistance for your court proceedings.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Professionals */}
+      <section className="py-20" style={{ backgroundColor: "#f5f1e7" }}>
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 font-merriweather" style={{ color: "#1e3c34" }}>Featured McKenzie Friends</h2>
+            <p className="text-xl mb-12 font-inter" style={{ color: "#2b2b2b" }}>Meet some of our most experienced professionals</p>
           </div>
 
           {loading ? (
@@ -115,7 +155,7 @@ export default function Homepage() {
                     </div>
 
                     {/* Name */}
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 text-center font-merriweather">{professional["Name"]}</h3>
+                    <h3 className="text-xl font-bold mb-2 font-merriweather" style={{ color: "#1e3c34" }}>{professional["Name"]}</h3>
 
                     {/* Professional Details */}
                     <div className="space-y-3 mb-6 flex-grow">
@@ -143,7 +183,7 @@ export default function Homepage() {
                       {(professional["Specialisms"] || []).slice(0, 3).map((specialism, index) => (
                         <Badge
                           key={index}
-                          className="bg-[#F7941D] text-white text-xs px-2 py-1 font-inter font-medium"
+                          className="bg-[#a36e4f] text-white text-xs px-2 py-1 font-inter font-medium"
                         >
                           {specialism}
                         </Badge>
@@ -153,7 +193,10 @@ export default function Homepage() {
                     {/* View Profile Button */}
                     <div className="mt-auto">
                       <Button
-                        className="bg-[#004A7F] hover:bg-[#003A6B] text-white w-full py-2.5 font-inter font-semibold"
+                        className="text-white w-full font-inter font-semibold transition-colors duration-200"
+                        style={{ backgroundColor: "#1e3c34" }}
+                        onMouseEnter={(e) => e.target.style.backgroundColor = "#2f534a"}
+                        onMouseLeave={(e) => e.target.style.backgroundColor = "#1e3c34"}
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>
@@ -164,6 +207,73 @@ export default function Homepage() {
               ))}
             </div>
           )}
+          <div className="text-center mt-16">
+            <Button
+              className="text-white px-8 py-4 text-lg font-semibold font-inter transition-colors duration-200"
+              style={{ backgroundColor: "#1e3c34" }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = "#2f534a"}
+              onMouseLeave={(e) => e.target.style.backgroundColor = "#1e3c34"}
+            >
+              Browse Directory
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6 font-merriweather" style={{ color: "#1e3c34" }}>Get In Touch</h2>
+          <p className="text-xl mb-12 font-inter" style={{ color: "#2b2b2b" }}>
+            Have questions or need assistance? Reach out to us today.
+          </p>
+          <form className="max-w-2xl mx-auto space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-left text-lg font-medium font-inter mb-2" style={{ color: "#1e3c34" }}>
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 font-inter"
+                style={{ borderColor: "#8e9982", color: "#2b2b2b", backgroundColor: "#f5f1e7" }}
+                placeholder="Your Name"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-left text-lg font-medium font-inter mb-2" style={{ color: "#1e3c34" }}>
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 font-inter"
+                style={{ borderColor: "#8e9982", color: "#2b2b2b", backgroundColor: "#f5f1e7" }}
+                placeholder="Your Email"
+              />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-left text-lg font-medium font-inter mb-2" style={{ color: "#1e3c34" }}>
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={6}
+                className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 font-inter"
+                style={{ borderColor: "#8e9982", color: "#2b2b2b", backgroundColor: "#f5f1e7" }}
+                placeholder="Your Message"
+              ></textarea>
+            </div>
+            <Button
+              className="text-white px-8 py-4 text-lg font-semibold font-inter transition-colors duration-200"
+              style={{ backgroundColor: "#1e3c34" }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = "#2f534a"}
+              onMouseLeave={(e) => e.target.style.backgroundColor = "#1e3c34"}
+              type="submit"
+            >
+              Send Message
+            </Button>
+          </form>
         </div>
       </section>
 
@@ -172,7 +282,7 @@ export default function Homepage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold text-[#004A7F] font-merriweather">Court Support Network</span>
+              <span className="text-xl font-bold font-merriweather" style={{ color: "#1e3c34" }}>Court Support Network</span>
             </div>
 
             <div className="flex items-center space-x-8">
@@ -181,7 +291,7 @@ export default function Homepage() {
               </div>
               <Link
                 href="#"
-                className="text-[#004A7F] hover:text-[#F7941D] font-medium transition-colors underline underline-offset-2 font-inter"
+                className="text-[#1e3c34] hover:text-[#a36e4f] font-medium transition-colors underline underline-offset-2 font-inter"
               >
                 Apply to be listed
               </Link>

@@ -15,15 +15,15 @@ export default function HeroSection() {
         }}
       />
       
-      {/* Dark Overlay with lightening effect */}
+      {/* Dark Overlay with beige tint */}
       <div className="absolute inset-0 bg-black/50" />
-      <div className="absolute inset-0 bg-white/10" />
+      <div className="absolute inset-0" style={{ backgroundColor: "rgba(245, 241, 231, 0.15)" }} />
       
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 max-w-3xl mx-auto">
         <div className="space-y-8">
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight font-merriweather">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-merriweather" style={{ color: "#1e3c34" }}>
             Find Verified McKenzie Friends
           </h1>
           
@@ -36,7 +36,10 @@ export default function HeroSection() {
           <div className="pt-4">
             <Button
               size="lg"
-              className="bg-[#004A7F] hover:bg-[#003A6B] text-white px-8 py-4 sm:px-10 sm:py-5 text-lg sm:text-xl font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-inter"
+              className="text-white px-8 py-4 sm:px-10 sm:py-5 text-lg sm:text-xl font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-inter"
+              style={{ backgroundColor: "#1e3c34" }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = "#2f534a"}
+              onMouseLeave={(e) => e.target.style.backgroundColor = "#1e3c34"}
               asChild
             >
               <Link href="/directory">Browse the Directory</Link>

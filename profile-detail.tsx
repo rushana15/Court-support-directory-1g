@@ -42,7 +42,7 @@ export default function ProfileDetail() {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#004A7F] mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1e3c34] mx-auto mb-4"></div>
           <p className="text-lg text-gray-600 font-inter">Loading profile...</p>
         </div>
       </div>
@@ -53,11 +53,11 @@ export default function ProfileDetail() {
     return (
       <div className="min-h-screen bg-white">
         {/* Header */}
-        <header style={{ backgroundColor: "#002F5F" }} className="border-b border-gray-200">
+        <header style={{ backgroundColor: "#1e3c34" }} className="border-b border-gray-200">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between">
               <Link href="/" className="flex items-center">
-                <span className="text-3xl font-bold text-[#F3E9DC] font-merriweather tracking-wide">Court Support Network</span>
+                <span className="text-3xl font-bold text-[#f5f1e7] font-merriweather tracking-wide">Court Support Network</span>
               </Link>
             </div>
           </div>
@@ -67,7 +67,7 @@ export default function ProfileDetail() {
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900 mb-4 font-merriweather">Professional Not Found</h1>
             <p className="text-gray-600 mb-6 font-inter">The professional you're looking for doesn't exist.</p>
-            <Button asChild className="bg-[#004A7F] hover:bg-[#003A6B] text-white font-inter">
+            <Button asChild className="bg-[#1e3c34] hover:bg-[#2f534a] text-white font-inter">
               <Link href="/directory">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Directory
@@ -82,28 +82,28 @@ export default function ProfileDetail() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header style={{ backgroundColor: "#002F5F" }} className="border-b border-gray-200">
+      <header style={{ backgroundColor: "#1e3c34" }} className="border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <span className="text-3xl font-bold text-[#F3E9DC] font-merriweather tracking-wide">Court Support Network</span>
+              <span className="text-3xl font-bold text-[#f5f1e7] font-merriweather tracking-wide">Court Support Network</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-[#F5F1EA] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-[#f5f1e7] hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -115,7 +115,7 @@ export default function ProfileDetail() {
       {/* Back Button */}
       <div className="bg-gray-50 py-4">
         <div className="container mx-auto px-4">
-          <Button variant="ghost" asChild className="text-[#004A7F] hover:text-[#F7941D] font-inter">
+          <Button variant="ghost" asChild className="text-[#1e3c34] hover:text-[#a36e4f] font-inter">
             <Link href="/directory">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Directory
@@ -150,7 +150,7 @@ export default function ProfileDetail() {
 
                   {/* Name and Title */}
                   <h1 className="text-2xl font-bold text-gray-900 mb-2 font-merriweather">{professional["Name"]}</h1>
-                  <p className="text-lg text-[#004A7F] mb-4 font-inter font-semibold">McKenzie Friend</p>
+                  <p className="text-lg text-[#1e3c34] mb-4 font-inter font-semibold">McKenzie Friend</p>
 
                   {/* Location */}
                   <div className="flex items-center justify-center mb-4">
@@ -160,7 +160,7 @@ export default function ProfileDetail() {
 
                   {/* Experience Level */}
                   <div className="mb-4">
-                    <Badge className="bg-[#F7941D] text-white px-3 py-1 font-inter">
+                    <Badge className="bg-[#a36e4f] text-white px-3 py-1 font-inter">
                       {professional["Experience Level"]}
                     </Badge>
                   </div>
@@ -193,7 +193,7 @@ export default function ProfileDetail() {
                   )}
 
                   {/* Contact Button */}
-                  <Button className="w-full bg-[#004A7F] hover:bg-[#003A6B] text-white font-inter font-semibold">
+                  <Button className="w-full bg-[#1e3c34] hover:bg-[#2f534a] text-white font-inter font-semibold">
                     Contact McKenzie Friend
                   </Button>
                 </CardContent>
@@ -230,7 +230,7 @@ export default function ProfileDetail() {
                   <CardContent>
                     <div className="flex flex-wrap gap-2">
                       {professional["Specialisms"].map((specialism: string, index: number) => (
-                        <Badge key={index} className="bg-[#F7941D] text-white hover:bg-[#E8851A] transition-colors font-inter font-medium">
+                        <Badge key={index} className="bg-[#a36e4f] text-white hover:bg-[#eae3d2] transition-colors font-inter font-medium">
                           {specialism}
                         </Badge>
                       ))}
@@ -255,7 +255,7 @@ export default function ProfileDetail() {
                 </Card>
               )}
 
-              
+
             </div>
           </div>
         </div>
@@ -266,10 +266,10 @@ export default function ProfileDetail() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-3 mb-6 md:mb-0">
-              <div className="w-8 h-8 bg-[#F7941D] rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#a36e4f] rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-sm font-merriweather">CSN</span>
               </div>
-              <span className="text-xl font-bold text-[#004A7F] font-merriweather">Court Support Network</span>
+              <span className="text-xl font-bold text-[#1e3c34] font-merriweather">Court Support Network</span>
             </div>
 
             <div className="flex items-center space-x-8">
@@ -278,7 +278,7 @@ export default function ProfileDetail() {
               </div>
               <Link
                 href="#"
-                className="text-[#004A7F] hover:text-[#F7941D] font-medium transition-colors underline underline-offset-2 font-inter"
+                className="text-[#1e3c34] hover:text-[#a36e4f] font-medium transition-colors underline underline-offset-2 font-inter"
               >
                 Apply to be listed
               </Link>
