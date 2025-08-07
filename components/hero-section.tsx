@@ -32,21 +32,20 @@ export default function HeroSection() {
               </p>
               <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ease-out delay-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}></div>
-            </div>
-              <Button 
-                asChild 
-                className="bg-cta-coral hover:bg-cta-coral-hover text-white border-none rounded-full px-8 py-4 font-bold font-inter transition-all duration-300 hover:shadow-lg text-lg"
-              >
-                <Link href="/directory">Browse the Directory</Link>
-              </Button>
-              <Button 
-                variant="outline" 
-                asChild 
-                className="bg-transparent border-2 border-main-text text-main-text hover:bg-main-text hover:text-white rounded-full px-8 py-4 font-bold font-inter transition-all duration-300 text-lg"
-              >
-                <Link href="#how-it-works">Learn More</Link>
-              </Button>
+              }`}>
+                <Button 
+                  asChild 
+                  className="bg-cta-coral hover:bg-cta-coral-hover text-white border-none rounded-full px-8 py-4 font-bold font-inter transition-all duration-300 hover:shadow-lg text-lg"
+                >
+                  <Link href="/directory">Browse the Directory</Link>
+                </Button>
+                <Button 
+                  variant="outline" 
+                  asChild 
+                  className="bg-transparent border-2 border-main-text text-main-text hover:bg-main-text hover:text-white rounded-full px-8 py-4 font-bold font-inter transition-all duration-300 text-lg"
+                >
+                  <Link href="#how-it-works">Learn More</Link>
+                </Button>
               </div>
             </div>
           </div>
