@@ -16,6 +16,7 @@ export interface Professional {
   "LinkedIn Profile Link": string
   "Profile Photo": string
   "Last Verified Date": string
+  "Founding Member": boolean
 }
 
 export async function fetchProfessionals(): Promise<Professional[]> {

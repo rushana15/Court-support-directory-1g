@@ -7,13 +7,14 @@ export default function HeroSection() {
   return (
     <section className="relative">
       {/* Hero Banner */}
-      <div className="relative h-[600px] overflow-hidden">
+      <div className="relative h-[600px] overflow-hidden bg-gray-100">
         <Image
           src="/attached_assets/ChatGPT Image Aug 7, 2025 at 08_07_46 AM_1754550487976.png"
           alt="Professional consultation"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
+          unoptimized
         />
         
         {/* Content Overlay */}

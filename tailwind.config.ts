@@ -29,12 +29,12 @@ const config: Config = {
         // New color scheme
         'primary-background': '#F4F4F4', // Soft gray background
         'content-area': '#D8D8D8', // Darker gray for sections
-        'header-footer': '#2C2C2C', // True charcoal gray
+        'header-footer': '#404040', // Lighter charcoal gray
         'main-text': '#333333', // Body text
         'muted-text': '#737373', // Muted info text
         'cta-coral': '#F1785D', // Soft coral for buttons
         'cta-coral-hover': '#DE6249', // Coral hover state
-        'tag-background': '#2C2C2C', // Background for specialism tags
+        'tag-background': '#404040', // Background for specialism tags
         'tag-text': '#FFFFFF', // Text for specialism tags
         'input-bg': '#FDFDF9', // Input field backgrounds
         
