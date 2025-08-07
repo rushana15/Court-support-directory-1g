@@ -27,11 +27,12 @@ const config: Config = {
       },
       colors: {
         // Brand colors
-        'primary-green': '#2F4F4F',
-        'warm-beige': '#F5F0E6',
-        'soft-white': '#FFFFFF',
-        'deep-taupe': '#A07C5B',
-        'muted-gold': '#D4B07A',
+        'primary-background': '#C4DEC6',
+        'content-area': '#DDE1D6',
+        'header-footer': '#1E1E1E',
+        'main-text': '#2C2C2C',
+        'cta-orange': '#ED7745',
+        'input-bg': '#FDFDF9',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

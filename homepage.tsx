@@ -39,9 +39,9 @@ export default function Homepage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#F5F0E6]">
+    <div className="min-h-screen bg-[#C4DEC6]">
       {/* Header */}
-      <header className="bg-[#2F4F4F] border-b border-gray-200">
+      <header className="bg-[#1E1E1E] border-b border-gray-700">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -50,19 +50,19 @@ export default function Homepage() {
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-[#F5F0E6] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-[#F5F0E6] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-[#F5F0E6] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -75,11 +75,11 @@ export default function Homepage() {
       <HeroSection />
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-[#DDE1D6]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2F4F4F]">About McKenzie Friends</h2>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed font-inter text-gray-700">
+            <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2C2C2C]">About McKenzie Friends</h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed font-inter text-[#2C2C2C]">
               Meet some of our verified McKenzie Friends ready to support you through your family court journey with
               expertise and compassion
             </p>
@@ -88,28 +88,28 @@ export default function Homepage() {
       </section>
 
       {/* How it Works */}
-      <section id="how-it-works" className="py-20 bg-[#F5F0E6]">
+      <section id="how-it-works" className="py-20 bg-[#C4DEC6]">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 font-playfair text-center text-[#2F4F4F]">How It Works</h2>
+          <h2 className="text-4xl font-bold mb-12 font-playfair text-center text-[#2C2C2C]">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Step 1 */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2F4F4F]">Browse Profiles</h3>
-              <p className="text-lg text-gray-700 font-inter">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2C2C2C]">Browse Profiles</h3>
+              <p className="text-lg text-[#2C2C2C] font-inter">
                 Easily find McKenzie Friends by location, specialism, and experience.
               </p>
             </div>
             {/* Step 2 */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2F4F4F]">Connect Directly</h3>
-              <p className="text-lg text-gray-700 font-inter">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2C2C2C]">Connect Directly</h3>
+              <p className="text-lg text-[#2C2C2C] font-inter">
                 Message professionals securely through our platform to discuss your needs.
               </p>
             </div>
             {/* Step 3 */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2F4F4F]">Get Support</h3>
-              <p className="text-lg text-gray-700 font-inter">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2C2C2C]">Get Support</h3>
+              <p className="text-lg text-[#2C2C2C] font-inter">
                 Receive compassionate and expert assistance for your court proceedings.
               </p>
             </div>
@@ -118,16 +118,16 @@ export default function Homepage() {
       </section>
 
       {/* Featured Professionals */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#DDE1D6]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 font-playfair text-[#2F4F4F]">Featured McKenzie Friends</h2>
-            <p className="text-xl mb-12 font-inter text-gray-700">Meet some of our most experienced professionals</p>
+            <h2 className="text-4xl font-bold mb-4 font-playfair text-[#2C2C2C]">Featured McKenzie Friends</h2>
+            <p className="text-xl mb-12 font-inter text-[#2C2C2C]">Meet some of our most experienced professionals</p>
           </div>
 
           {loading ? (
             <div className="text-center py-16">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2F4F4F] mx-auto mb-4"></div>
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2C2C2C] mx-auto mb-4"></div>
               <p className="text-lg text-gray-600 font-inter">Loading featured professionals...</p>
             </div>
           ) : (
@@ -135,7 +135,7 @@ export default function Homepage() {
               {featuredProfessionals.map((professional) => (
                 <Card
                   key={professional.id}
-                  className="bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-100 h-full"
+                  className="bg-[#FDFDF9] shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-100 h-full"
                 >
                   <CardContent className="p-6 h-full flex flex-col">
                     {/* Profile Photo and Verification */}
@@ -155,26 +155,26 @@ export default function Homepage() {
                     </div>
 
                     {/* Name */}
-                    <h3 className="text-xl font-bold mb-2 font-playfair text-[#2F4F4F] text-center">{professional["Name"]}</h3>
+                    <h3 className="text-xl font-bold mb-2 font-playfair text-[#2C2C2C] text-center">{professional["Name"]}</h3>
 
                     {/* Professional Details */}
                     <div className="space-y-3 mb-6 flex-grow">
                       {/* Location */}
                       <div className="flex items-center justify-center gap-2">
                         <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-gray-600 font-inter">{professional["Region"]}</span>
+                        <span className="text-sm text-[#2C2C2C] font-inter">{professional["Region"]}</span>
                       </div>
 
                       {/* Experience Level */}
                       <div className="flex items-center justify-center gap-2">
                         <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-gray-600 font-inter">{professional["Experience Level"] || "Not specified"}</span>
+                        <span className="text-sm text-[#2C2C2C] font-inter">{professional["Experience Level"] || "Not specified"}</span>
                       </div>
 
                       {/* Rate */}
                       <div className="flex items-center justify-center gap-2">
                         <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-gray-600 font-inter">{professional["Rate Info"]}</span>
+                        <span className="text-sm text-[#2C2C2C] font-inter">{professional["Rate Info"]}</span>
                       </div>
                     </div>
 
@@ -183,7 +183,7 @@ export default function Homepage() {
                       {(professional["Specialisms"] || []).slice(0, 3).map((specialism, index) => (
                         <Badge
                           key={index}
-                          className="bg-[#A07C5B] text-white text-xs px-3 py-1 font-inter font-medium rounded-full hover:bg-[#A07C5B]/90"
+                          className="bg-[#ED7745] text-white text-xs px-3 py-1 font-inter font-semibold rounded-full hover:bg-[#ED7745]/90"
                         >
                           {specialism}
                         </Badge>
@@ -193,7 +193,7 @@ export default function Homepage() {
                     {/* View Profile Button */}
                     <div className="mt-auto">
                       <Button
-                        className="bg-[#2F4F4F] hover:bg-[#2F4F4F]/85 text-white w-full font-inter font-semibold transition-colors duration-200 rounded-full hover:ring-2 hover:ring-[#2F4F4F]/30 transition-all duration-300"
+                        className="bg-[#ED7745] hover:bg-[#ED7745]/85 text-white w-full font-inter font-semibold transition-colors duration-200 rounded-full hover:ring-2 hover:ring-[#ED7745]/30 transition-all duration-300"
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>
@@ -206,7 +206,7 @@ export default function Homepage() {
           )}
           <div className="text-center mt-16">
             <Button
-              className="bg-[#2F4F4F] hover:bg-[#2F4F4F]/85 text-white px-8 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-[#2F4F4F]/30 transition-all duration-300"
+              className="bg-[#ED7745] hover:bg-[#ED7745]/85 text-white px-8 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-[#ED7745]/30 transition-all duration-300"
               asChild
             >
               <Link href="/directory">Browse Directory</Link>
@@ -216,48 +216,48 @@ export default function Homepage() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-[#F5F0E6]">
+      <section id="contact" className="py-20 bg-[#C4DEC6]">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2F4F4F]">Get In Touch</h2>
-          <p className="text-xl mb-12 font-inter text-gray-700">
+          <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2C2C2C]">Get In Touch</h2>
+          <p className="text-xl mb-12 font-inter text-[#2C2C2C]">
             Have questions or need assistance? Reach out to us today.
           </p>
           <form className="max-w-2xl mx-auto space-y-6">
             <div>
-              <label htmlFor="name" className="block text-left text-lg font-medium font-inter mb-2 text-[#2F4F4F]">
+              <label htmlFor="name" className="block text-left text-lg font-medium font-inter mb-2 text-[#2C2C2C]">
                 Name
               </label>
               <input
                 type="text"
                 id="name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F4F4F] font-inter bg-white text-gray-700"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED7745] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
                 placeholder="Your Name"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-left text-lg font-medium font-inter mb-2 text-[#2F4F4F]">
+              <label htmlFor="email" className="block text-left text-lg font-medium font-inter mb-2 text-[#2C2C2C]">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F4F4F] font-inter bg-white text-gray-700"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED7745] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
                 placeholder="Your Email"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-left text-lg font-medium font-inter mb-2 text-[#2F4F4F]">
+              <label htmlFor="message" className="block text-left text-lg font-medium font-inter mb-2 text-[#2C2C2C]">
                 Message
               </label>
               <textarea
                 id="message"
                 rows={6}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F4F4F] font-inter bg-white text-gray-700"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED7745] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
                 placeholder="Your Message"
               ></textarea>
             </div>
             <Button
-              className="bg-[#2F4F4F] hover:bg-[#2F4F4F]/85 text-white px-8 py-4 text-lg font-semibold font-inter transition-colors duration-200"
+              className="bg-[#ED7745] hover:bg-[#ED7745]/85 text-white px-8 py-4 text-lg font-semibold font-inter transition-colors duration-200"
               type="submit"
             >
               Send Message
@@ -267,20 +267,20 @@ export default function Homepage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 bg-white border-t border-gray-200">
+      <footer className="py-16 bg-[#DDE1D6] border-t border-gray-700">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold font-playfair text-[#2F4F4F]">Court Support Network</span>
+              <span className="text-xl font-bold font-playfair text-[#1E1E1E]">Court Support Network</span>
             </div>
 
             <div className="flex items-center space-x-8">
-              <div className="text-sm text-gray-600 font-inter">
+              <div className="text-sm text-[#2C2C2C] font-inter">
                 © {new Date().getFullYear()} Court Support Network. All rights reserved.
               </div>
               <Link
                 href="#"
-                className="text-[#2F4F4F] hover:text-[#D4B07A] font-medium transition-colors underline underline-offset-2 font-inter"
+                className="text-[#2C2C2C] hover:text-[#ED7745] font-medium transition-colors underline underline-offset-2 font-inter"
               >
                 Apply to be listed
               </Link>

@@ -91,19 +91,19 @@ export default function ProfileDetail() {
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-warm-beige hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-warm-beige hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-warm-beige hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -130,7 +130,7 @@ export default function ProfileDetail() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Left Column - Profile Photo and Basic Info */}
             <div className="md:col-span-1">
-              <Card className="bg-soft-white shadow-lg border border-gray-200">
+              <Card className="bg-white shadow-lg border border-gray-200">
                 <CardContent className="p-6 text-center">
                   {/* Profile Photo */}
                   <div className="relative mb-6">
@@ -202,7 +202,7 @@ export default function ProfileDetail() {
             {/* Right Column - Detailed Information */}
             <div className="md:col-span-2 space-y-6">
               {/* About Section */}
-              <Card className="bg-soft-white shadow-lg border border-gray-200">
+              <Card className="bg-white shadow-lg border border-gray-200">
                 <CardHeader>
                   <CardTitle className="text-xl font-bold text-primary-green font-playfair">About</CardTitle>
                 </CardHeader>
@@ -222,7 +222,7 @@ export default function ProfileDetail() {
 
               {/* Specialisms Section */}
               {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
-                <Card className="bg-soft-white shadow-lg border border-gray-200">
+                <Card className="bg-white shadow-lg border border-gray-200">
                   <CardHeader>
                     <CardTitle className="text-xl font-bold text-primary-green font-playfair">Areas of Expertise</CardTitle>
                   </CardHeader>
@@ -240,7 +240,7 @@ export default function ProfileDetail() {
 
               {/* Languages Section */}
               {professional["Languages Spoken"] && professional["Languages Spoken"].length > 0 && (
-                <Card className="bg-soft-white shadow-lg border border-gray-200">
+                <Card className="bg-white shadow-lg border border-gray-200">
                   <CardHeader>
                     <CardTitle className="text-xl font-bold text-primary-green font-playfair">Languages Spoken</CardTitle>
                   </CardHeader>
