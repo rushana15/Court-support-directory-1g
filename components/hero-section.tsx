@@ -12,8 +12,8 @@ export default function HeroSection() {
         className="absolute inset-0"
       >
         <Image
-          src="/hero.png"
-          alt="Supportive family consultation"
+          src="/attached_assets/ChatGPT Image Jul 25, 2025 at 05_42_35 PM_1753461765693.png"
+          alt="Professional legal consultation"
           fill
           className="object-cover object-center"
           priority
@@ -39,7 +39,8 @@ export default function HeroSection() {
           <div className="pt-4">
             <Button
               size="lg"
-              className="bg-cta-coral hover:bg-cta-coral/85 text-white px-10 py-5 text-lg font-semibold font-inter rounded-full shadow-lg hover:shadow-xl hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
+              className="bg-cta-coral hover:bg-cta-coral-hover text-white px-10 py-5 text-lg font-bold font-inter rounded-full shadow-lg hover:shadow-xl hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
+              style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
               asChild
             >
               <Link href="/directory">Browse the Directory</Link>

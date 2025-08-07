@@ -41,7 +41,7 @@ export default function Homepage() {
   return (
     <div className="min-h-screen bg-[#F4F4F4]">
       {/* Header */}
-      <header className="bg-[#2C2C2C] border-b border-gray-700">
+      <header className="bg-header-footer border-b border-gray-700">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -50,19 +50,19 @@ export default function Homepage() {
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -78,8 +78,8 @@ export default function Homepage() {
       <section id="about" className="py-20 bg-[#D8D8D8]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2C2C2C]">About McKenzie Friends</h2>
-            <p className="text-xl max-w-3xl mx-auto leading-relaxed font-inter text-[#2C2C2C]">
+            <h2 className="text-4xl font-bold mb-6 font-playfair text-main-text">About McKenzie Friends</h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed font-inter text-main-text">
               Meet some of our verified McKenzie Friends ready to support you through your family court journey with
               expertise and compassion
             </p>
@@ -90,26 +90,26 @@ export default function Homepage() {
       {/* How it Works */}
       <section id="how-it-works" className="py-20 bg-[#F4F4F4]">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 font-playfair text-center text-[#2C2C2C]">How It Works</h2>
+          <h2 className="text-4xl font-bold mb-12 font-playfair text-center text-main-text">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Step 1 */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2C2C2C]">Browse Profiles</h3>
-              <p className="text-lg text-[#2C2C2C] font-inter">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-main-text">Browse Profiles</h3>
+              <p className="text-lg text-main-text font-inter">
                 Easily find McKenzie Friends by location, specialism, and experience.
               </p>
             </div>
             {/* Step 2 */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2C2C2C]">Connect Directly</h3>
-              <p className="text-lg text-[#2C2C2C] font-inter">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-main-text">Connect Directly</h3>
+              <p className="text-lg text-main-text font-inter">
                 Message professionals securely through our platform to discuss your needs.
               </p>
             </div>
             {/* Step 3 */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2C2C2C]">Get Support</h3>
-              <p className="text-lg text-[#2C2C2C] font-inter">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-main-text">Get Support</h3>
+              <p className="text-lg text-main-text font-inter">
                 Receive compassionate and expert assistance for your court proceedings.
               </p>
             </div>
@@ -121,8 +121,8 @@ export default function Homepage() {
       <section className="py-20 bg-[#D8D8D8]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 font-playfair text-[#2C2C2C]">Featured McKenzie Friends</h2>
-            <p className="text-xl mb-12 font-inter text-[#2C2C2C]">Meet some of our most experienced professionals</p>
+            <h2 className="text-4xl font-bold mb-4 font-playfair text-main-text">Featured McKenzie Friends</h2>
+            <p className="text-xl mb-12 font-inter text-main-text">Meet some of our most experienced professionals</p>
           </div>
 
           {loading ? (
@@ -155,35 +155,36 @@ export default function Homepage() {
                     </div>
 
                     {/* Name */}
-                    <h3 className="text-xl font-bold mb-2 font-playfair text-[#2C2C2C] text-center">{professional["Name"]}</h3>
+                    <h3 className="text-xl font-bold mb-2 font-playfair text-main-text text-center">{professional["Name"]}</h3>
 
                     {/* Professional Details */}
                     <div className="space-y-3 mb-6 flex-grow">
                       {/* Location */}
                       <div className="flex items-center justify-center gap-2">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-[#2C2C2C] font-inter">{professional["Region"]}</span>
+                        <div className="w-2 h-2 bg-muted-text rounded-full"></div>
+                        <span className="text-sm text-muted-text font-inter">{professional["Region"]}</span>
                       </div>
 
                       {/* Experience Level */}
                       <div className="flex items-center justify-center gap-2">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-[#2C2C2C] font-inter">{professional["Experience Level"] || "Not specified"}</span>
+                        <div className="w-2 h-2 bg-muted-text rounded-full"></div>
+                        <span className="text-sm text-muted-text font-inter">{professional["Experience Level"] || "Not specified"}</span>
                       </div>
 
                       {/* Rate */}
                       <div className="flex items-center justify-center gap-2">
-                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                        <span className="text-sm text-[#2C2C2C] font-inter">{professional["Rate Info"]}</span>
+                        <div className="w-2 h-2 bg-muted-text rounded-full"></div>
+                        <span className="text-sm text-muted-text font-inter">{professional["Rate Info"]}</span>
                       </div>
                     </div>
 
                     {/* Specialisms - Updated styling */}
-                    <div className="flex flex-wrap gap-2 justify-center mb-6">
+                    <div className="flex flex-wrap gap-1 justify-center mb-6">
                       {(professional["Specialisms"] || []).slice(0, 3).map((specialism, index) => (
                         <Badge
                           key={index}
-                          className="bg-[#F36F5A] text-white text-xs px-3 py-1 font-inter font-semibold rounded-full hover:bg-[#F36F5A]/90"
+                          className="bg-tag-dark text-white text-xs px-3 py-2 font-inter font-medium rounded-full hover:bg-tag-dark/90 transition-colors"
+                          style={{ fontSize: '0.85rem', padding: '0.4rem 0.9rem', borderRadius: '20px', margin: '0.25rem 0.25rem 0 0' }}
                         >
                           {specialism}
                         </Badge>
@@ -193,7 +194,8 @@ export default function Homepage() {
                     {/* View Profile Button */}
                     <div className="mt-auto">
                       <Button
-                        className="bg-[#F36F5A] hover:bg-[#F36F5A]/85 text-white w-full font-inter font-semibold transition-colors duration-200 rounded-full hover:ring-2 hover:ring-[#F36F5A]/30 transition-all duration-300"
+                        className="bg-cta-coral hover:bg-cta-coral-hover text-white w-full font-inter font-bold transition-all duration-300 rounded-full px-6 py-3"
+                        style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>
@@ -206,7 +208,8 @@ export default function Homepage() {
           )}
           <div className="text-center mt-16">
             <Button
-              className="bg-[#F36F5A] hover:bg-[#F36F5A]/85 text-white px-8 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-[#F36F5A]/30 transition-all duration-300"
+              className="bg-cta-coral hover:bg-cta-coral-hover text-white px-8 py-3 font-inter font-bold rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
+              style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
               asChild
             >
               <Link href="/directory">Browse Directory</Link>
@@ -218,46 +221,47 @@ export default function Homepage() {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-[#C4DEC6]">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2C2C2C]">Get In Touch</h2>
-          <p className="text-xl mb-12 font-inter text-[#2C2C2C]">
+          <h2 className="text-4xl font-bold mb-6 font-playfair text-main-text">Get In Touch</h2>
+          <p className="text-xl mb-12 font-inter text-main-text">
             Have questions or need assistance? Reach out to us today.
           </p>
           <form className="max-w-2xl mx-auto space-y-6">
             <div>
-              <label htmlFor="name" className="block text-left text-lg font-medium font-inter mb-2 text-[#2C2C2C]">
+              <label htmlFor="name" className="block text-left text-lg font-medium font-inter mb-2 text-main-text">
                 Name
               </label>
               <input
                 type="text"
                 id="name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F36F5A] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cta-coral font-inter bg-input-bg text-main-text"
                 placeholder="Your Name"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-left text-lg font-medium font-inter mb-2 text-[#2C2C2C]">
+              <label htmlFor="email" className="block text-left text-lg font-medium font-inter mb-2 text-main-text">
                 Email
               </label>
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F36F5A] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cta-coral font-inter bg-input-bg text-main-text"
                 placeholder="Your Email"
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-left text-lg font-medium font-inter mb-2 text-[#2C2C2C]">
+              <label htmlFor="message" className="block text-left text-lg font-medium font-inter mb-2 text-main-text">
                 Message
               </label>
               <textarea
                 id="message"
                 rows={6}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F36F5A] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cta-coral font-inter bg-input-bg text-main-text"
                 placeholder="Your Message"
               ></textarea>
             </div>
             <Button
-              className="bg-[#F36F5A] hover:bg-[#F36F5A]/85 text-white px-8 py-4 text-lg font-semibold font-inter transition-colors duration-200"
+              className="bg-cta-coral hover:bg-cta-coral-hover text-white px-8 py-4 text-lg font-bold font-inter transition-all duration-300"
+              style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
               type="submit"
             >
               Send Message
@@ -271,16 +275,16 @@ export default function Homepage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold font-playfair text-[#2C2C2C]">Court Support Network</span>
+              <span className="text-xl font-bold font-playfair text-main-text">Court Support Network</span>
             </div>
 
             <div className="flex items-center space-x-8">
-              <div className="text-sm text-[#2C2C2C] font-inter">
+              <div className="text-sm text-muted-text font-inter">
                 © {new Date().getFullYear()} Court Support Network. All rights reserved.
               </div>
               <Link
                 href="#"
-                className="text-[#2C2C2C] hover:text-[#F36F5A] font-medium transition-colors underline underline-offset-2 font-inter"
+                className="text-main-text hover:text-cta-coral font-medium transition-colors underline underline-offset-2 font-inter"
               >
                 Apply to be listed
               </Link>

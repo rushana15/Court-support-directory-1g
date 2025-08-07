@@ -66,7 +66,7 @@ export default function Directory() {
   return (
     <div className="min-h-screen bg-primary-background">
       {/* Header */}
-      <header className="bg-1E1E1E border-b border-gray-200">
+      <header className="bg-header-footer border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
@@ -75,19 +75,19 @@ export default function Directory() {
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -100,8 +100,8 @@ export default function Directory() {
       <section className="bg-content-area py-16 border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold text-C4DEC6 mb-6 font-playfair">McKenzie Friend Directory</h1>
-            <p className="text-xl text-2C2C2C max-w-3xl mx-auto font-inter leading-relaxed">
+            <h1 className="text-5xl font-bold text-main-text mb-6 font-playfair">McKenzie Friend Directory</h1>
+            <p className="text-xl text-main-text max-w-3xl mx-auto font-inter leading-relaxed">
               Find verified McKenzie Friends in your area - {professionals.length} professionals available to support
               you
             </p>
@@ -119,13 +119,13 @@ export default function Directory() {
                     placeholder="Search by name or expertise..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 py-3 border-gray-300 focus:border-C4DEC6 focus:ring-C4DEC6 font-inter bg-FDFDF9"
+                    className="pl-10 py-3 border-gray-300 focus:border-cta-coral focus:ring-cta-coral font-inter bg-input-bg"
                   />
                 </div>
 
                 {/* Region Filter */}
                 <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-                  <SelectTrigger className="py-3 font-inter border-gray-300 focus:border-C4DEC6 bg-FDFDF9">
+                  <SelectTrigger className="py-3 font-inter border-gray-300 focus:border-cta-coral bg-input-bg">
                     <SelectValue placeholder="Select Region" />
                   </SelectTrigger>
                   <SelectContent>
@@ -140,7 +140,7 @@ export default function Directory() {
 
                 {/* Specialism Filter */}
                 <Select value={selectedSpecialism} onValueChange={setSelectedSpecialism}>
-                  <SelectTrigger className="py-3 font-inter border-gray-300 focus:border-C4DEC6 bg-FDFDF9">
+                  <SelectTrigger className="py-3 font-inter border-gray-300 focus:border-cta-coral bg-input-bg">
                     <SelectValue placeholder="Select Specialism" />
                   </SelectTrigger>
                   <SelectContent>
@@ -155,7 +155,7 @@ export default function Directory() {
               </div>
 
               {/* Results Count */}
-              <div className="mt-6 text-base text-2C2C2C font-inter">
+              <div className="mt-6 text-base text-main-text font-inter">
                 Showing {filteredProfessionals.length} of {professionals.length} McKenzie Friends
               </div>
             </div>
@@ -168,7 +168,7 @@ export default function Directory() {
         <div className="container mx-auto px-4">
           {filteredProfessionals.length === 0 ? (
             <div className="text-center py-16">
-              <p className="text-xl text-2C2C2C mb-6 font-inter">No McKenzie Friends found matching your criteria.</p>
+              <p className="text-xl text-main-text mb-6 font-inter">No McKenzie Friends found matching your criteria.</p>
               <Button
                 onClick={() => {
                   setSearchTerm("")
@@ -177,7 +177,8 @@ export default function Directory() {
                   setSelectedExperience("All Levels")
                   setShowVerifiedOnly(false)
                 }}
-                className="bg-cta-coral hover:bg-cta-coral/85 text-white px-8 py-3 font-inter rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
+                className="bg-cta-coral hover:bg-cta-coral-hover text-white px-8 py-3 font-inter font-bold rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
+                style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
               >
                 Clear Filters
               </Button>
@@ -208,23 +209,30 @@ export default function Directory() {
 
                     {/* Name and Region */}
                     <div className="text-center mb-4">
-                      <h3 className="text-xl font-bold text-C4DEC6 mb-2 font-playfair">{professional["Name"]}</h3>
-                      <p className="text-base text-2C2C2C font-inter">{professional["Region"]}</p>
+                      <h3 className="text-xl font-bold text-main-text mb-2 font-playfair">{professional["Name"]}</h3>
+                      <p className="text-base text-main-text font-inter">{professional["Region"]}</p>
                       {professional["Experience Level"] && (
-                        <p className="text-sm text-gray-500 font-inter">{professional["Experience Level"]}</p>
+                        <p className="text-sm text-muted-text font-inter">{professional["Experience Level"]}</p>
                       )}
                     </div>
 
                     {/* Specialisms */}
                     {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
-                      <div className="flex flex-wrap justify-center gap-2 mb-6">
+                      <div className="flex flex-wrap justify-center gap-1 mb-6">
                         {professional["Specialisms"].slice(0, 3).map((specialism: string, index: number) => (
-                          <Badge key={index} className="bg-deep-taupe text-white hover:bg-muted-gold transition-colors text-xs font-inter font-medium rounded-full px-3 py-1">
+                          <Badge 
+                            key={index} 
+                            className="bg-tag-dark text-white hover:bg-tag-dark/90 transition-colors font-inter font-medium"
+                            style={{ fontSize: '0.85rem', padding: '0.4rem 0.9rem', borderRadius: '20px', margin: '0.25rem 0.25rem 0 0' }}
+                          >
                             {specialism}
                           </Badge>
                         ))}
                         {professional["Specialisms"].length > 3 && (
-                          <Badge className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors text-xs font-inter rounded-full px-3 py-1">
+                          <Badge 
+                            className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors font-inter"
+                            style={{ fontSize: '0.85rem', padding: '0.4rem 0.9rem', borderRadius: '20px', margin: '0.25rem 0.25rem 0 0' }}
+                          >
                             +{professional["Specialisms"].length - 3} more
                           </Badge>
                         )}
@@ -232,14 +240,14 @@ export default function Directory() {
                     )}
 
                     {/* Bio */}
-                    <p className="text-sm text-2C2C2C text-center mb-6 line-clamp-3 font-inter leading-relaxed">
+                    <p className="text-sm text-main-text text-center mb-6 line-clamp-3 font-inter leading-relaxed">
                       {professional["Short Bio"]}
                     </p>
 
                     {/* Languages */}
                     {professional["Languages Spoken"] && professional["Languages Spoken"].length > 0 && (
                       <div className="text-center mb-6">
-                        <p className="text-xs text-gray-500 font-inter">
+                        <p className="text-xs text-muted-text font-inter">
                           Languages: {Array.isArray(professional["Languages Spoken"]) ? professional["Languages Spoken"].join(", ") : professional["Languages Spoken"] || "Not specified"}
                         </p>
                       </div>
@@ -249,7 +257,7 @@ export default function Directory() {
                     {(professional["Rate Info"] || professional["Fixed Fee Text"]) && (
                       <div className="text-center mb-6 space-y-1">
                         {professional["Rate Info"] && (
-                          <p className="text-sm text-2C2C2C font-inter">{professional["Rate Info"]}</p>
+                          <p className="text-sm text-main-text font-inter">{professional["Rate Info"]}</p>
                         )}
                         {professional["Fixed Fee Text"] && (
                           <p className="text-xs text-green-700 font-inter">{professional["Fixed Fee Text"]}</p>
@@ -261,7 +269,8 @@ export default function Directory() {
                     {/* View Profile Button */}
                     <div className="text-center">
                       <Button
-                        className="bg-cta-coral hover:bg-cta-coral/85 text-white w-full px-6 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
+                        className="bg-cta-coral hover:bg-cta-coral-hover text-white w-full px-6 py-3 font-inter font-bold rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
+                        style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>
@@ -280,7 +289,7 @@ export default function Directory() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold text-C4DEC6 font-playfair">Court Support Network</span>
+              <span className="text-xl font-bold text-white font-playfair">Court Support Network</span>
             </div>
 
             <div className="flex items-center space-x-8">
@@ -289,7 +298,7 @@ export default function Directory() {
               </div>
               <Link
                 href="#"
-                className="text-C4DEC6 hover:text-white font-medium transition-colors underline underline-offset-2 font-inter"
+                className="text-white hover:text-cta-coral font-medium transition-colors underline underline-offset-2 font-inter"
               >
                 Apply to be listed
               </Link>
