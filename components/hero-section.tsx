@@ -18,7 +18,7 @@ export default function HeroSection() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
-          <div className="text-left flex flex-col justify-center py-8 lg:py-12">
+          <div className="text-left flex flex-col justify-center py-8 lg:py-12 px-6 lg:px-8">
             <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-playfair leading-tight text-main-text transition-all duration-1000 ease-out ${
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
@@ -49,7 +49,7 @@ export default function HeroSection() {
           </div>
 
           {/* Right Column - Image */}
-          <div className="relative">
+          <div className="relative px-6 lg:px-8">
             <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/hero-banner.png"
