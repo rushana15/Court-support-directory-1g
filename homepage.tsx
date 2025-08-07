@@ -26,7 +26,11 @@ export default function Homepage() {
         // Show first 3 professionals with the "Founding Member" checkbox ticked
         const founding = data.filter(p => p["Founding Member"]).slice(0, 3)
         console.log('Founding members:', founding)
-        setFoundingMembers(founding)
+        console.log('All professionals founding member status:', data.map(p => ({ name: p.Name, foundingMember: p["Founding Member"] })))
+        
+        // If no founding members found, show first 3 professionals as fallback for now
+        const displayMembers = founding.length > 0 ? founding : data.slice(0, 3)
+        setFoundingMembers(displayMembers)
       } catch (error) {
         console.error("Failed to load founding members:", error)
         setFoundingMembers([])
