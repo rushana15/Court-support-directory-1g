@@ -18,9 +18,8 @@ export default function HeroSection() {
           className="object-cover object-center"
           priority
         />
-        {/* Dark Overlay with warm tint */}
+        {/* Dark Overlay */}
         <div className="absolute inset-0 bg-header-footer/40" />
-        <div className="absolute inset-0 bg-primary-background/20" />
       </div>
 
       {/* Content */}
@@ -40,7 +39,7 @@ export default function HeroSection() {
           <div className="pt-4">
             <Button
               size="lg"
-              className="bg-cta-orange hover:bg-cta-orange/85 text-white px-10 py-5 text-lg font-semibold font-inter rounded-full shadow-lg hover:shadow-xl hover:ring-2 hover:ring-cta-orange/30 transition-all duration-300"
+              className="bg-cta-coral hover:bg-cta-coral/85 text-white px-10 py-5 text-lg font-semibold font-inter rounded-full shadow-lg hover:shadow-xl hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
               asChild
             >
               <Link href="/directory">Browse the Directory</Link>

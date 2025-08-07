@@ -64,7 +64,7 @@ export default function Directory() {
   }
 
   return (
-    <div className="min-h-screen bg-C4DEC6">
+    <div className="min-h-screen bg-primary-background">
       {/* Header */}
       <header className="bg-1E1E1E border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
@@ -97,7 +97,7 @@ export default function Directory() {
       </header>
 
       {/* Page Header */}
-      <section className="bg-DDE1D6 py-16 border-b border-gray-200">
+      <section className="bg-content-area py-16 border-b border-gray-200">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h1 className="text-5xl font-bold text-C4DEC6 mb-6 font-playfair">McKenzie Friend Directory</h1>
@@ -109,7 +109,7 @@ export default function Directory() {
 
           {/* Search and Filters */}
           <div className="max-w-4xl mx-auto">
-            <div className="bg-DDE1D6 rounded-lg shadow-lg border border-gray-200 p-8">
+            <div className="bg-content-area rounded-lg shadow-lg border border-gray-200 p-8">
               <div className="grid md:grid-cols-3 gap-6">
                 {/* Search Bar */}
                 <div className="relative">
@@ -164,7 +164,7 @@ export default function Directory() {
       </section>
 
       {/* Directory Results */}
-      <section className="py-16 bg-C4DEC6">
+      <section className="py-16 bg-primary-background">
         <div className="container mx-auto px-4">
           {filteredProfessionals.length === 0 ? (
             <div className="text-center py-16">
@@ -177,7 +177,7 @@ export default function Directory() {
                   setSelectedExperience("All Levels")
                   setShowVerifiedOnly(false)
                 }}
-                className="bg-ED7745 hover:bg-ED7745/85 text-white px-8 py-3 font-inter rounded-full hover:ring-2 hover:ring-ED7745/30 transition-all duration-300"
+                className="bg-cta-coral hover:bg-cta-coral/85 text-white px-8 py-3 font-inter rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
               >
                 Clear Filters
               </Button>
@@ -187,7 +187,7 @@ export default function Directory() {
               {filteredProfessionals.map((professional) => (
                 <Card
                   key={professional.id}
-                  className="bg-DDE1D6 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-200 h-full hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)]"
+                  className="bg-content-area shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-200 h-full hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)]"
                 >
                   <CardContent className="p-6">
                     {/* Profile Photo */}
@@ -261,7 +261,7 @@ export default function Directory() {
                     {/* View Profile Button */}
                     <div className="text-center">
                       <Button
-                        className="bg-ED7745 hover:bg-ED7745/85 text-white w-full px-6 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-ED7745/30 transition-all duration-300"
+                        className="bg-cta-coral hover:bg-cta-coral/85 text-white w-full px-6 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>

@@ -27,11 +27,11 @@ const config: Config = {
       },
       colors: {
         // Brand colors
-        'primary-background': '#C4DEC6',
-        'content-area': '#DDE1D6',
+        'primary-background': '#F4F4F4',
+        'content-area': '#D8D8D8',
         'header-footer': '#1E1E1E',
         'main-text': '#2C2C2C',
-        'cta-orange': '#ED7745',
+        'cta-coral': '#F36F5A',
         'input-bg': '#FDFDF9',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

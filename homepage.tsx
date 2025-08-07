@@ -39,9 +39,9 @@ export default function Homepage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-[#C4DEC6]">
+    <div className="min-h-screen bg-[#F4F4F4]">
       {/* Header */}
-      <header className="bg-[#1E1E1E] border-b border-gray-700">
+      <header className="bg-[#2C2C2C] border-b border-gray-700">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -75,7 +75,7 @@ export default function Homepage() {
       <HeroSection />
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-[#DDE1D6]">
+      <section id="about" className="py-20 bg-[#D8D8D8]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2C2C2C]">About McKenzie Friends</h2>
@@ -88,7 +88,7 @@ export default function Homepage() {
       </section>
 
       {/* How it Works */}
-      <section id="how-it-works" className="py-20 bg-[#C4DEC6]">
+      <section id="how-it-works" className="py-20 bg-[#F4F4F4]">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 font-playfair text-center text-[#2C2C2C]">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -118,7 +118,7 @@ export default function Homepage() {
       </section>
 
       {/* Featured Professionals */}
-      <section className="py-20 bg-[#DDE1D6]">
+      <section className="py-20 bg-[#D8D8D8]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 font-playfair text-[#2C2C2C]">Featured McKenzie Friends</h2>
@@ -183,7 +183,7 @@ export default function Homepage() {
                       {(professional["Specialisms"] || []).slice(0, 3).map((specialism, index) => (
                         <Badge
                           key={index}
-                          className="bg-[#ED7745] text-white text-xs px-3 py-1 font-inter font-semibold rounded-full hover:bg-[#ED7745]/90"
+                          className="bg-[#F36F5A] text-white text-xs px-3 py-1 font-inter font-semibold rounded-full hover:bg-[#F36F5A]/90"
                         >
                           {specialism}
                         </Badge>
@@ -193,7 +193,7 @@ export default function Homepage() {
                     {/* View Profile Button */}
                     <div className="mt-auto">
                       <Button
-                        className="bg-[#ED7745] hover:bg-[#ED7745]/85 text-white w-full font-inter font-semibold transition-colors duration-200 rounded-full hover:ring-2 hover:ring-[#ED7745]/30 transition-all duration-300"
+                        className="bg-[#F36F5A] hover:bg-[#F36F5A]/85 text-white w-full font-inter font-semibold transition-colors duration-200 rounded-full hover:ring-2 hover:ring-[#F36F5A]/30 transition-all duration-300"
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>
@@ -206,7 +206,7 @@ export default function Homepage() {
           )}
           <div className="text-center mt-16">
             <Button
-              className="bg-[#ED7745] hover:bg-[#ED7745]/85 text-white px-8 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-[#ED7745]/30 transition-all duration-300"
+              className="bg-[#F36F5A] hover:bg-[#F36F5A]/85 text-white px-8 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-[#F36F5A]/30 transition-all duration-300"
               asChild
             >
               <Link href="/directory">Browse Directory</Link>
@@ -230,7 +230,7 @@ export default function Homepage() {
               <input
                 type="text"
                 id="name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED7745] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F36F5A] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
                 placeholder="Your Name"
               />
             </div>
@@ -241,7 +241,7 @@ export default function Homepage() {
               <input
                 type="email"
                 id="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED7745] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F36F5A] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
                 placeholder="Your Email"
               />
             </div>
@@ -252,12 +252,12 @@ export default function Homepage() {
               <textarea
                 id="message"
                 rows={6}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ED7745] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#F36F5A] font-inter bg-[#FDFDF9] text-[#2C2C2C]"
                 placeholder="Your Message"
               ></textarea>
             </div>
             <Button
-              className="bg-[#ED7745] hover:bg-[#ED7745]/85 text-white px-8 py-4 text-lg font-semibold font-inter transition-colors duration-200"
+              className="bg-[#F36F5A] hover:bg-[#F36F5A]/85 text-white px-8 py-4 text-lg font-semibold font-inter transition-colors duration-200"
               type="submit"
             >
               Send Message
@@ -267,11 +267,11 @@ export default function Homepage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 bg-[#DDE1D6] border-t border-gray-700">
+      <footer className="py-16 bg-[#D8D8D8] border-t border-gray-700">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold font-playfair text-[#1E1E1E]">Court Support Network</span>
+              <span className="text-xl font-bold font-playfair text-[#2C2C2C]">Court Support Network</span>
             </div>
 
             <div className="flex items-center space-x-8">
@@ -280,7 +280,7 @@ export default function Homepage() {
               </div>
               <Link
                 href="#"
-                className="text-[#2C2C2C] hover:text-[#ED7745] font-medium transition-colors underline underline-offset-2 font-inter"
+                className="text-[#2C2C2C] hover:text-[#F36F5A] font-medium transition-colors underline underline-offset-2 font-inter"
               >
                 Apply to be listed
               </Link>
