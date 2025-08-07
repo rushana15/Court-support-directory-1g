@@ -1,50 +1,45 @@
-"use client"
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image" // Import Image component
+import Image from "next/image"
 
 export default function HeroSection() {
   return (
-    <section className="relative h-[300px] md:h-[400px] flex items-center justify-center bg-main-content overflow-hidden">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0"
-      >
+    <section className="relative">
+      {/* Hero Banner */}
+      <div className="relative h-[600px] overflow-hidden">
         <Image
-          src="/attached_assets/ChatGPT Image Jul 25, 2025 at 05_42_35 PM_1753461765693.png"
-          alt="Professional legal consultation"
+          src="/attached_assets/ChatGPT Image Aug 7, 2025 at 08_07_46 AM_1754550487976.png"
+          alt="Professional consultation"
           fill
-          className="object-cover object-center"
+          className="object-cover"
           priority
         />
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-header-footer/40" />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-main-text text-center px-4 max-w-4xl mx-auto">
-        <div className="space-y-6">
-          {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-main-text font-playfair">
-            Real Help for Real People
-          </h1>
-
-          {/* Subheading */}
-          <p className="text-lg sm:text-xl md:text-2xl text-main-text max-w-3xl mx-auto leading-relaxed font-inter">
-            Find Trusted McKenzie Friends for Family Law Support
-          </p>
-
-          {/* CTA Button */}
-          <div className="pt-4">
-            <Button
-              size="lg"
-              className="bg-cta-coral hover:bg-cta-coral-hover text-white px-10 py-5 text-lg font-bold font-inter rounded-full shadow-lg hover:shadow-xl hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
-              style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
-              asChild
-            >
-              <Link href="/directory">Browse the Directory</Link>
-            </Button>
+        
+        {/* Content Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center text-white max-w-4xl mx-auto px-4">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 font-playfair leading-tight">
+              Expert McKenzie Friend Support
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 font-inter leading-relaxed max-w-3xl mx-auto">
+              Vetted professionals for family court support, no solicitor needed
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                asChild 
+                className="bg-cta-coral hover:bg-cta-coral-hover text-white border-none rounded-full px-6 py-3 font-bold font-inter transition-all duration-300 hover:shadow-lg"
+              >
+                <Link href="/directory">Browse the Directory</Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                asChild 
+                className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-header-footer rounded-full px-6 py-3 font-bold font-inter transition-all duration-300"
+              >
+                <Link href="#how-it-works">Learn More</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </div>

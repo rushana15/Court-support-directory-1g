@@ -41,28 +41,28 @@ export default function Homepage() {
   return (
     <div className="min-h-screen bg-[#F4F4F4]">
       {/* Header */}
-      <header className="bg-header-footer border-b border-gray-700">
+      <header className="bg-header-footer border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <span className="text-3xl font-bold font-playfair tracking-wide text-white">Court Support Network</span>
-            </div>
+            <Link href="/" className="flex items-center">
+              <span className="text-3xl font-bold text-white font-playfair tracking-wide">Court Support Network</span>
+            </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -180,12 +180,8 @@ export default function Homepage() {
 
                     {/* Specialisms - Updated styling */}
                     <div className="flex flex-wrap gap-1 justify-center mb-6">
-                      {(professional["Specialisms"] || []).slice(0, 3).map((specialism, index) => (
-                        <Badge
-                          key={index}
-                          className="bg-tag-dark text-white text-xs px-3 py-2 font-inter font-medium rounded-full hover:bg-tag-dark/90 transition-colors"
-                          style={{ fontSize: '0.85rem', padding: '0.4rem 0.9rem', borderRadius: '20px', margin: '0.25rem 0.25rem 0 0' }}
-                        >
+                      {(professional["Specialisms"] || []).slice(0, 3).map((specialism: string, index: number) => (
+                        <Badge key={index} className="bg-tag-background text-tag-text hover:bg-gray-600 transition-colors text-sm font-inter rounded-full px-4 py-2 inline-block mx-1 my-1">
                           {specialism}
                         </Badge>
                       ))}
@@ -194,9 +190,8 @@ export default function Homepage() {
                     {/* View Profile Button */}
                     <div className="mt-auto">
                       <Button
-                        className="bg-cta-coral hover:bg-cta-coral-hover text-white w-full font-inter font-bold transition-all duration-300 rounded-full px-6 py-3"
-                        style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
                         asChild
+                        className="bg-cta-coral hover:bg-cta-coral-hover text-white w-full px-6 py-3 font-inter font-bold rounded-full border-none transition-all duration-300"
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>
                       </Button>
@@ -271,20 +266,20 @@ export default function Homepage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-16 bg-[#D8D8D8] border-t border-gray-700">
+      <footer className="py-16 bg-header-footer border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold font-playfair text-main-text">Court Support Network</span>
+              <span className="text-xl font-bold text-white font-playfair">Court Support Network</span>
             </div>
 
             <div className="flex items-center space-x-8">
-              <div className="text-sm text-muted-text font-inter">
+              <div className="text-sm text-gray-300 font-inter">
                 © {new Date().getFullYear()} Court Support Network. All rights reserved.
               </div>
               <Link
                 href="#"
-                className="text-main-text hover:text-cta-coral font-medium transition-colors underline underline-offset-2 font-inter"
+                className="text-white hover:text-gray-300 font-medium transition-colors underline underline-offset-2 font-inter"
               >
                 Apply to be listed
               </Link>

@@ -75,19 +75,19 @@ export default function Directory() {
             <nav className="hidden md:flex space-x-8">
               <Link
                 href="#about"
-                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
                 href="#how-it-works"
-                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
                 href="#contact"
-                className="text-white hover:text-gray-200 hover:font-semibold transition-all font-medium font-inter"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
               </Link>
@@ -220,16 +220,12 @@ export default function Directory() {
                     {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
                       <div className="flex flex-wrap justify-center gap-1 mb-6">
                         {professional["Specialisms"].slice(0, 3).map((specialism: string, index: number) => (
-                          <Badge 
-                            key={index} 
-                            className="bg-tag-dark text-white hover:bg-tag-dark/90 transition-colors font-inter font-medium"
-                            style={{ fontSize: '0.85rem', padding: '0.4rem 0.9rem', borderRadius: '20px', margin: '0.25rem 0.25rem 0 0' }}
-                          >
+                          <Badge key={index} className="bg-tag-background text-tag-text hover:bg-gray-600 transition-colors text-sm font-inter rounded-full px-4 py-2 inline-block mx-1 my-1">
                             {specialism}
                           </Badge>
                         ))}
                         {professional["Specialisms"].length > 3 && (
-                          <Badge 
+                          <Badge
                             className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors font-inter"
                             style={{ fontSize: '0.85rem', padding: '0.4rem 0.9rem', borderRadius: '20px', margin: '0.25rem 0.25rem 0 0' }}
                           >
@@ -269,8 +265,7 @@ export default function Directory() {
                     {/* View Profile Button */}
                     <div className="text-center">
                       <Button
-                        className="bg-cta-coral hover:bg-cta-coral-hover text-white w-full px-6 py-3 font-inter font-bold rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
-                        style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
+                        className="bg-cta-coral hover:bg-cta-coral-hover text-white w-full px-6 py-3 font-inter font-bold rounded-full border-none transition-all duration-300"
                         asChild
                       >
                         <Link href={`/profile/${professional.id}`}>View Profile</Link>

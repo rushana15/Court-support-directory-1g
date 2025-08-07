@@ -1,14 +1,14 @@
+
 import type { Config } from "tailwindcss"
 
 const config: Config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-    "./**/*.{ts,tsx}",
-    "*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+    './*.{ts,tsx}',
   ],
   prefix: "",
   theme: {
@@ -21,21 +21,23 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        merriweather: ["var(--font-merriweather)", "serif"],
-        inter: ["var(--font-inter)", "sans-serif"],
-        playfair: ["Playfair Display", "serif"],
+        'merriweather': ['var(--font-merriweather)'],
+        'inter': ['var(--font-inter)'],
+        'playfair': ['var(--font-playfair)'],
       },
       colors: {
-        // Brand colors
-        'primary-background': '#F4F4F4',
-        'content-area': '#D8D8D8',
-        'header-footer': '#2C2C2C',
-        'main-text': '#333333',
-        'muted-text': '#737373',
-        'cta-coral': '#F1785D',
-        'cta-coral-hover': '#DE6249',
-        'tag-dark': '#2C2C2C',
-        'input-bg': '#FDFDF9',
+        // New color scheme
+        'primary-background': '#F4F4F4', // Soft gray background
+        'content-area': '#D8D8D8', // Darker gray for sections
+        'header-footer': '#2C2C2C', // True charcoal gray
+        'main-text': '#333333', // Body text
+        'muted-text': '#737373', // Muted info text
+        'cta-coral': '#F1785D', // Soft coral for buttons
+        'cta-coral-hover': '#DE6249', // Coral hover state
+        'tag-background': '#2C2C2C', // Background for specialism tags
+        'tag-text': '#FFFFFF', // Text for specialism tags
+        'input-bg': '#FDFDF9', // Input field backgrounds
+        
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
