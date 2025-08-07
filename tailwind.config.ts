@@ -32,8 +32,8 @@ const config: Config = {
         'header-footer': '#2F3E34', // Dark green-gray for header
         'main-text': '#333333', // Body text
         'muted-text': '#737373', // Muted info text
-        'cta-coral': '#F1785D', // Soft coral for buttons
-        'cta-coral-hover': '#DE6249', // Coral hover state
+        'cta-coral': '#E75A4D', // Coral for buttons
+        'cta-coral-hover': '#D14A3E', // Coral hover state
         'tag-background': '#2F3E34', // Dark green-gray for specialism tags
         'tag-text': '#FFFFFF', // Text for specialism tags
         'input-bg': '#FDFDF9', // Input field backgrounds
