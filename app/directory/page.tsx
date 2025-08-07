@@ -190,15 +190,15 @@ export default function Directory() {
                   key={professional.id}
                   className="bg-content-area shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-200 h-full hover:shadow-[0_8px_20px_rgba(0,0,0,0.1)]"
                 >
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 flex flex-col h-full">
                     {/* Profile Photo */}
                     <div className="text-center mb-6 relative">
                       <Image
                         src={professional["Profile Photo"] || "/placeholder.svg"}
                         alt={`${professional["Name"]} profile photo`}
-                        width={100}
-                        height={100}
-                        className="rounded-full mx-auto object-cover border-2 border-gray-100"
+                        width={120}
+                        height={120}
+                        className="rounded-lg mx-auto object-cover border-2 border-gray-100 w-[120px] h-[120px]"
                       />
                       {professional["Verified"] && (
                         <div className="absolute -top-2 -right-2">
@@ -250,20 +250,21 @@ export default function Directory() {
                     )}
 
                     {/* Rate Info */}
-                    {(professional["Rate Info"] || professional["Fixed Fee Text"]) && (
-                      <div className="text-center mb-6 space-y-1">
-                        {professional["Rate Info"] && (
-                          <p className="text-sm text-main-text font-inter">{professional["Rate Info"]}</p>
-                        )}
-                        {professional["Fixed Fee Text"] && (
-                          <p className="text-xs text-green-700 font-inter">{professional["Fixed Fee Text"]}</p>
-                        )}
-                      </div>
-                    )}
-
+                    <div className="flex-grow">
+                      {(professional["Rate Info"] || professional["Fixed Fee Text"]) && (
+                        <div className="text-center mb-6 space-y-1">
+                          {professional["Rate Info"] && (
+                            <p className="text-sm text-main-text font-inter">{professional["Rate Info"]}</p>
+                          )}
+                          {professional["Fixed Fee Text"] && (
+                            <p className="text-xs text-green-700 font-inter">{professional["Fixed Fee Text"]}</p>
+                          )}
+                        </div>
+                      )}
+                    </div>
 
                     {/* View Profile Button */}
-                    <div className="text-center">
+                    <div className="text-center mt-auto">
                       <Button
                         className="bg-cta-coral hover:bg-cta-coral-hover text-white w-full px-6 py-3 font-inter font-bold rounded-full border-none transition-all duration-300"
                         asChild
