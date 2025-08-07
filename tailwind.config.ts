@@ -34,7 +34,7 @@ const config: Config = {
         'muted-text': '#737373', // Muted info text
         'cta-coral': '#E75A4D', // Coral for buttons
         'cta-coral-hover': '#D14A3E', // Coral hover state
-        'tag-background': '#2F3E34', // Dark green-gray for specialism tags
+        'tag-background': '#4A766E', // Dark green-gray for specialism tags
         'tag-text': '#FFFFFF', // Text for specialism tags
         'input-bg': '#FDFDF9', // Input field backgrounds
         
