@@ -70,7 +70,7 @@ export default function Directory() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <span className="text-3xl font-bold text-white font-playfair tracking-wide">Court Support Network</span>
+              <span className="text-3xl font-bold text-white font-playfair tracking-wide">Divorce Compass</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
@@ -220,7 +220,7 @@ export default function Directory() {
                     {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
                       <div className="flex flex-wrap justify-center gap-1 mb-6">
                         {professional["Specialisms"].slice(0, 3).map((specialism: string, index: number) => (
-                          <Badge key={index} className="bg-tag-background text-white hover:bg-green-600 transition-colors text-sm font-inter rounded-full px-4 py-2 inline-block mx-1 my-1">
+                          <Badge key={index} className="bg-tag-background text-white hover:bg-blue-800 transition-colors text-xs font-inter rounded-full px-3 py-1 inline-block mx-1 my-1">
                             {specialism}
                           </Badge>
                         ))}
@@ -285,12 +285,12 @@ export default function Directory() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold text-white font-playfair">Court Support Network</span>
+              <span className="text-xl font-bold text-white font-playfair">Divorce Compass</span>
             </div>
 
             <div className="flex items-center space-x-8">
               <div className="text-sm text-gray-300 font-inter">
-                © {new Date().getFullYear()} Court Support Network. All rights reserved.
+                © {new Date().getFullYear()} Divorce Compass. All rights reserved.
               </div>
               <Link
                 href="#"

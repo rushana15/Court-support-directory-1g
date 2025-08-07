@@ -22,7 +22,7 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: "Court Support Network",
+  title: "Divorce Compass",
   description: "Vetted professionals for family court support, no solicitor needed",
     generator: 'v0.dev'
 }

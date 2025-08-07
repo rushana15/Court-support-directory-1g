@@ -49,7 +49,7 @@ export default function Homepage() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <span className="text-3xl font-bold text-white font-playfair tracking-wide">Court Support Network</span>
+              <span className="text-3xl font-bold text-white font-playfair tracking-wide">Divorce Compass</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
@@ -251,12 +251,12 @@ export default function Homepage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-6 md:mb-0">
-              <span className="text-xl font-bold text-white font-playfair">Court Support Network</span>
+              <span className="text-xl font-bold text-white font-playfair">Divorce Compass</span>
             </div>
 
             <div className="flex items-center space-x-8">
               <div className="text-sm text-gray-300 font-inter">
-                © {new Date().getFullYear()} Court Support Network. All rights reserved.
+                © {new Date().getFullYear()} Divorce Compass. All rights reserved.
               </div>
               <Link
                 href="#"
