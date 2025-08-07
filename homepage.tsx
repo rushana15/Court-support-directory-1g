@@ -27,7 +27,7 @@ export default function Homepage() {
         const founding = data.filter(p => p["Founding Member"]).slice(0, 3)
         console.log('Founding members:', founding)
         console.log('All professionals founding member status:', data.map(p => ({ name: p.Name, foundingMember: p["Founding Member"] })))
-        
+
         // If no founding members found, show first 3 professionals as fallback for now
         const displayMembers = founding.length > 0 ? founding : data.slice(0, 3)
         setFoundingMembers(displayMembers)
@@ -77,6 +77,147 @@ export default function Homepage() {
 
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Why We're Different Section */}
+      <section id="why-different" className="py-16 md:py-24 bg-content-area">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Left Column - Heading and Intro */}
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold text-main-text mb-4 font-playfair">
+                Why We're Different
+              </h2>
+              <p className="text-lg text-main-text font-inter max-w-prose">
+                We've built the first truly vetted directory for McKenzie Friends and divorce support professionals.
+              </p>
+            </div>
+
+            {/* Right Column - 2x2 Grid of Feature Cards */}
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                {/* Vetted First Card */}
+                <div className="rounded-2xl p-6 shadow-sm border border-gray-200 bg-white hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-2 rounded-lg bg-primary-background mr-3">
+                      <svg
+                        className="w-6 h-6 text-header-footer"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-main-text font-playfair">
+                      Vetted First (no exceptions)
+                    </h3>
+                  </div>
+                  <p className="text-sm text-main-text font-inter leading-relaxed">
+                    Every professional is interviewed, reference-checked, and screened for relevant experience before listing. We review work history, client feedback, and platform reviews so you don't have to.
+                  </p>
+                </div>
+
+                {/* Direct Contact Card */}
+                <div className="rounded-2xl p-6 shadow-sm border border-gray-200 bg-white hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-2 rounded-lg bg-primary-background mr-3">
+                      <svg
+                        className="w-6 h-6 text-header-footer"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-main-text font-playfair">
+                      Direct Contact — No Hidden Fees
+                    </h3>
+                  </div>
+                  <p className="text-sm text-main-text font-inter leading-relaxed">
+                    Message or book directly. No paywalls, no gatekeeping, no commissions added on top. What you agree with your advisor is what you pay.
+                  </p>
+                </div>
+
+                {/* Easy to Browse Card */}
+                <div className="rounded-2xl p-6 shadow-sm border border-gray-200 bg-white hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-2 rounded-lg bg-primary-background mr-3">
+                      <svg
+                        className="w-6 h-6 text-header-footer"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-main-text font-playfair">
+                      Easy to Browse, Fast to Decide
+                    </h3>
+                  </div>
+                  <p className="text-sm text-main-text font-inter leading-relaxed">
+                    Clear profiles with specialisms, pricing, locations, and availability. Filters help you find the right support in minutes.
+                  </p>
+                </div>
+
+                {/* Founding Partners Card */}
+                <div className="rounded-2xl p-6 shadow-sm border border-gray-200 bg-white hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="flex items-center mb-4">
+                    <div className="p-2 rounded-lg bg-primary-background mr-3">
+                      <svg
+                        className="w-6 h-6 text-header-footer"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-main-text font-playfair">
+                      Founding Partners, Personally Selected
+                    </h3>
+                  </div>
+                  <p className="text-sm text-main-text font-inter leading-relaxed">
+                    Our initial network was handpicked based on reviews and outcomes across multiple platforms, then verified through interviews and references.
+                  </p>
+                </div>
+              </div>
+
+              {/* Reassurance Line */}
+              <div className="text-center mt-8">
+                <p className="text-sm text-main-text opacity-80 font-inter">
+                  If someone doesn't meet our standards, they don't make the list. Period.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* How it Works */}
       <section id="how-it-works" className="py-20 bg-[#F4F4F4]">
@@ -190,6 +331,17 @@ export default function Homepage() {
             >
               <Link href="/directory">Browse Directory</Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 lg:py-24 bg-content-area">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-main-text font-playfair">
+              What is a McKenzie Friend?
+            </h2>
           </div>
         </div>
       </section>
