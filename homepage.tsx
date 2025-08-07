@@ -1,120 +1,293 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Search } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { CheckCircle, MapPin, Search, Users } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import Image from "next/image"
+import { useState, useEffect } from "react"
+import { fetchProfessionals, type Professional } from "@/lib/airtable"
+import HeroSection from "@/components/hero-section"
+
 
 export default function Homepage() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [location, setLocation] = useState("")
+  const [featuredProfessionals, setFeaturedProfessionals] = useState<Professional[]>([])
+  const [loading, setLoading] = useState(true)
 
-  const handleSearch = () => {
-    // Navigate to directory with search params
-    const params = new URLSearchParams()
-    if (searchTerm) params.append('search', searchTerm)
-    if (location) params.append('location', location)
-    window.location.href = `/directory?${params.toString()}`
-  }
+  useEffect(() => {
+    async function loadFeaturedProfessionals() {
+      try {
+        console.log('Loading featured professionals...')
+        const data = await fetchProfessionals()
+        console.log('Received data:', data)
+        console.log('Data length:', data?.length || 0)
+
+        // Show first 3 verified professionals
+        const featured = data.filter(p => p["Verified"]).slice(0, 3)
+        console.log('Featured professionals:', featured)
+        setFeaturedProfessionals(featured)
+      } catch (error) {
+        console.error("Failed to load featured professionals:", error)
+        setFeaturedProfessionals([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadFeaturedProfessionals()
+  }, [])
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#C4DEC6' }}>
-      {/* Outer Container */}
-      <div className="min-h-screen flex flex-col max-w-5xl mx-auto rounded-lg overflow-hidden shadow-2xl">
-
-        {/* Header */}
-        <header style={{ backgroundColor: '#1E1E1E' }} className="px-8 py-6">
+    <div className="min-h-screen bg-[#F5F0E6]">
+      {/* Header */}
+      <header className="bg-[#2F4F4F] border-b border-gray-200">
+        <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-full bg-orange-500 flex items-center justify-center">
-                <div className="w-4 h-4 bg-white rounded-full relative">
-                  <div className="absolute inset-1 bg-orange-500 rounded-full"></div>
-                </div>
-              </div>
-              <span className="text-white text-2xl font-bold">Divorce Compass</span>
+            <div className="flex items-center">
+              <span className="text-3xl font-bold font-playfair tracking-wide text-white">Court Support Network</span>
             </div>
-
-            {/* Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-white hover:text-gray-300 font-medium">
-                Home
-              </Link>
-              <Link href="#about" className="text-white hover:text-gray-300 font-medium">
+            <nav className="hidden md:flex space-x-8">
+              <Link
+                href="#about"
+                className="text-[#F5F0E6] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+              >
                 About
               </Link>
-              <Link href="#contact" className="text-white hover:text-gray-300 font-medium">
+              <Link
+                href="#how-it-works"
+                className="text-[#F5F0E6] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+              >
+                How it Works
+              </Link>
+              <Link
+                href="#contact"
+                className="text-[#F5F0E6] hover:text-white hover:font-semibold transition-all font-medium font-inter"
+              >
                 Contact
               </Link>
-              <Button
-                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold"
-                asChild
-              >
-                <Link href="/directory">Get Started</Link>
-              </Button>
             </nav>
           </div>
-        </header>
+        </div>
+      </header>
 
-        {/* Main Content Area */}
-        <main className="flex-1 px-8 py-16" style={{ backgroundColor: '#DDE1D6' }}>
-          <div className="text-center max-w-4xl mx-auto">
-            {/* Main Heading */}
-            <h1 className="text-6xl md:text-7xl font-bold text-gray-800 mb-6">
-              Divorce Compass
-            </h1>
+      {/* Hero Section */}
+      <HeroSection />
 
-            {/* Subheading */}
-            <p className="text-xl md:text-2xl text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed">
-              Guiding you through divorce with clarity and support
+      {/* About Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2F4F4F]">About McKenzie Friends</h2>
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed font-inter text-gray-700">
+              Meet some of our verified McKenzie Friends ready to support you through your family court journey with
+              expertise and compassion
             </p>
+          </div>
+        </div>
+      </section>
 
-            {/* Get Started Button */}
-            <div className="mb-20">
-              <Button
-                className="bg-orange-500 hover:bg-orange-600 text-white px-12 py-4 text-xl font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-                asChild
-              >
-                <Link href="/directory">Get Started</Link>
-              </Button>
+      {/* How it Works */}
+      <section id="how-it-works" className="py-20 bg-[#F5F0E6]">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold mb-12 font-playfair text-center text-[#2F4F4F]">How It Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Step 1 */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2F4F4F]">Browse Profiles</h3>
+              <p className="text-lg text-gray-700 font-inter">
+                Easily find McKenzie Friends by location, specialism, and experience.
+              </p>
+            </div>
+            {/* Step 2 */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2F4F4F]">Connect Directly</h3>
+              <p className="text-lg text-gray-700 font-inter">
+                Message professionals securely through our platform to discuss your needs.
+              </p>
+            </div>
+            {/* Step 3 */}
+            <div className="text-center">
+              <h3 className="text-2xl font-bold mb-4 font-playfair text-[#2F4F4F]">Get Support</h3>
+              <p className="text-lg text-gray-700 font-inter">
+                Receive compassionate and expert assistance for your court proceedings.
+              </p>
             </div>
           </div>
-        </main>
+        </div>
+      </section>
 
-        {/* Search Section */}
-        <section style={{ backgroundColor: '#1E1E1E' }} className="px-8 py-12">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-              {/* Search Input */}
-              <Input
+      {/* Featured Professionals */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 font-playfair text-[#2F4F4F]">Featured McKenzie Friends</h2>
+            <p className="text-xl mb-12 font-inter text-gray-700">Meet some of our most experienced professionals</p>
+          </div>
+
+          {loading ? (
+            <div className="text-center py-16">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2F4F4F] mx-auto mb-4"></div>
+              <p className="text-lg text-gray-600 font-inter">Loading featured professionals...</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {featuredProfessionals.map((professional) => (
+                <Card
+                  key={professional.id}
+                  className="bg-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out border border-gray-100 h-full"
+                >
+                  <CardContent className="p-6 h-full flex flex-col">
+                    {/* Profile Photo and Verification */}
+                    <div className="text-center mb-4 relative">
+                      <Image
+                        src={professional["Profile Photo"] || "/placeholder.svg"}
+                        alt={`${professional["Name"]} profile photo`}
+                        width={100}
+                        height={100}
+                        className="rounded-full mx-auto object-cover border-2 border-gray-100"
+                      />
+                      {professional["Verified"] && (
+                        <div className="absolute top-0 right-1/2 transform translate-x-12 -translate-y-1">
+                          <CheckCircle className="h-6 w-6 text-green-600 bg-white rounded-full" />
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Name */}
+                    <h3 className="text-xl font-bold mb-2 font-playfair text-[#2F4F4F] text-center">{professional["Name"]}</h3>
+
+                    {/* Professional Details */}
+                    <div className="space-y-3 mb-6 flex-grow">
+                      {/* Location */}
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                        <span className="text-sm text-gray-600 font-inter">{professional["Region"]}</span>
+                      </div>
+
+                      {/* Experience Level */}
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                        <span className="text-sm text-gray-600 font-inter">{professional["Experience Level"] || "Not specified"}</span>
+                      </div>
+
+                      {/* Rate */}
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                        <span className="text-sm text-gray-600 font-inter">{professional["Rate Info"]}</span>
+                      </div>
+                    </div>
+
+                    {/* Specialisms - Updated styling */}
+                    <div className="flex flex-wrap gap-2 justify-center mb-6">
+                      {(professional["Specialisms"] || []).slice(0, 3).map((specialism, index) => (
+                        <Badge
+                          key={index}
+                          className="bg-[#A07C5B] text-white text-xs px-3 py-1 font-inter font-medium rounded-full hover:bg-[#A07C5B]/90"
+                        >
+                          {specialism}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    {/* View Profile Button */}
+                    <div className="mt-auto">
+                      <Button
+                        className="bg-[#2F4F4F] hover:bg-[#2F4F4F]/85 text-white w-full font-inter font-semibold transition-colors duration-200 rounded-full hover:ring-2 hover:ring-[#2F4F4F]/30 transition-all duration-300"
+                        asChild
+                      >
+                        <Link href={`/profile/${professional.id}`}>View Profile</Link>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          )}
+          <div className="text-center mt-16">
+            <Button
+              className="bg-[#2F4F4F] hover:bg-[#2F4F4F]/85 text-white px-8 py-3 font-inter font-semibold rounded-full hover:ring-2 hover:ring-[#2F4F4F]/30 transition-all duration-300"
+              asChild
+            >
+              <Link href="/directory">Browse Directory</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-[#F5F0E6]">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold mb-6 font-playfair text-[#2F4F4F]">Get In Touch</h2>
+          <p className="text-xl mb-12 font-inter text-gray-700">
+            Have questions or need assistance? Reach out to us today.
+          </p>
+          <form className="max-w-2xl mx-auto space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-left text-lg font-medium font-inter mb-2 text-[#2F4F4F]">
+                Name
+              </label>
+              <input
                 type="text"
-                placeholder="Search for McKenzie Friend"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="flex-1 max-w-xs px-6 py-4 text-lg rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500"
+                id="name"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F4F4F] font-inter bg-white text-gray-700"
+                placeholder="Your Name"
               />
-
-              {/* Location Input */}
-              <Input
-                type="text"
-                placeholder="Enter location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-                className="flex-1 max-w-xs px-6 py-4 text-lg rounded-lg border-0 bg-white text-gray-800 placeholder-gray-500"
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-left text-lg font-medium font-inter mb-2 text-[#2F4F4F]">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F4F4F] font-inter bg-white text-gray-700"
+                placeholder="Your Email"
               />
+            </div>
+            <div>
+              <label htmlFor="message" className="block text-left text-lg font-medium font-inter mb-2 text-[#2F4F4F]">
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={6}
+                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#2F4F4F] font-inter bg-white text-gray-700"
+                placeholder="Your Message"
+              ></textarea>
+            </div>
+            <Button
+              className="bg-[#2F4F4F] hover:bg-[#2F4F4F]/85 text-white px-8 py-4 text-lg font-semibold font-inter transition-colors duration-200"
+              type="submit"
+            >
+              Send Message
+            </Button>
+          </form>
+        </div>
+      </section>
 
-              {/* Search Button */}
-              <Button
-                onClick={handleSearch}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+      {/* Footer */}
+      <footer className="py-16 bg-white border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="flex items-center mb-6 md:mb-0">
+              <span className="text-xl font-bold font-playfair text-[#2F4F4F]">Court Support Network</span>
+            </div>
+
+            <div className="flex items-center space-x-8">
+              <div className="text-sm text-gray-600 font-inter">
+                © {new Date().getFullYear()} Court Support Network. All rights reserved.
+              </div>
+              <Link
+                href="#"
+                className="text-[#2F4F4F] hover:text-[#D4B07A] font-medium transition-colors underline underline-offset-2 font-inter"
               >
-                Search
-              </Button>
+                Apply to be listed
+              </Link>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </footer>
     </div>
   )
 }
