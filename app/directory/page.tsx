@@ -220,7 +220,7 @@ export default function Directory() {
                     {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
                       <div className="flex flex-wrap justify-center gap-1 mb-6">
                         {professional["Specialisms"].slice(0, 3).map((specialism: string, index: number) => (
-                          <Badge key={index} className="bg-tag-background text-tag-text hover:bg-gray-600 transition-colors text-sm font-inter rounded-full px-4 py-2 inline-block mx-1 my-1">
+                          <Badge key={index} className="bg-tag-background text-white hover:bg-green-600 transition-colors text-sm font-inter rounded-full px-4 py-2 inline-block mx-1 my-1">
                             {specialism}
                           </Badge>
                         ))}
