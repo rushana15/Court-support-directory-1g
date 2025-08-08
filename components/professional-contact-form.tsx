@@ -113,8 +113,9 @@ export default function ProfessionalContactForm({
     <div className="space-y-4">
         {submitStatus === "success" && (
           <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-            <p className="text-green-800 font-inter text-sm">
-              Your message has been sent successfully! {displayName} will get back to you soon.
+            <p className="text-green-800 font-inter text-sm flex items-center gap-2">
+              <span className="text-green-600">✅</span>
+              Message sent! Your enquiry has been sent directly to this professional. They'll get back to you as soon as possible.
             </p>
           </div>
         )}
