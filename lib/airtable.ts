@@ -7,7 +7,7 @@ export interface Professional {
   "Short Bio": string
   "Long Bio": string
   "Region": string
-  "Specialisms": string[]
+  "Expertise": string[]
   "Experience Level": string
   "Languages Spoken": string[]
   "Verified": boolean

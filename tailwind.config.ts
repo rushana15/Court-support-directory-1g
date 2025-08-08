@@ -29,10 +29,10 @@ const config: Config = {
         // New color scheme
         'primary-background': '#F4F4F4', // Soft gray background
         'content-area': '#D8D8D8', // Darker gray for sections
-        'header-footer': '#2E3E34', // Dark green-gray for header
+        'header-footer': '#264653', // Dark green-gray for header
         'main-text': '#333333', // Body text
         'muted-text': '#737373', // Muted info text
-        'cta-coral': '#F2483D', // Coral for buttons
+        'cta-coral': '#E76F51', // Coral for buttons
         'cta-coral-hover': '#D14A3E', // Coral hover state
         'tag-background': '#4A766E', // Dark green-gray for specialism tags
         'tag-text': '#FFFFFF', // Text for specialism tags
