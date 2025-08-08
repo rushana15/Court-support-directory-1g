@@ -406,8 +406,7 @@ export default function Homepage() {
           {/* The "Browse Directory" button remains relevant for general users */}
           <div className="text-center mt-16">
             <Button
-              className="bg-cta-coral hover:bg-cta-coral-hover text-white px-8 py-3 font-inter font-bold rounded-full hover:ring-2 hover:ring-cta-coral/30 transition-all duration-300"
-              style={{ borderRadius: '30px', padding: '0.75rem 1.5rem' }}
+              className="bg-cta-coral hover:bg-cta-coral-hover text-white border-none rounded-full px-8 py-4 font-bold font-inter transition-all duration-300 hover:shadow-lg text-lg"
               asChild
             >
               <Link href="/directory">Browse Directory</Link>
