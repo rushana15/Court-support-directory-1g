@@ -75,6 +75,11 @@ export async function GET() {
         return Array.isArray(value) ? value : []
       }
 
+      const isAcceptingInquiries = getField(['Is Accepting Inquiries', 'is accepting inquiries', 'Accepting Inquiries'])
+      
+      // Debug the "Is Accepting Inquiries" field
+      console.log(`Professional ${getField(['Name', 'Full Name', 'name', 'Name '])}: Is Accepting Inquiries = ${isAcceptingInquiries} (type: ${typeof isAcceptingInquiries})`)
+
       return {
         id: record.id,
         "Name": getField(['Name', 'Full Name', 'name', 'Name ']) || '',
@@ -93,7 +98,7 @@ export async function GET() {
         "Founding Member": getField(['Founding Member', 'founding member', 'Founding'], false),
         "Slug": getField(['Slug', 'slug'], ''),
         "Contact Email": getField(['Contact Email', 'contact email', 'Email', 'email'], ''),
-        "Is Accepting Inquiries": getField(['Is Accepting Inquiries', 'is accepting inquiries', 'Accepting Inquiries'], true),
+        "Is Accepting Inquiries": isAcceptingInquiries,
         "Display Name": getField(['Display Name', 'display name', 'Display'], ''),
       }
     })

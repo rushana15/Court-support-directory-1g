@@ -24,6 +24,17 @@ export default function ProfileDetail() {
       try {
         const professionals = await fetchProfessionals()
         const foundProfessional = professionals.find(p => p.id === profileId)
+        
+        // Debug the "Is Accepting Inquiries" field
+        if (foundProfessional) {
+          console.log('Found professional:', foundProfessional.Name)
+          console.log('Is Accepting Inquiries field:', foundProfessional["Is Accepting Inquiries"])
+          console.log('Type of Is Accepting Inquiries:', typeof foundProfessional["Is Accepting Inquiries"])
+          console.log('Strict equals true:', foundProfessional["Is Accepting Inquiries"] === true)
+          console.log('Strict equals false:', foundProfessional["Is Accepting Inquiries"] === false)
+          console.log('Is undefined:', foundProfessional["Is Accepting Inquiries"] === undefined)
+        }
+        
         setProfessional(foundProfessional || null)
       } catch (error) {
         console.error("Failed to load professional:", error)
