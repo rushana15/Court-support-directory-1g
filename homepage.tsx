@@ -99,8 +99,8 @@ export default function Homepage() {
       <section className="bg-white py-20 md:py-28">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           {/* Main Heading - Full Width at Top */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-playfair text-main-text">
+          <div className="text-center mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold font-playfair text-main-text">
               UK's First Fully Vetted Divorce Support Directory
             </h1>
           </div>
@@ -109,7 +109,7 @@ export default function Homepage() {
             {/* Left Column - Text Content */}
             <div className="text-left self-start">
               {/* Subheading */}
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 font-playfair leading-tight text-main-text">
+              <h2 className="text-xl md:text-2xl font-bold mb-6 font-playfair leading-tight text-main-text">
                 Divorce Support You Can Trust — Experts for Court, Conflict & Co-Parenting
               </h2>
               
