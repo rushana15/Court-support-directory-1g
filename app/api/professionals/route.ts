@@ -91,6 +91,10 @@ export async function GET() {
         "Profile Photo": getProfilePhoto(),
         "Last Verified Date": getField(['Last Verified Date', 'Verified Date', 'last verified date']) || '',
         "Founding Member": getField(['Founding Member', 'founding member', 'Founding'], false),
+        "Slug": getField(['Slug', 'slug'], ''),
+        "Contact Email": getField(['Contact Email', 'contact email', 'Email', 'email'], ''),
+        "Is Accepting Inquiries": getField(['Is Accepting Inquiries', 'is accepting inquiries', 'Accepting Inquiries'], true),
+        "Display Name": getField(['Display Name', 'display name', 'Display'], ''),
       }
     })
 

@@ -93,37 +93,24 @@ export default function ProfessionalContactForm({
     }
   }
 
-  if (!isAcceptingInquiries) {
+  if (isAcceptingInquiries === false) {
     return (
-      <Card className="rounded-xl border border-gray-200 bg-white/80 shadow-sm">
-        <CardContent className="p-6">
-          <div className="text-center">
-            <h3 className="text-lg font-semibold text-main-text mb-4 font-playfair">
-              Contact {displayName}
-            </h3>
-            <p className="text-muted-text mb-6 font-inter">
-              This professional isn't accepting new inquiries at the moment.
-            </p>
-            <Button
-              asChild
-              className="bg-cta-coral hover:bg-cta-coral-hover text-white px-6 py-2 font-inter font-semibold rounded-full transition-all duration-300"
-            >
-              <Link href="/directory">Browse Directory</Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <div className="text-center p-6">
+        <p className="text-gray-600 mb-6 font-inter">
+          This professional isn't accepting new inquiries
+        </p>
+        <Button
+          asChild
+          className="bg-primary-green hover:bg-primary-green/85 text-white px-6 py-3 font-inter font-semibold rounded-full transition-all duration-300"
+        >
+          <Link href="/directory">Browse Directory</Link>
+        </Button>
+      </div>
     )
   }
 
   return (
-    <Card className="rounded-xl border border-gray-200 bg-white/80 shadow-sm">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold text-main-text font-playfair">
-          Contact {displayName}
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
+    <div className="space-y-4">
         {submitStatus === "success" && (
           <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
             <p className="text-green-800 font-inter text-sm">
@@ -192,10 +179,9 @@ export default function ProfessionalContactForm({
           </Button>
         </form>
 
-        <p className="text-xs text-muted-text text-center font-inter mt-2">
+        <p className="text-xs text-gray-500 text-center font-inter mt-2">
           Your message goes straight to this professional. Their email stays private.
         </p>
-      </CardContent>
-    </Card>
+      </div>
   )
 }

@@ -20,6 +20,7 @@ export interface Professional {
   "Display Name": string
   "Slug": string
   "Is Accepting Inquiries": boolean
+  "Contact Email": string
 }
 
 export async function fetchProfessionals(): Promise<Professional[]> {

@@ -330,19 +330,18 @@ export default function ProfileDetail() {
               )}
 
               {/* Contact Form Section */}
-              {professional["Is Accepting Inquiries"] !== false && (
-                <Card className="bg-white shadow-lg border border-gray-200">
-                  <CardHeader>
-                    <CardTitle className="text-xl font-bold text-primary-green font-playfair">Contact</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ProfessionalContactForm
-                      displayName={professional["Display Name"] || professional["Name"]}
-                      slug={professional["Slug"] || professional["id"]}
-                    />
-                  </CardContent>
-                </Card>
-              )}
+              <Card className="bg-white shadow-lg border border-gray-200">
+                <CardHeader>
+                  <CardTitle className="text-xl font-bold text-primary-green font-playfair">Contact</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ProfessionalContactForm
+                    displayName={professional["Display Name"] || professional["Name"]}
+                    slug={professional["Slug"] || professional["id"]}
+                    isAcceptingInquiries={professional["Is Accepting Inquiries"]}
+                  />
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
