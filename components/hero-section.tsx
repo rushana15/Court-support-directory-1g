@@ -20,7 +20,7 @@ export default function HeroSection() {
           {/* Left Column - Text Content */}
           <div className="text-left flex flex-col justify-center py-8 lg:py-12 px-6 lg:px-8 min-h-[500px] lg:min-h-[600px]">
             <div className="max-w-none">
-              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-playfair leading-tight text-main-text transition-all duration-1000 ease-out ${
+              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-playfair leading-tight text-main-text transition-all duration-1000 ease-out ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}>
                 Divorce Support You Can Trust — Vetted Experts for Court, Conflict & Co-Parenting
