@@ -81,7 +81,7 @@ export async function GET() {
         "Short Bio": getField(['Short Bio', 'Bio', 'Description', 'About', 'short bio']) || '',
         "Long Bio": getField(['Long Bio', 'long bio', 'Long Description', 'Detailed Bio']) || '',
         "Region": getField(['Region', 'Location', 'Area', 'region']) || 'UK',
-        "Specialisms": getArrayField(['Specialisms', 'Specialties', 'Skills', 'Areas of expertise', 'specialisms']),
+        "Expertise": getArrayField(['Expertise', 'Specialisms', 'Specialties', 'Skills', 'Areas of expertise', 'specialisms']),
         "Experience Level": getField(['Experience Level', 'Experience', 'Years of Experience', 'experience level']) || '',
         "Languages Spoken": getArrayField(['Languages Spoken', 'Languages', 'Spoken Languages', 'languages spoken']),
         "Verified": getField(['Verified', 'verified', 'Is Verified'], false),
@@ -90,6 +90,7 @@ export async function GET() {
         "LinkedIn Profile Link": getField(['LinkedIn Profile Link', 'LinkedIn', 'LinkedIn URL', 'linkedIn profile link']) || '',
         "Profile Photo": getProfilePhoto(),
         "Last Verified Date": getField(['Last Verified Date', 'Verified Date', 'last verified date']) || '',
+        "Founding Member": getField(['Founding Member', 'founding member', 'Founding'], false),
       }
     })
 
