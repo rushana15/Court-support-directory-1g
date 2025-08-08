@@ -65,6 +65,14 @@ export default function Directory() {
 
   return (
     <div className="min-h-screen bg-primary-background">
+      {/* Advisor Recruitment Banner */}
+      <div className="bg-[#E76F51] text-white text-sm md:text-base font-medium py-2 px-4 text-center hover:opacity-90 transition">
+        <span>Are you a McKenzie Friend or divorce support professional? Join our growing vetted network — </span>
+        <Link href="/apply" className="underline hover:no-underline">
+          apply today
+        </Link>
+      </div>
+      
       {/* Header */}
       <header className="bg-header-footer border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
@@ -90,6 +98,12 @@ export default function Directory() {
                 className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
+              </Link>
+              <Link
+                href="/apply"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
+              >
+                For Advisors
               </Link>
             </nav>
           </div>
