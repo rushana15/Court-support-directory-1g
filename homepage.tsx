@@ -67,7 +67,7 @@ export default function Homepage() {
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
-                href="#about"
+                href="/about"
                 className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 About
@@ -127,7 +127,7 @@ export default function Homepage() {
                   Browse the Directory
                 </Link>
                 <Link
-                  href="#about"
+                  href="/about"
                   className="inline-flex items-center rounded-full border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition font-inter"
                 >
                   Learn More
