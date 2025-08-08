@@ -124,7 +124,7 @@ export default function Homepage() {
                   Browse the Directory
                 </Link>
                 <Link
-                  href="#how-it-works"
+                  href="#about"
                   className="inline-flex items-center rounded-full border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition font-inter"
                 >
                   Learn More
