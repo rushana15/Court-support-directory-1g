@@ -37,15 +37,15 @@ export default function Directory() {
   }, [])
 
   const regions = Array.from(new Set(professionals.map(p => p["Region"]))).filter(Boolean)
-  const specialisms = Array.from(new Set(professionals.flatMap(p => Array.isArray(p["Specialisms"]) ? p["Specialisms"] : []))).filter(Boolean)
+  const specialisms = Array.from(new Set(professionals.flatMap(p => Array.isArray(p["Expertise"]) ? p["Expertise"] : []))).filter(Boolean)
 
   const filteredProfessionals = professionals.filter(professional => {
     const matchesSearch = professional["Name"].toLowerCase().includes(searchTerm.toLowerCase()) ||
                          professional["Short Bio"].toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         (Array.isArray(professional["Specialisms"]) && professional["Specialisms"].some(spec => spec.toLowerCase().includes(searchTerm.toLowerCase())))
+                         (Array.isArray(professional["Expertise"]) && professional["Expertise"].some(spec => spec.toLowerCase().includes(searchTerm.toLowerCase())))
 
     const matchesRegion = selectedRegion === "All Regions" || professional["Region"] === selectedRegion
-    const matchesSpecialism = selectedSpecialism === "All Specialisms" || (Array.isArray(professional["Specialisms"]) && professional["Specialisms"].includes(selectedSpecialism))
+    const matchesSpecialism = selectedSpecialism === "All Specialisms" || (Array.isArray(professional["Expertise"]) && professional["Expertise"].includes(selectedSpecialism))
     const matchesExperience = selectedExperience === "All Levels" || professional["Experience Level"] === selectedExperience
     const matchesVerified = !showVerifiedOnly || professional["Verified"]
 
@@ -216,19 +216,19 @@ export default function Directory() {
                       )}
                     </div>
 
-                    {/* Specialisms */}
-                    {professional["Specialisms"] && Array.isArray(professional["Specialisms"]) && professional["Specialisms"].length > 0 && (
+                    {/* Expertise */}
+                    {professional["Expertise"] && Array.isArray(professional["Expertise"]) && professional["Expertise"].length > 0 && (
                       <div className="flex flex-wrap justify-center gap-1 mb-6">
-                        {professional["Specialisms"].slice(0, 3).map((specialism: string, index: number) => (
+                        {professional["Expertise"].slice(0, 3).map((expertise: string, index: number) => (
                           <Badge key={index} className="bg-tag-background text-white hover:bg-opacity-80 transition-colors text-xs font-inter rounded-full px-2 py-0.5 inline-block mx-0.5 my-0.5">
-                            {specialism}
+                            {expertise}
                           </Badge>
                         ))}
-                        {professional["Specialisms"].length > 3 && (
+                        {professional["Expertise"].length > 3 && (
                           <Badge
                             className="bg-gray-100 text-gray-600 hover:bg-gray-200 transition-colors font-inter text-xs rounded-full px-2 py-0.5 inline-block mx-0.5 my-0.5"
                           >
-                            +{professional["Specialisms"].length - 3} more
+                            +{professional["Expertise"].length - 3} more
                           </Badge>
                         )}
                       </div>

@@ -28,7 +28,7 @@ export default function Homepage() {
         console.log('Founding members:', founding)
         console.log('All professionals founding member status:', data.map(p => ({ name: p.Name, foundingMember: p["Founding Member"] })))
 
-        // If no founding members found, show first 3 professionals as fallback for now
+        // Since no founding members are set in Airtable yet, show first 3 professionals as display members
         const displayMembers = founding.length > 0 ? founding : data.slice(0, 3)
         setFoundingMembers(displayMembers)
       } catch (error) {
@@ -337,11 +337,11 @@ export default function Homepage() {
                       )}
                     </div>
 
-                    {/* Specialisms - May not be applicable or different for founding members */}
+                    {/* Expertise */}
                     <div className="flex flex-wrap gap-1 justify-center mb-6">
-                      {(member["Specialisms"] || []).slice(0, 3).map((specialism: string, index: number) => (
+                      {(member["Expertise"] || []).slice(0, 3).map((expertise: string, index: number) => (
                         <Badge key={index} className="bg-tag-background text-tag-text hover:bg-gray-600 transition-colors text-sm font-inter rounded-full px-4 py-2 inline-block mx-1 my-1">
-                          {specialism}
+                          {expertise}
                         </Badge>
                       ))}
                     </div>
