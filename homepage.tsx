@@ -383,7 +383,7 @@ export default function Homepage() {
                     {/* Expertise */}
                     <div className="flex flex-wrap gap-1 justify-center mb-6">
                       {(member["Expertise"] || []).slice(0, 3).map((expertise: string, index: number) => (
-                        <Badge key={index} className="bg-[#FDFDF9] text-gray-700 hover:bg-gray-200 transition-colors text-sm font-inter rounded-full px-4 py-2 inline-block mx-1 my-1">
+                        <Badge key={index} className="bg-[#D8D8D8] text-gray-700 hover:bg-gray-400 transition-colors text-sm font-inter rounded-full px-4 py-2 inline-block mx-1 my-1">
                           {expertise}
                         </Badge>
                       ))}

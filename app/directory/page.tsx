@@ -241,20 +241,16 @@ export default function Directory() {
                     {professional["Expertise"] && Array.isArray(professional["Expertise"]) && professional["Expertise"].length > 0 && (
                       <div className="flex flex-wrap justify-center gap-1 mb-6">
                         {professional["Expertise"].slice(0, 3).map((expertise: string, index: number) => (
-                          <Badge key={index} className="bg-[#FDFDF9] text-gray-700 hover:bg-gray-200 transition-colors text-xs font-inter rounded-full px-2 py-0.5 inline-block mx-0.5 my-0.5">
+                          <Badge key={index} className="bg-[#D8D8D8] text-gray-700 hover:bg-gray-400 transition-colors text-xs font-inter rounded-full px-2 py-0.5 inline-block mx-0.5 my-0.5">
                             {expertise}
                           </Badge>
                         ))}
                         {professional["Expertise"].length > 3 && (
                           <Badge
-                            className="bg-[#FDFDF9] text-gray-700 hover:bg-gray-200 transition-colors font-inter text-xs rounded-full px-2 py-0.5 inline-block mx-0.5 my-0.5"
+                            className="bg-[#D8D8D8] text-gray-700 hover:bg-gray-400 transition-colors font-inter text-xs rounded-full px-2 py-0.5 inline-block mx-0.5 my-0.5"
                           >
                             +{professional["Expertise"].length - 3} more
                           </Badge>
-                        )}
-                      </div>
-                    )}
-</old_str>
                         )}
                       </div>
                     )}
