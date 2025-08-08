@@ -79,31 +79,38 @@ export default function Homepage() {
       <HeroSection />
 
       {/* Why We're Different Section */}
-      <section id="why-different" className="py-12 md:py-16 bg-content-area">
+      <section id="why-different" className="py-16 md:py-24 bg-[#f7f7f7]">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          <div className="bg-white rounded-2xl border p-8 md:p-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-              {/* Left Column - Heading and Intro */}
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-main-text mb-4 font-playfair">
-                  Why We're Different
-                </h2>
-                <p className="text-lg text-main-text font-inter">
-                  The first fully vetted directory for McKenzie Friends and divorce support professionals.
-                </p>
-                <p className="mt-2 text-sm opacity-80 text-main-text font-inter">
-                  Interviewed • Reference-checked • Experience-verified
-                </p>
-              </div>
+          {/* Full-width heading section */}
+          <div className="mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-main-text mb-4 font-playfair">
+              Why We're Different
+            </h2>
+            <p className="text-lg text-main-text font-inter leading-relaxed">
+              The first fully vetted directory for McKenzie Friends and divorce support professionals.
+            </p>
+            <p className="mt-1 text-sm opacity-80 text-main-text font-inter">
+              Interviewed • Reference-checked • Experience-verified
+            </p>
+          </div>
 
-              {/* Right Column - 2x2 Grid of Feature Cards */}
-              <div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {/* Two-column content layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {/* Left Column - Optional space for future content */}
+            <div className="flex items-start">
+              <div className="text-sm leading-6 opacity-90 text-main-text font-inter">
+                {/* Reserved space for future "about" content */}
+              </div>
+            </div>
+
+            {/* Right Column - 2x2 Grid of Feature Cards */}
+            <div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {/* Vetted First Card */}
-                  <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
-                    <div className="flex items-start gap-3 mb-3">
+                  <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition bg-white">
+                    <div className="mb-3">
                       <svg
-                        className="w-6 h-6 text-header-footer flex-shrink-0 mt-0.5"
+                        className="w-6 h-6 text-header-footer mb-3"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -126,10 +133,10 @@ export default function Homepage() {
                   </div>
 
                   {/* Handpicked Start Card */}
-                  <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
-                    <div className="flex items-start gap-3 mb-3">
+                  <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition bg-white">
+                    <div className="mb-3">
                       <svg
-                        className="w-6 h-6 text-header-footer flex-shrink-0 mt-0.5"
+                        className="w-6 h-6 text-header-footer mb-3"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -152,10 +159,10 @@ export default function Homepage() {
                   </div>
 
                   {/* No Commission Card */}
-                  <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
-                    <div className="flex items-start gap-3 mb-3">
+                  <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition bg-white">
+                    <div className="mb-3">
                       <svg
-                        className="w-6 h-6 text-header-footer flex-shrink-0 mt-0.5"
+                        className="w-6 h-6 text-header-footer mb-3"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -178,10 +185,10 @@ export default function Homepage() {
                   </div>
 
                   {/* Real People Card */}
-                  <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
-                    <div className="flex items-start gap-3 mb-3">
+                  <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition bg-white">
+                    <div className="mb-3">
                       <svg
-                        className="w-6 h-6 text-header-footer flex-shrink-0 mt-0.5"
+                        className="w-6 h-6 text-header-footer mb-3"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
