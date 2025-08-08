@@ -330,18 +330,37 @@ export default function ProfileDetail() {
               )}
 
               {/* Contact Form Section */}
-              <Card className="bg-white shadow-lg border border-gray-200">
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-primary-green font-playfair">Contact</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ProfessionalContactForm
-                    displayName={professional["Display Name"] || professional["Name"]}
-                    slug={professional["Slug"] || professional["id"]}
-                    isAcceptingInquiries={professional["Is Accepting Inquiries"]}
-                  />
-                </CardContent>
-              </Card>
+              {professional["Is Accepting Inquiries"] !== false && (
+                <Card className="bg-white shadow-lg border border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold text-primary-green font-playfair">Get in Touch</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ProfessionalContactForm
+                      displayName={professional["Display Name"] || professional["Name"]}
+                      slug={professional["Slug"] || professional["id"]}
+                      isAcceptingInquiries={professional["Is Accepting Inquiries"]}
+                    />
+                  </CardContent>
+                </Card>
+              )}
+
+              {/* Not Accepting Inquiries Message */}
+              {professional["Is Accepting Inquiries"] === false && (
+                <Card className="bg-white shadow-lg border border-gray-200">
+                  <CardContent className="p-6 text-center">
+                    <p className="text-gray-600 mb-6 font-inter">
+                      This professional isn't accepting new inquiries
+                    </p>
+                    <Button
+                      asChild
+                      className="bg-primary-green hover:bg-primary-green/85 text-white px-6 py-3 font-inter font-semibold rounded-full transition-all duration-300"
+                    >
+                      <Link href="/directory">Browse Directory</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         </div>
