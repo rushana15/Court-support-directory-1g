@@ -90,23 +90,23 @@ export default function Homepage() {
 
       {/* Hero Section */}
       <section className="bg-white py-20 md:py-28">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-12 lg:px-20">
           {/* Centered Tagline Above Hero Content */}
           <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 text-gray-600 tracking-wider text-xs md:text-sm font-medium">
+            <div className="inline-flex items-center gap-2 text-gray-800 tracking-wide text-sm md:text-base font-semibold">
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               UK's First Fully Vetted Divorce Support Directory
             </div>
-            <div className="mt-2 w-16 h-0.5 bg-header-footer mx-auto"></div>
+            <div className="mt-2 w-16 h-0.5 bg-green-600 mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Left Column - Text Content */}
-            <div className="text-left">
+            <div className="text-left self-start">
               {/* Headline */}
-              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15] max-w-lg text-main-text font-playfair">
+              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-snug max-w-lg text-main-text font-playfair">
                 Divorce Support You Can Trust — Vetted Experts for Court, Conflict & Co-Parenting
               </h1>
 
@@ -133,7 +133,7 @@ export default function Homepage() {
             </div>
 
             {/* Right Column - Image */}
-            <div className="relative">
+            <div className="relative self-start max-w-[540px]">
               <div className="rounded-3xl shadow-md border bg-white p-2">
                 <Image
                   src="/hero-banner.png"
