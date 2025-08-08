@@ -162,7 +162,7 @@ export default function Homepage() {
               Why We're Different
             </h2>
             <p className="mt-2 text-lg text-main-text font-inter leading-relaxed">
-              The UK's first fully vetted directory for McKenzie Friends and divorce support professionals.
+              The only directory in the UK where every professional is fully vetted.
             </p>
             <p className="mt-1 text-sm opacity-80 text-main-text font-inter">
               Interviewed • Reference-checked • Experience-verified
