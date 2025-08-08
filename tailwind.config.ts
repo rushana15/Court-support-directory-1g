@@ -32,9 +32,9 @@ const config: Config = {
         'header-footer': '#264653', // Dark green-gray for header
         'main-text': '#333333', // Body text
         'muted-text': '#737373', // Muted info text
-        'cta-coral': '#E76F51', // Coral for buttons
+        'cta-coral': '#264653', // Coral for buttons
         'cta-coral-hover': '#D14A3E', // Coral hover state
-        'tag-background': '#4A766E', // Dark green-gray for specialism tags
+        'tag-background': '#FDFDF9', // Dark green-gray for specialism tags
         'tag-text': '#FFFFFF', // Text for specialism tags
         'input-bg': '#FDFDF9', // Input field backgrounds
         
