@@ -51,14 +51,55 @@ export default function ProfileDetail() {
 
   if (!professional) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-primary-background">
+        {/* Advisor Recruitment Banner */}
+        <div className="bg-[#E76F51] text-white text-sm md:text-base font-medium py-2 px-4 text-center hover:opacity-90 transition">
+          <span>Are you a McKenzie Friend or divorce support professional? Join our growing vetted network — </span>
+          <Link href="/apply" className="underline hover:no-underline">
+            apply today
+          </Link>
+        </div>
+        
         {/* Header */}
-        <header style={{ backgroundColor: "#1e3c34" }} className="border-b border-gray-200">
+        <header className="bg-header-footer border-b border-gray-200">
           <div className="container mx-auto px-4 py-6">
             <div className="flex items-center justify-between">
-              <Link href="/" className="flex items-center">
-                <span className="text-3xl font-bold text-[#f5f1e7] font-merriweather tracking-wide">Court Support Network</span>
+              <Link href="/" className="flex items-center gap-3">
+                <Image
+                  src="/compass-logo.svg"
+                  alt="Divorce Compass Logo"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
+                <span className="text-3xl font-bold text-white font-playfair tracking-wide">Divorce Compass</span>
               </Link>
+              <nav className="hidden md:flex space-x-8">
+                <Link
+                  href="/#about"
+                  className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
+                >
+                  About
+                </Link>
+                <Link
+                  href="/#how-it-works"
+                  className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
+                >
+                  How it Works
+                </Link>
+                <Link
+                  href="/#contact"
+                  className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
+                >
+                  Contact
+                </Link>
+                <Link
+                  href="/apply"
+                  className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
+                >
+                  For Advisors
+                </Link>
+              </nav>
             </div>
           </div>
         </header>
@@ -80,32 +121,53 @@ export default function ProfileDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-warm-beige">
+    <div className="min-h-screen bg-primary-background">
+      {/* Advisor Recruitment Banner */}
+      <div className="bg-[#E76F51] text-white text-sm md:text-base font-medium py-2 px-4 text-center hover:opacity-90 transition">
+        <span>Are you a McKenzie Friend or divorce support professional? Join our growing vetted network — </span>
+        <Link href="/apply" className="underline hover:no-underline">
+          apply today
+        </Link>
+      </div>
+      
       {/* Header */}
-      <header className="bg-primary-green border-b border-gray-200">
+      <header className="bg-header-footer border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center">
-              <span className="text-3xl font-bold text-white font-playfair tracking-wide">Court Support Network</span>
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/compass-logo.svg"
+                alt="Divorce Compass Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
+              <span className="text-3xl font-bold text-white font-playfair tracking-wide">Divorce Compass</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
               <Link
-                href="#about"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                href="/#about"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 About
               </Link>
               <Link
-                href="#how-it-works"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                href="/#how-it-works"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 How it Works
               </Link>
               <Link
-                href="#contact"
-                className="text-gray-300 hover:text-white hover:font-semibold transition-all font-medium font-inter"
+                href="/#contact"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
               >
                 Contact
+              </Link>
+              <Link
+                href="/apply"
+                className="text-white hover:text-gray-300 hover:font-semibold transition-all font-medium font-inter"
+              >
+                For Advisors
               </Link>
             </nav>
           </div>
