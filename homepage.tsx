@@ -433,7 +433,40 @@ export default function Homepage() {
           <p className="text-xl mb-12 font-inter text-main-text">
             Have questions or need assistance? Reach out to us today.
           </p>
-          <form className="max-w-2xl mx-auto space-y-6">
+          <form 
+            className="max-w-2xl mx-auto space-y-6"
+            onSubmit={async (e) => {
+              e.preventDefault()
+              
+              const formData = new FormData(e.target as HTMLFormElement)
+              const data = {
+                name: formData.get('name') as string,
+                email: formData.get('email') as string,
+                message: formData.get('message') as string,
+              }
+
+              try {
+                const response = await fetch('/api/send-email', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(data),
+                })
+
+                if (response.ok) {
+                  alert('Message sent successfully!')
+                  ;(e.target as HTMLFormElement).reset()
+                } else {
+                  const errorData = await response.json()
+                  alert(`Error: ${errorData.error}`)
+                }
+              } catch (error) {
+                alert('Failed to send message. Please try again.')
+                console.error('Error:', error)
+              }
+            }}
+          >
             <div>
               <label htmlFor="name" className="block text-left text-lg font-medium font-inter mb-2 text-main-text">
                 Name
@@ -441,6 +474,8 @@ export default function Homepage() {
               <input
                 type="text"
                 id="name"
+                name="name"
+                required
                 className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cta-coral font-inter bg-input-bg text-main-text"
                 placeholder="Your Name"
               />
@@ -452,6 +487,8 @@ export default function Homepage() {
               <input
                 type="email"
                 id="email"
+                name="email"
+                required
                 className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cta-coral font-inter bg-input-bg text-main-text"
                 placeholder="Your Email"
               />
@@ -462,7 +499,9 @@ export default function Homepage() {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={6}
+                required
                 className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cta-coral font-inter bg-input-bg text-main-text"
                 placeholder="Your Message"
               ></textarea>
