@@ -16,19 +16,28 @@ export default function HeroSection() {
   return (
     <section className="bg-primary-background py-16 lg:py-24">
       <div className="container mx-auto px-4">
+        {/* Main Heading - Full Width at Top */}
+        <div className="text-center mb-8">
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-playfair text-main-text transition-all duration-1000 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            UK's First Fully Vetted Divorce Support Directory
+          </h1>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Text Content */}
           <div className="text-left flex flex-col justify-center py-8 lg:py-12 px-6 lg:px-8 min-h-[500px] lg:min-h-[600px]">
             <div className="max-w-none">
-              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-playfair leading-tight text-main-text transition-all duration-1000 ease-out ${
+              <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-playfair leading-tight text-main-text transition-all duration-1000 ease-out delay-200 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}>
-                Divorce Support You Can Trust — Vetted Experts for Court, Conflict & Co-Parenting
-              </h1>
-              <p className={`text-lg md:text-xl lg:text-2xl mb-8 font-inter leading-relaxed text-main-text transition-all duration-1000 ease-out delay-300 ${
+                Divorce Support You Can Trust — Experts for Court, Conflict & Co-Parenting
+              </h2>
+              <p className={`text-lg md:text-xl mb-8 font-inter leading-relaxed text-main-text transition-all duration-1000 ease-out delay-300 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}>
-                Whether you need strategic legal guidance, help resolving co-parenting disputes, or skilled support in court, our vetted McKenzie Friends and divorce experts are here to protect your interests at every stage.
+                Every professional listed here has been personally interviewed and reference-checked, with proven experience helping people through divorce and co-parenting challenges.
               </p>
               <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ease-out delay-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
