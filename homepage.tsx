@@ -278,11 +278,11 @@ export default function Homepage() {
       </section>
 
       {/* How it Works */}
+      {/* 
       <section id="how-it-works" className="py-20 bg-[#F4F4F4]">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 font-playfair text-center text-main-text">How It Works</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {/* Step 1 */}
             <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-cta-coral rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-playfair">1</span>
@@ -292,7 +292,6 @@ export default function Homepage() {
                 Easily find McKenzie Friends by location, specialism, and experience.
               </p>
             </div>
-            {/* Step 2 */}
             <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-cta-coral rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-playfair">2</span>
@@ -302,7 +301,6 @@ export default function Homepage() {
                 Message professionals securely through our platform to discuss your needs.
               </p>
             </div>
-            {/* Step 3 */}
             <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
               <div className="w-12 h-12 bg-cta-coral rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white font-bold text-xl font-playfair">3</span>
@@ -315,6 +313,7 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Founding Members Section */}
       <section className="py-20 bg-[#E0E0E0]">
