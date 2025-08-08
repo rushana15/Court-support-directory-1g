@@ -17,7 +17,7 @@ interface ProfessionalContactFormProps {
 export default function ProfessionalContactForm({
   displayName,
   slug,
-  isAcceptingInquiries = true,
+  isAcceptingInquiries,
 }: ProfessionalContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",
