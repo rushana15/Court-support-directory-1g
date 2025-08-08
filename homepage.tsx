@@ -98,24 +98,25 @@ export default function Homepage() {
       {/* Hero Section */}
       <section className="bg-white py-20 md:py-28">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
-          {/* Centered Tagline Above Hero Content */}
-          <div className="text-center mb-6">
-            <div className="inline-flex items-center gap-2 text-gray-800 tracking-wide text-sm md:text-base font-semibold">
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
+          {/* Main Heading - Full Width at Top */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-playfair text-main-text">
               UK's First Fully Vetted Divorce Support Directory
-            </div>
-            <div className="mt-2 w-16 h-0.5 bg-green-600 mx-auto"></div>
+            </h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
             {/* Left Column - Text Content */}
             <div className="text-left self-start">
-              {/* Headline */}
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-snug max-w-lg text-main-text font-playfair">
-                Divorce Support You Can Trust — Vetted Experts for Court, Conflict & Co-Parenting
-              </h1>
+              {/* Subheading */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-playfair leading-tight text-main-text">
+                Divorce Support You Can Trust — Experts for Court, Conflict & Co-Parenting
+              </h2>
+              
+              {/* Descriptive text */}
+              <p className="text-lg md:text-xl mb-8 font-inter leading-relaxed text-main-text">
+                Every professional listed here has been personally interviewed and reference-checked, with proven experience helping people through divorce and co-parenting challenges.
+              </p></div>
 
               {/* Paragraph */}
               <p className="mt-4 text-base md:text-lg leading-7 text-gray-700 max-w-md font-inter">
