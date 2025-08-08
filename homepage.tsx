@@ -188,14 +188,14 @@ export default function Homepage() {
                 />
               </svg>
               <h3 className="font-semibold text-main-text font-playfair mb-2">
-                Vetted First (no exceptions)
+                Vetted First (No Exceptions)
               </h3>
               <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
                 Every professional is interviewed, reference-checked, and screened for relevant experience before listing. We review work history, client feedback, and platform reviews so you don't have to.
               </p>
             </div>
 
-            {/* Handpicked Start Card */}
+            {/* Direct to Person Card */}
             <div className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
               <svg
                 className="w-6 h-6 text-header-footer mb-3"
@@ -208,14 +208,38 @@ export default function Homepage() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
-                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                 />
               </svg>
               <h3 className="font-semibold text-main-text font-playfair mb-2">
-                Handpicked Start
+                Direct to the Person You Choose
               </h3>
               <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
-                Our initial network was handpicked based on reviews and outcomes across multiple platforms, then verified through interviews and references.
+                Your inquiry goes straight to the professional you select — not to a middleman or gatekeeper. You get faster responses and build trust from the first message.
+              </p>
+            </div>
+
+            {/* Easy Search Card */}
+            <div className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
+              <svg
+                className="w-6 h-6 text-header-footer mb-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+              <h3 className="font-semibold text-main-text font-playfair mb-2">
+                Easy Search, Clear Results
+              </h3>
+              <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
+                Find the right support fast with filters for expertise and location — no endless scrolling or confusing listings.
               </p>
             </div>
 
@@ -240,30 +264,6 @@ export default function Homepage() {
               </h3>
               <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
                 We charge a monthly membership fee to professionals, not a commission per case. This keeps costs transparent and in your control.
-              </p>
-            </div>
-
-            {/* Real People Card */}
-            <div className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
-              <svg
-                className="w-6 h-6 text-header-footer mb-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
-              <h3 className="font-semibold text-main-text font-playfair mb-2">
-                Real People Behind the Profiles
-              </h3>
-              <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
-                No automated listings or basic contact forms. Every professional you see has been personally interviewed by our team.
               </p>
             </div>
           </div>
