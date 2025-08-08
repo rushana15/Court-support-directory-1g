@@ -99,13 +99,13 @@ export default function Homepage() {
       <section className="bg-white py-20 md:py-28">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           {/* Main Heading - Full Width at Top */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-20">
             <h1 className="text-4xl md:text-5xl font-bold font-playfair text-main-text">
               UK's First Fully Vetted Divorce Support Directory
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Left Column - Text Content */}
             <div className="text-left self-start">
               {/* Subheading */}
