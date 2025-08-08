@@ -55,7 +55,14 @@ export default function Homepage() {
       <header className="bg-header-footer border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/compass-logo.svg"
+                alt="Divorce Compass Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
               <span className="text-3xl font-bold text-white font-playfair tracking-wide">Divorce Compass</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
@@ -467,7 +474,14 @@ export default function Homepage() {
       <footer className="py-16 bg-header-footer border-t border-gray-200">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center mb-6 md:mb-0">
+            <div className="flex items-center gap-3 mb-6 md:mb-0">
+              <Image
+                src="/compass-logo.svg"
+                alt="Divorce Compass Logo"
+                width={24}
+                height={24}
+                className="w-6 h-6"
+              />
               <span className="text-xl font-bold text-white font-playfair">Divorce Compass</span>
             </div>
 

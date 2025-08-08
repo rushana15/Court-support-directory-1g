@@ -77,7 +77,14 @@ export default function Directory() {
       <header className="bg-header-footer border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/compass-logo.svg"
+                alt="Divorce Compass Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
               <span className="text-3xl font-bold text-white font-playfair tracking-wide">Divorce Compass</span>
             </Link>
             <nav className="hidden md:flex space-x-8">
