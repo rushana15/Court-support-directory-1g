@@ -5,11 +5,11 @@ import { mailer } from '@/lib/mailer'
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  context: { params: Promise<{ slug: string }> }
 ) {
   try {
-    // Get the slug parameter (can be slug or record ID)
-    const slug = params.slug
+    // Await params to fix Next.js async params requirement
+    const { slug } = await context.params
     
     // Parse the request body
     const { name, email, message } = await request.json()
