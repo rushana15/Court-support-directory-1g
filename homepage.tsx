@@ -107,7 +107,7 @@ export default function Homepage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Left Column - Text Content */}
-            <div className="text-left self-start">
+            <div className="text-left flex flex-col justify-center">
               {/* Subheading */}
               <h2 className="text-xl md:text-2xl font-bold mb-6 font-playfair leading-tight text-main-text">
                 Divorce Support You Can Trust — Experts for Court, Conflict & Co-Parenting
