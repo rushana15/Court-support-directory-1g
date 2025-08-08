@@ -366,6 +366,16 @@ export default function Homepage() {
                         </Badge>
                       ))}
                     </div>
+
+                    {/* View Profile Button */}
+                    <div className="text-center mt-auto">
+                      <Button
+                        className="bg-cta-coral hover:bg-cta-coral-hover text-white w-full px-6 py-3 font-inter font-bold rounded-full border-none transition-all duration-300"
+                        asChild
+                      >
+                        <Link href={`/profile/${member.id}`}>View Profile</Link>
+                      </Button>
+                    </div>
                   </CardContent>
                 </Card>
               ))}
