@@ -76,148 +76,181 @@ export default function Homepage() {
       </header>
 
       {/* Hero Section */}
-      <HeroSection />
+      <section className="bg-primary-background py-16 lg:py-24">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            {/* Left Column - Text Content */}
+            <div className="text-left">
+              {/* Badge */}
+              <div className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium mb-4 bg-white text-gray-700 border-gray-200">
+                UK's First Fully Vetted Divorce Support Directory
+              </div>
+
+              {/* Headline */}
+              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.15] max-w-xl text-main-text font-playfair">
+                Divorce Support You Can Trust — Vetted Experts for Court, Conflict & Co-Parenting
+              </h1>
+
+              {/* Paragraph */}
+              <p className="mt-4 text-base md:text-lg leading-7 text-gray-700 max-w-lg font-inter">
+                Whether you need strategic legal guidance, help resolving co-parenting disputes, or skilled support in court, our vetted McKenzie Friends and divorce experts are here to protect your interests at every stage.
+              </p>
+
+              {/* Buttons */}
+              <div className="mt-6">
+                <Link
+                  href="/directory"
+                  className="inline-flex items-center rounded-full bg-red-500 hover:bg-red-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition font-inter"
+                >
+                  Browse the Directory
+                </Link>
+                <Link
+                  href="#how-it-works"
+                  className="ml-3 inline-flex items-center rounded-full border px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition font-inter"
+                >
+                  Learn More
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Column - Image */}
+            <div className="relative">
+              <div className="rounded-2xl shadow-sm border bg-white p-2">
+                <Image
+                  src="/hero-banner.png"
+                  alt="Professional consultation"
+                  width={600}
+                  height={400}
+                  className="object-cover rounded-xl w-full h-auto"
+                  priority
+                  unoptimized
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Why We're Different Section */}
       <section id="why-different" className="py-16 md:py-24 bg-[#f7f7f7]">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           {/* Full-width heading section */}
-          <div className="mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-main-text mb-4 font-playfair">
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-main-text font-playfair">
               Why We're Different
             </h2>
-            <p className="text-lg text-main-text font-inter leading-relaxed">
-              The first fully vetted directory for McKenzie Friends and divorce support professionals.
+            <p className="mt-2 text-lg text-main-text font-inter leading-relaxed">
+              The UK's first fully vetted directory for McKenzie Friends and divorce support professionals.
             </p>
             <p className="mt-1 text-sm opacity-80 text-main-text font-inter">
               Interviewed • Reference-checked • Experience-verified
             </p>
           </div>
 
-          {/* Two-column content layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {/* Left Column - Optional space for future content */}
-            <div className="flex items-start">
-              <div className="text-sm leading-6 opacity-90 text-main-text font-inter">
-                {/* Reserved space for future "about" content */}
-              </div>
+          {/* Cards Grid */}
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Vetted First Card */}
+            <div className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
+              <svg
+                className="w-6 h-6 text-header-footer mb-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+              <h3 className="font-semibold text-main-text font-playfair mb-2">
+                Vetted First (no exceptions)
+              </h3>
+              <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
+                Every professional is interviewed, reference-checked, and screened for relevant experience before listing. We review work history, client feedback, and platform reviews so you don't have to.
+              </p>
             </div>
 
-            {/* Right Column - 2x2 Grid of Feature Cards */}
-            <div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {/* Vetted First Card */}
-                <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition bg-white">
-                  <div className="mb-3">
-                    <svg
-                      className="w-6 h-6 text-header-footer mb-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                      />
-                    </svg>
-                    <h3 className="font-semibold text-main-text font-playfair">
-                      Vetted First (no exceptions)
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-sm leading-6 opacity-90 text-main-text font-inter">
-                    Every professional is interviewed, reference-checked, and screened for relevant experience before listing. We review work history, client feedback, and platform reviews so you don't have to.
-                  </p>
-                </div>
-
-                {/* Handpicked Start Card */}
-                <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition bg-white">
-                  <div className="mb-3">
-                    <svg
-                      className="w-6 h-6 text-header-footer mb-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                      />
-                    </svg>
-                    <h3 className="font-semibold text-main-text font-playfair">
-                      Handpicked Start
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-sm leading-6 opacity-90 text-main-text font-inter">
-                    Our initial network was handpicked based on reviews and outcomes across multiple platforms, then verified through interviews and references.
-                  </p>
-                </div>
-
-                {/* No Commission Card */}
-                <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition bg-white">
-                  <div className="mb-3">
-                    <svg
-                      className="w-6 h-6 text-header-footer mb-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <h3 className="font-semibold text-main-text font-playfair">
-                      No Commission Model
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-sm leading-6 opacity-90 text-main-text font-inter">
-                    We charge a monthly membership fee to professionals, not a commission per case. This keeps costs transparent and in your control.
-                  </p>
-                </div>
-
-                {/* Real People Card */}
-                <div className="rounded-2xl border p-6 shadow-sm hover:shadow-md transition bg-white">
-                  <div className="mb-3">
-                    <svg
-                      className="w-6 h-6 text-header-footer mb-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                    <h3 className="font-semibold text-main-text font-playfair">
-                      Real People Behind the Profiles
-                    </h3>
-                  </div>
-                  <p className="mt-2 text-sm leading-6 opacity-90 text-main-text font-inter">
-                    No automated listings or basic contact forms. Every professional you see has been personally interviewed by our team.
-                  </p>
-                </div>
-              </div>
-
-              {/* Reassurance Line */}
-              <div className="mt-6 text-xs opacity-70 text-center">
-                <p className="text-main-text font-inter">
-                  If someone doesn't meet our standards, they don't make the list. Period.
-                </p>
-              </div>
+            {/* Handpicked Start Card */}
+            <div className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
+              <svg
+                className="w-6 h-6 text-header-footer mb-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                />
+              </svg>
+              <h3 className="font-semibold text-main-text font-playfair mb-2">
+                Handpicked Start
+              </h3>
+              <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
+                Our initial network was handpicked based on reviews and outcomes across multiple platforms, then verified through interviews and references.
+              </p>
             </div>
+
+            {/* No Commission Card */}
+            <div className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
+              <svg
+                className="w-6 h-6 text-header-footer mb-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              <h3 className="font-semibold text-main-text font-playfair mb-2">
+                No Commission Model
+              </h3>
+              <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
+                We charge a monthly membership fee to professionals, not a commission per case. This keeps costs transparent and in your control.
+              </p>
+            </div>
+
+            {/* Real People Card */}
+            <div className="bg-white rounded-2xl border p-6 shadow-sm hover:shadow-md transition">
+              <svg
+                className="w-6 h-6 text-header-footer mb-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+              <h3 className="font-semibold text-main-text font-playfair mb-2">
+                Real People Behind the Profiles
+              </h3>
+              <p className="text-sm leading-6 opacity-90 text-main-text font-inter">
+                No automated listings or basic contact forms. Every professional you see has been personally interviewed by our team.
+              </p>
+            </div>
+          </div>
+
+          {/* Footer reassurance line */}
+          <div className="mt-6 text-xs opacity-70 text-center">
+            <p className="text-main-text font-inter">
+              If someone doesn't meet our standards, they don't make the list. Period.
+            </p>
           </div>
         </div>
       </section>
