@@ -17,6 +17,9 @@ export interface Professional {
   "Profile Photo": string
   "Last Verified Date": string
   "Founding Member": boolean
+  "Display Name": string
+  "Slug": string
+  "Is Accepting Inquiries": boolean
 }
 
 export async function fetchProfessionals(): Promise<Professional[]> {

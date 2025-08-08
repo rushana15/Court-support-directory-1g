@@ -10,6 +10,7 @@ import Image from "next/image"
 import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
 import { fetchProfessionals, type Professional } from "@/lib/airtable"
+import ProfessionalContactForm from "@/components/professional-contact-form"
 
 export default function ProfileDetail() {
   const params = useParams()
@@ -59,7 +60,7 @@ export default function ProfileDetail() {
             apply today
           </Link>
         </div>
-        
+
         {/* Header */}
         <header className="bg-header-footer border-b border-gray-200">
           <div className="container mx-auto px-4 py-6">
@@ -129,7 +130,7 @@ export default function ProfileDetail() {
           apply today
         </Link>
       </div>
-      
+
       {/* Header */}
       <header className="bg-header-footer border-b border-gray-200">
         <div className="container mx-auto px-4 py-6">
@@ -253,10 +254,21 @@ export default function ProfileDetail() {
                       </Button>
                   )}
 
-                  {/* Contact Button */}
-                  <Button className="w-full bg-primary-green hover:bg-primary-green/85 text-white px-8 py-4 font-inter font-semibold rounded-full hover:ring-2 hover:ring-primary-green/30 transition-all duration-300">
-                    Contact McKenzie Friend
-                  </Button>
+                  {/* Contact Button - This will be replaced by the form or the message */}
+                  {!professional["Is Accepting Inquiries"] ? (
+                    <div className="mt-6 text-center">
+                      <p className="text-gray-600 font-inter">This professional isn’t accepting new inquiries.</p>
+                      <Button asChild className="mt-4 bg-primary-green hover:bg-primary-green/85 text-white px-8 py-4 font-inter font-semibold rounded-full hover:ring-2 hover:ring-primary-green/30 transition-all duration-300">
+                        <Link href="/directory">
+                          Browse Directory
+                        </Link>
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button className="w-full bg-primary-green hover:bg-primary-green/85 text-white px-8 py-4 font-inter font-semibold rounded-full hover:ring-2 hover:ring-primary-green/30 transition-all duration-300">
+                      Contact McKenzie Friend
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -308,15 +320,31 @@ export default function ProfileDetail() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600 font-inter">
-                      {Array.isArray(professional["Languages Spoken"]) 
-                        ? professional["Languages Spoken"].join(", ") 
+                      {Array.isArray(professional["Languages Spoken"])
+                        ? professional["Languages Spoken"].join(", ")
                         : professional["Languages Spoken"]}
                     </p>
                   </CardContent>
                 </Card>
               )}
 
-
+              {/* Contact Form Section */}
+              {professional["Is Accepting Inquiries"] && (
+                <Card className="bg-white shadow-lg border border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-xl font-bold text-primary-green font-playfair">Contact</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ProfessionalContactForm
+                      displayName={professional["Display Name"]}
+                      slug={professional["Slug"]}
+                    />
+                    <p className="text-xs text-gray-500 mt-2 font-inter text-center">
+                      Your message goes straight to this professional. Their email stays private.
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           </div>
         </div>
