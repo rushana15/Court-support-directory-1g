@@ -5,11 +5,11 @@ import { mailer } from '@/lib/mailer'
 
 export async function POST(
   request: NextRequest,
-  context: { params: Promise<{ slug: string }> }
+  { params }: { params: { slug: string } }
 ) {
   try {
-    // Await params to fix Next.js async params requirement
-    const { slug } = await context.params
+    // Get the slug parameter (can be slug or record ID)
+    const slug = params.slug
     
     // Parse the request body
     const { name, email, message } = await request.json()
@@ -39,10 +39,10 @@ export async function POST(
       apiKey: apiKey
     }).base(baseId)
 
-    // Find the professional by slug
+    // Find the professional by slug or record ID (since many slugs are empty)
     const records = await base('Table 1').select({
       view: 'Grid view',
-      filterByFormula: `{Slug} = "${slug}"`
+      filterByFormula: `OR({Slug} = "${slug}", RECORD_ID() = "${slug}")`
     }).all()
 
     if (records.length === 0) {
