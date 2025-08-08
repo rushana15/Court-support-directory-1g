@@ -116,7 +116,7 @@ export default function Homepage() {
               {/* Descriptive text */}
               <p className="text-lg md:text-xl mb-8 font-inter leading-relaxed text-main-text">
                 Every professional listed here has been personally interviewed and reference-checked, with proven experience helping people through divorce and co-parenting challenges.
-              </p></div>
+              </p>
 
               {/* Paragraph */}
               <p className="mt-4 text-base md:text-lg leading-7 text-gray-700 max-w-md font-inter">
