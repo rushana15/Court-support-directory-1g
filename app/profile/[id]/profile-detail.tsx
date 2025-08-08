@@ -330,10 +330,12 @@ export default function ProfileDetail() {
               )}
 
               {/* Contact Form Section */}
-              {professional["Is Accepting Inquiries"] !== false && (
+              {professional["Is Accepting Inquiries"] === true && (
                 <Card className="bg-white shadow-lg border border-gray-200">
                   <CardHeader>
-                    <CardTitle className="text-xl font-bold text-primary-green font-playfair">Get in Touch</CardTitle>
+                    <CardTitle className="text-xl font-bold text-primary-green font-playfair">
+                      Contact {professional["Display Name"] || professional["Name"]}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ProfessionalContactForm
