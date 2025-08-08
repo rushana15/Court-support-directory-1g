@@ -11,13 +11,13 @@ import Link from "next/link"
 interface ProfessionalContactFormProps {
   displayName: string
   slug: string
-  isAcceptingInquiries: boolean
+  isAcceptingInquiries?: boolean
 }
 
 export default function ProfessionalContactForm({
   displayName,
   slug,
-  isAcceptingInquiries,
+  isAcceptingInquiries = true,
 }: ProfessionalContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",

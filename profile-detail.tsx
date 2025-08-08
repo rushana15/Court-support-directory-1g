@@ -255,9 +255,9 @@ export default function ProfileDetail() {
                   )}
 
                   {/* Contact Button - This will be replaced by the form or the message */}
-                  {!professional["Is Accepting Inquiries"] ? (
+                  {professional["Is Accepting Inquiries"] === false ? (
                     <div className="mt-6 text-center">
-                      <p className="text-gray-600 font-inter">This professional isn’t accepting new inquiries.</p>
+                      <p className="text-gray-600 font-inter">This professional isn't accepting new inquiries.</p>
                       <Button asChild className="mt-4 bg-primary-green hover:bg-primary-green/85 text-white px-8 py-4 font-inter font-semibold rounded-full hover:ring-2 hover:ring-primary-green/30 transition-all duration-300">
                         <Link href="/directory">
                           Browse Directory
