@@ -160,8 +160,8 @@ export default function Homepage() {
       {/* Why We're Different Section */}
       <section id="why-different" className="py-16 md:py-24 bg-[#f7f7f7]">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          {/* Full-width heading section */}
-          <div className="mb-8">
+          {/* Centered heading section */}
+          <div className="mb-8 text-center">
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-main-text font-playfair">
               Why We're Different
             </h2>
@@ -285,25 +285,34 @@ export default function Homepage() {
       <section id="how-it-works" className="py-20 bg-[#F4F4F4]">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 font-playfair text-center text-main-text">How It Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Step 1 */}
-            <div className="text-center">
+            <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-cta-coral rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-xl font-playfair">1</span>
+              </div>
               <h3 className="text-2xl font-bold mb-4 font-playfair text-main-text">Browse Profiles</h3>
-              <p className="text-lg text-main-text font-inter">
+              <p className="text-lg text-main-text font-inter leading-relaxed">
                 Easily find McKenzie Friends by location, specialism, and experience.
               </p>
             </div>
             {/* Step 2 */}
-            <div className="text-center">
+            <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-cta-coral rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-xl font-playfair">2</span>
+              </div>
               <h3 className="text-2xl font-bold mb-4 font-playfair text-main-text">Connect Directly</h3>
-              <p className="text-lg text-main-text font-inter">
+              <p className="text-lg text-main-text font-inter leading-relaxed">
                 Message professionals securely through our platform to discuss your needs.
               </p>
             </div>
             {/* Step 3 */}
-            <div className="text-center">
+            <div className="bg-white rounded-2xl border border-gray-200 p-8 text-center shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-cta-coral rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-xl font-playfair">3</span>
+              </div>
               <h3 className="text-2xl font-bold mb-4 font-playfair text-main-text">Get Support</h3>
-              <p className="text-lg text-main-text font-inter">
+              <p className="text-lg text-main-text font-inter leading-relaxed">
                 Receive compassionate and expert assistance for your court proceedings.
               </p>
             </div>
