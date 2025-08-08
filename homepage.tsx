@@ -113,7 +113,7 @@ export default function Homepage() {
               <div className="mt-6">
                 <Link
                   href="/directory"
-                  className="inline-flex items-center rounded-full bg-red-500 hover:bg-red-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition font-inter"
+                  className="inline-flex items-center rounded-full bg-cta-coral hover:bg-cta-coral-hover px-5 py-3 text-sm font-semibold text-white shadow-sm transition font-inter"
                 >
                   Browse the Directory
                 </Link>
