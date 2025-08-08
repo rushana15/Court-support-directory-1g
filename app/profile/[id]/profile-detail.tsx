@@ -330,7 +330,7 @@ export default function ProfileDetail() {
               )}
 
               {/* Contact Form Section */}
-              {professional["Is Accepting Inquiries"] !== false && (
+              {professional["Is Accepting Inquiries"] === true && (
                 <Card className="bg-white shadow-lg border border-gray-200">
                   <CardHeader>
                     <CardTitle className="text-xl font-bold text-primary-green font-playfair">
@@ -348,7 +348,7 @@ export default function ProfileDetail() {
               )}
 
               {/* Not Accepting Inquiries Message */}
-              {professional["Is Accepting Inquiries"] === false && (
+              {professional["Is Accepting Inquiries"] !== true && (
                 <Card className="bg-white shadow-lg border border-gray-200">
                   <CardContent className="p-6 text-center">
                     <p className="text-gray-600 mb-6 font-inter">
