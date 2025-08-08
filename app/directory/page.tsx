@@ -252,6 +252,8 @@ export default function Directory() {
                             +{professional["Expertise"].length - 3} more
                           </Badge>
                         )}
+                      </div>
+                    )}
 </old_str>
                         )}
                       </div>
