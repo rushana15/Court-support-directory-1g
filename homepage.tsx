@@ -99,7 +99,7 @@ export default function Homepage() {
       <section className="bg-white py-20 md:py-28">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           {/* Main Heading - Full Width at Top */}
-          <div className="text-center mb-4">
+          <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold font-playfair text-main-text">
               UK's First Fully Vetted Divorce Support Directory
             </h1>
@@ -411,16 +411,7 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-16 lg:py-24 bg-content-area">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-main-text font-playfair">
-              What is a McKenzie Friend?
-            </h2>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-[#C4DEC6]">
