@@ -89,37 +89,43 @@ export default function Homepage() {
       </header>
 
       {/* Hero Section */}
-      <section className="bg-primary-background py-16 lg:py-24">
+      <section className="bg-white py-20 md:py-28">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          {/* Centered Tagline Above Hero Content */}
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 text-gray-600 tracking-wider text-xs md:text-sm font-medium">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              UK's First Fully Vetted Divorce Support Directory
+            </div>
+            <div className="mt-2 w-16 h-0.5 bg-header-footer mx-auto"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* Left Column - Text Content */}
             <div className="text-left">
-              {/* Badge */}
-              <div className="inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium mb-4 bg-white text-gray-700 border-gray-200">
-                UK's First Fully Vetted Divorce Support Directory
-              </div>
-
               {/* Headline */}
-              <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-[1.15] max-w-xl text-main-text font-playfair">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.15] max-w-lg text-main-text font-playfair">
                 Divorce Support You Can Trust — Vetted Experts for Court, Conflict & Co-Parenting
               </h1>
 
               {/* Paragraph */}
-              <p className="mt-4 text-base md:text-lg leading-7 text-gray-700 max-w-lg font-inter">
+              <p className="mt-4 text-base md:text-lg leading-7 text-gray-700 max-w-md font-inter">
                 Whether you need strategic legal guidance, help resolving co-parenting disputes, or skilled support in court, our vetted McKenzie Friends and divorce experts are here to protect your interests at every stage.
               </p>
 
               {/* Buttons */}
-              <div className="mt-6">
+              <div className="mt-6 flex gap-3">
                 <Link
                   href="/directory"
-                  className="inline-flex items-center rounded-full bg-cta-coral hover:bg-cta-coral-hover px-5 py-3 text-sm font-semibold text-white shadow-sm transition font-inter"
+                  className="inline-flex items-center rounded-full bg-[#E76F51] hover:bg-[#D14A3E] px-5 py-3 text-sm font-semibold text-white shadow-sm transition font-inter"
                 >
                   Browse the Directory
                 </Link>
                 <Link
                   href="#how-it-works"
-                  className="ml-3 inline-flex items-center rounded-full border px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition font-inter"
+                  className="inline-flex items-center rounded-full border border-gray-300 px-5 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition font-inter"
                 >
                   Learn More
                 </Link>
@@ -128,13 +134,13 @@ export default function Homepage() {
 
             {/* Right Column - Image */}
             <div className="relative">
-              <div className="rounded-2xl shadow-sm border bg-white p-2">
+              <div className="rounded-3xl shadow-md border bg-white p-2">
                 <Image
                   src="/hero-banner.png"
                   alt="Professional consultation"
                   width={600}
                   height={400}
-                  className="object-cover rounded-xl w-full h-auto"
+                  className="object-cover rounded-3xl w-full h-auto"
                   priority
                   unoptimized
                 />
