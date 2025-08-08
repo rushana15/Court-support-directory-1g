@@ -1,4 +1,3 @@
-
 import Link from "next/link"
 import Image from "next/image"
 
@@ -52,79 +51,53 @@ export default function AboutPage() {
       {/* About Content */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 md:px-12 lg:px-20 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 font-playfair text-main-text text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-12 font-playfair text-main-text text-center">
             About Divorce Compass
           </h1>
-          
-          <div className="prose prose-lg max-w-none">
-            <div className="text-xl mb-8 font-inter leading-relaxed text-main-text">
-              <p className="mb-6">
-                Divorce Compass is the UK's first fully vetted directory of divorce support professionals. 
-                We connect people going through divorce and separation with experienced, trustworthy advisors 
-                who can provide the guidance and support they need during this challenging time.
-              </p>
-            </div>
 
-            <h2 className="text-3xl font-bold mb-6 font-playfair text-main-text">Our Mission</h2>
-            <p className="text-lg mb-6 font-inter leading-relaxed text-main-text">
-              Navigating divorce and family court proceedings can be overwhelming, expensive, and emotionally draining. 
-              Our mission is to make quality support accessible by connecting you directly with vetted professionals 
-              who have the experience and expertise to help you through this difficult journey.
+          {/* What We Do Section */}
+          <div className="bg-gray-50 rounded-2xl p-8 mb-8">
+            <h2 className="text-3xl font-bold mb-6 font-playfair text-main-text">What We Do</h2>
+            <p className="text-lg font-inter leading-relaxed text-main-text">
+              We connect you with vetted, trustworthy professionals who can guide you through divorce, separation, or family disputes. Whether you need help preparing for court, navigating negotiations, or managing co-parenting challenges, you'll find experienced, verified people here — ready to support you.
             </p>
+          </div>
 
-            <h2 className="text-3xl font-bold mb-6 font-playfair text-main-text">What Makes Us Different</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div className="bg-[#f7f7f7] rounded-2xl p-6">
-                <h3 className="text-xl font-bold mb-3 font-playfair text-main-text">Fully Vetted Professionals</h3>
-                <p className="text-main-text font-inter leading-relaxed">
-                  Every professional in our directory has been personally interviewed, reference-checked, 
-                  and verified for relevant experience. No exceptions.
-                </p>
-              </div>
-              <div className="bg-[#f7f7f7] rounded-2xl p-6">
-                <h3 className="text-xl font-bold mb-3 font-playfair text-main-text">Direct Communication</h3>
-                <p className="text-main-text font-inter leading-relaxed">
-                  Your inquiries go straight to the professional you choose — no middlemen, 
-                  no gatekeepers, faster responses.
-                </p>
-              </div>
-              <div className="bg-[#f7f7f7] rounded-2xl p-6">
-                <h3 className="text-xl font-bold mb-3 font-playfair text-main-text">Transparent Pricing</h3>
-                <p className="text-main-text font-inter leading-relaxed">
-                  We use a membership model, not commission-based fees. This keeps costs 
-                  transparent and in your control.
-                </p>
-              </div>
-              <div className="bg-[#f7f7f7] rounded-2xl p-6">
-                <h3 className="text-xl font-bold mb-3 font-playfair text-main-text">Easy to Use</h3>
-                <p className="text-main-text font-inter leading-relaxed">
-                  Simple search filters help you find the right support quickly based on 
-                  expertise, location, and experience level.
-                </p>
-              </div>
-            </div>
-
-            <h2 className="text-3xl font-bold mb-6 font-playfair text-main-text">Who We Help</h2>
-            <p className="text-lg mb-6 font-inter leading-relaxed text-main-text">
-              Whether you're dealing with child arrangements, financial disputes, court representation, 
-              or simply need guidance on your legal options, our directory includes professionals 
-              with experience across all areas of family law and divorce support.
+          {/* Why It Matters Section */}
+          <div className="bg-gray-100 rounded-2xl p-8 mb-8">
+            <h2 className="text-3xl font-bold mb-6 font-playfair text-main-text">Why It Matters</h2>
+            <p className="text-lg font-inter leading-relaxed text-main-text">
+              Family court issues are rarely just about the law. They're about disputes, conflict, and the personal, practical challenges that come with them. Our professionals understand this. While we cannot give legal advice, most family law cases involve far more strategy, planning, and communication than pure legal argument.
             </p>
+          </div>
 
-            <h2 className="text-3xl font-bold mb-6 font-playfair text-main-text">Ready to Find Support?</h2>
-            <p className="text-lg mb-8 font-inter leading-relaxed text-main-text">
-              Browse our vetted directory to find experienced professionals who can help guide you 
-              through your divorce or family law matter with confidence and clarity.
+          {/* Who You'll Find Here Section */}
+          <div className="bg-gray-50 rounded-2xl p-8 mb-8">
+            <h2 className="text-3xl font-bold mb-6 font-playfair text-main-text">Who You'll Find Here</h2>
+            <p className="text-lg font-inter leading-relaxed text-main-text">
+              Some of our professionals have legal backgrounds, some have social work experience, some are qualified McKenzie Friends, and others have first-hand experience of the family court process. Every one of them has been checked for professionalism, experience, and integrity.
             </p>
+          </div>
 
-            <div className="text-center">
-              <Link
-                href="/directory"
-                className="inline-flex items-center rounded-full bg-[#E76F51] hover:bg-[#D14A3E] px-8 py-4 text-lg font-semibold text-white shadow-sm transition font-inter"
-              >
-                Browse the Directory
-              </Link>
-            </div>
+          {/* Why Choose Us Section */}
+          <div className="bg-gray-100 rounded-2xl p-8 mb-12">
+            <h2 className="text-3xl font-bold mb-6 font-playfair text-main-text">Why Choose Us</h2>
+            <p className="text-lg font-inter leading-relaxed text-main-text">
+              Finding the right support can be overwhelming. Posting in Facebook groups, Reddit threads, or other forums can leave you more confused — and you never really know who's on the other side. We've done the work for you. While no one can guarantee your outcome, we can guarantee you'll be connected with a real person who is knowledgeable, genuine, and committed to helping.
+            </p>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center bg-[#f7f7f7] rounded-2xl p-12">
+            <p className="text-2xl font-bold mb-8 font-playfair text-main-text">
+              Ready to find the right support?
+            </p>
+            <Link
+              href="/directory"
+              className="inline-flex items-center rounded-full bg-[#E76F51] hover:bg-[#D14A3E] px-8 py-4 text-lg font-semibold text-white shadow-sm transition font-inter"
+            >
+              Browse the Directory
+            </Link>
           </div>
         </div>
       </section>
