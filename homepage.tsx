@@ -100,7 +100,7 @@ export default function Homepage() {
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
           {/* Main Heading - Full Width at Top */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-playfair text-main-text">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-playfair text-main-text">
               UK's First Fully Vetted Divorce Support Directory
             </h1>
           </div>
@@ -109,18 +109,13 @@ export default function Homepage() {
             {/* Left Column - Text Content */}
             <div className="text-left self-start">
               {/* Subheading */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 font-playfair leading-tight text-main-text">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 font-playfair leading-tight text-main-text">
                 Divorce Support You Can Trust — Experts for Court, Conflict & Co-Parenting
               </h2>
               
               {/* Descriptive text */}
               <p className="text-lg md:text-xl mb-8 font-inter leading-relaxed text-main-text">
                 Every professional listed here has been personally interviewed and reference-checked, with proven experience helping people through divorce and co-parenting challenges.
-              </p>
-
-              {/* Paragraph */}
-              <p className="mt-4 text-base md:text-lg leading-7 text-gray-700 max-w-md font-inter">
-                Whether you need strategic legal guidance, help resolving co-parenting disputes, or skilled support in court, our vetted McKenzie Friends and divorce experts are here to protect your interests at every stage.
               </p>
 
               {/* Buttons */}
